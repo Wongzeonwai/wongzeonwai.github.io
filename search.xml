@@ -1,6 +1,472 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>GO学习笔记</title>
+    <url>/2024/08/07/GO%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="一、Go基础"><a href="#一、Go基础" class="headerlink" title="一、Go基础"></a>一、Go基础</h1><h2 id="1、Go的25个关键字"><a href="#1、Go的25个关键字" class="headerlink" title="1、Go的25个关键字"></a>1、Go的25个关键字</h2><table>
+     <tr>
+        <td>break</td>
+        <td>default</td>
+        <td>func</td>
+        <td>interface</td>
+        <td>select</td>
+    </tr>
+     <tr>
+        <td>case</td>
+        <td>defer</td>
+        <td>go</td>
+        <td>map</td>
+        <td>struct</td>
+    </tr>
+     <tr>
+        <td>chan</td>
+        <td>else</td>
+        <td>goto</td>
+        <td>package</td>
+        <td>switch</td>
+    </tr>
+     <tr>
+        <td>const</td>
+        <td>fallthrough</td>
+        <td>if</td>
+        <td>range</td>
+        <td>type</td>
+    </tr>
+     <tr>
+        <td>continue</td>
+        <td>for</td>
+        <td>import</td>
+        <td>return</td>
+        <td>var</td>
+    </tr>
+</table>
+
+<h2 id="2、Go的36个预定义标识符："><a href="#2、Go的36个预定义标识符：" class="headerlink" title="2、Go的36个预定义标识符："></a>2、Go的36个预定义标识符：</h2><table>
+    <tr>
+        <td>append</td>
+        <td>bool</td>
+        <td>byte</td>
+        <td>cap</td>
+        <td>close</td>
+        <td>complex</td>
+        <td>complex64</td>
+        <td>complex128</td>
+        <td>uint16</td>
+    </tr>
+    <tr>
+        <td>copy</td>
+        <td>false</td>
+        <td>float32</td>
+        <td>float64</td>
+        <td>imag</td>
+        <td>int</td>
+        <td>int8</td>
+        <td>int16</td>
+        <td>uint32</td>
+    </tr>
+    <tr>
+        <td>int32</td>
+        <td>int64</td>
+        <td>iota</td>
+        <td>len</td>
+        <td>make</td>
+        <td>new</td>
+        <td>nil</td>
+        <td>panic</td>
+        <td>uint64</td>
+    </tr>
+    <tr>
+        <td>print</td>
+        <td>println</td>
+        <td>real</td>
+        <td>recover</td>
+        <td>string</td>
+        <td>true</td>
+        <td>uint</td>
+        <td>uint8</td>
+        <td>uintptr</td>
+    </tr>
+</table>
+
+
+
+<h2 id="3、Go的基本数据类型"><a href="#3、Go的基本数据类型" class="headerlink" title="3、Go的基本数据类型"></a>3、Go的基本数据类型</h2><h3 id="（1）布尔类型"><a href="#（1）布尔类型" class="headerlink" title="（1）布尔类型"></a>（1）布尔类型</h3><p>使用boolean声明的类型，只有true（真）和false（假）两种值。默认值为<code>false</code>。</p>
+<h3 id="（2）数字类型"><a href="#（2）数字类型" class="headerlink" title="（2）数字类型"></a>（2）数字类型</h3><p>包括整型和浮点型以及其他数据类型。</p>
+<h4 id="整型（默认值为0）："><a href="#整型（默认值为0）：" class="headerlink" title="整型（默认值为0）："></a>整型（默认值为0）：</h4><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>长度（字节）</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int</td>
+<td>4</td>
+<td>有符号32位整型</td>
+</tr>
+<tr>
+<td>int8</td>
+<td>1</td>
+<td>有符号8位整型（-128 ~ 128）</td>
+</tr>
+<tr>
+<td>int16</td>
+<td>2</td>
+<td>有符号16位整型（-32768 ~ 32767）</td>
+</tr>
+<tr>
+<td>int32</td>
+<td>4</td>
+<td>有符号32位整型（-2147483648 ~ 2147483647）</td>
+</tr>
+<tr>
+<td>int64</td>
+<td>8</td>
+<td>有符号64位整型（-9223372036854775808 ~ 9223372036854775807）</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>长度（字节）</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>uint</td>
+<td>4</td>
+<td>无符号32位整型</td>
+</tr>
+<tr>
+<td>uint8</td>
+<td>1</td>
+<td>无符号8位整型（0 ~ 255）</td>
+</tr>
+<tr>
+<td>uint16</td>
+<td>2</td>
+<td>无符号16位整型（0 ~ 65535）</td>
+</tr>
+<tr>
+<td>uint32</td>
+<td>4</td>
+<td>无符号32位整型（0 ~ 4294967295）</td>
+</tr>
+<tr>
+<td>uint64</td>
+<td>8</td>
+<td>无符号64位整型（0 ~ 18446744073709551615）</td>
+</tr>
+</tbody></table>
+<h4 id="浮点型："><a href="#浮点型：" class="headerlink" title="浮点型："></a>浮点型：</h4><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>float32</td>
+<td>32位浮点型数，默认值为0</td>
+</tr>
+<tr>
+<td>float64</td>
+<td>64位浮点型数，默认值为0</td>
+</tr>
+<tr>
+<td>complex64</td>
+<td>32位实数和虚数</td>
+</tr>
+<tr>
+<td>complex128</td>
+<td>64位实数和虚数</td>
+</tr>
+</tbody></table>
+<h4 id="其他数字类型："><a href="#其他数字类型：" class="headerlink" title="其他数字类型："></a>其他数字类型：</h4><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>byte</td>
+<td>uint8，默认值为0</td>
+</tr>
+<tr>
+<td>rune</td>
+<td>Unicode Code Point, int32，默认值为0</td>
+</tr>
+<tr>
+<td>uintptr</td>
+<td>以存储指针的 uint32 或 uint64 整数</td>
+</tr>
+</tbody></table>
+<h3 id="（3）字符串类型："><a href="#（3）字符串类型：" class="headerlink" title="（3）字符串类型："></a>（3）字符串类型：</h3><p>使用string声明的UTF-8字符串。默认值为<code>&quot;&quot;</code>。</p>
+<h4 id="字符串转义符："><a href="#字符串转义符：" class="headerlink" title="字符串转义符："></a>字符串转义符：</h4><table>
+<thead>
+<tr>
+<th>转义</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\r</td>
+<td>回车符（返回行首）</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行符（直接跳到下一行的同列位置）</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>制表符</td>
+</tr>
+<tr>
+<td>&#39;</td>
+<td>单引号</td>
+</tr>
+<tr>
+<td>&quot;</td>
+<td>双引号</td>
+</tr>
+<tr>
+<td>\</td>
+<td>反斜杠</td>
+</tr>
+</tbody></table>
+<p>Go语言中要定义一个多行字符串时，就必须使用反引号字符：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">s1 := <span class="string">`第一行</span></span><br><span class="line"><span class="string">    第二行</span></span><br><span class="line"><span class="string">    第三行</span></span><br><span class="line"><span class="string">`</span></span><br><span class="line">fmt.Println(s1)</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">第一行</span></span><br><span class="line"><span class="comment">                第二行</span></span><br><span class="line"><span class="comment">                第三\&#x27;行</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>但是在多行字符串中转义字符无法生效。</p>
+<h4 id="字符串常用方法："><a href="#字符串常用方法：" class="headerlink" title="字符串常用方法："></a>字符串常用方法：</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>len(str)</td>
+<td>求长度</td>
+</tr>
+<tr>
+<td>+或fmt.Sprintf</td>
+<td>拼接字符串</td>
+</tr>
+<tr>
+<td>strings.Split</td>
+<td>分割字符串为切片</td>
+</tr>
+<tr>
+<td>strings.Contains</td>
+<td>判断是否包含</td>
+</tr>
+<tr>
+<td>strings.HasPrefix,strings.HasSuffix</td>
+<td>前缀&#x2F;后缀判断</td>
+</tr>
+<tr>
+<td>strings.Index(),strings.LastIndex()</td>
+<td>子串出现的位置</td>
+</tr>
+<tr>
+<td>strings.Join(a[]string, sep string)</td>
+<td>切片连接成字符串</td>
+</tr>
+</tbody></table>
+<h3 id="（4）其他类型："><a href="#（4）其他类型：" class="headerlink" title="（4）其他类型："></a>（4）其他类型：</h3><ul>
+<li>指针类型（Pointer）</li>
+<li>数组类型（array）</li>
+<li>结构化类型（struct）</li>
+<li>Channel 类型（channel）：默认值为<code>nil</code></li>
+<li>函数类型（function）：默认值为<code>nil</code></li>
+<li>切片类型（slice）：默认值为<code>nil</code></li>
+<li>接口类型（interface）：默认值为<code>nil</code></li>
+<li>Map 类型（map）：默认值为<code>nil</code></li>
+</ul>
+<h2 id="4、运算符"><a href="#4、运算符" class="headerlink" title="4、运算符"></a>4、运算符</h2><h3 id="（1）算术运算符"><a href="#（1）算术运算符" class="headerlink" title="（1）算术运算符"></a>（1）算术运算符</h3><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>相加</td>
+</tr>
+<tr>
+<td>-</td>
+<td>相减</td>
+</tr>
+<tr>
+<td>*</td>
+<td>相乘</td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>相除</td>
+</tr>
+<tr>
+<td>%</td>
+<td>求余</td>
+</tr>
+</tbody></table>
+<h3 id="（2）关系运算符"><a href="#（2）关系运算符" class="headerlink" title="（2）关系运算符"></a>（2）关系运算符</h3><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x3D;&#x3D;</td>
+<td>检查两个值是否相等，如果相等返回 True 否则返回 False。</td>
+</tr>
+<tr>
+<td>!&#x3D;</td>
+<td>检查两个值是否不相等，如果不相等返回 True 否则返回 False。</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>检查左边值是否大于右边值，如果是返回 True 否则返回 False。</td>
+</tr>
+<tr>
+<td>&gt;&#x3D;</td>
+<td>检查左边值是否大于等于右边值，如果是返回 True 否则返回 False。</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>检查左边值是否小于右边值，如果是返回 True 否则返回 False。</td>
+</tr>
+<tr>
+<td>&lt;&#x3D;</td>
+<td>检查左边值是否小于等于右边值，如果是返回 True 否则返回 False。</td>
+</tr>
+</tbody></table>
+<h3 id="（3）逻辑运算符"><a href="#（3）逻辑运算符" class="headerlink" title="（3）逻辑运算符"></a>（3）逻辑运算符</h3><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;&amp;</td>
+<td>逻辑 AND 运算符。 如果两边的操作数都是 True，则为 True，否则为 False。</td>
+</tr>
+<tr>
+<td>ll</td>
+<td>逻辑 OR 运算符。 如果两边的操作数有一个 True，则为 True，否则为 False。</td>
+</tr>
+<tr>
+<td>!</td>
+<td>逻辑 NOT 运算符。 如果条件为 True，则为 False，否则为 True。</td>
+</tr>
+</tbody></table>
+<h3 id="（4）位运算符"><a href="#（4）位运算符" class="headerlink" title="（4）位运算符"></a>（4）位运算符</h3><p>位运算符对整数在内存中的二进制位进行操作。</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;</td>
+<td>参与运算的两数各对应的二进位相与。（两位均为1才为1）</td>
+</tr>
+<tr>
+<td>l</td>
+<td>参与运算的两数各对应的二进位相或。（两位有一个为1就为1）</td>
+</tr>
+<tr>
+<td>^</td>
+<td>参与运算的两数各对应的二进位相异或，当两对应的二进位相异时，结果为1。（两位不一样则为1）</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>左移n位就是乘以2的n次方。“a&lt;&lt;b”是把a的各二进位全部左移b位，高位丢弃，低位补0。</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>右移n位就是除以2的n次方。“a&gt;&gt;b”是把a的各二进位全部右移b位。</td>
+</tr>
+</tbody></table>
+<h3 id="（5）赋值运算符"><a href="#（5）赋值运算符" class="headerlink" title="（5）赋值运算符"></a>（5）赋值运算符</h3><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x3D;</td>
+<td>简单的赋值运算符，将一个表达式的值赋给一个左值</td>
+</tr>
+<tr>
+<td>+&#x3D;</td>
+<td>相加后再赋值</td>
+</tr>
+<tr>
+<td>-&#x3D;</td>
+<td>相减后再赋值</td>
+</tr>
+<tr>
+<td>*&#x3D;</td>
+<td>相乘后再赋值</td>
+</tr>
+<tr>
+<td>&#x2F;&#x3D;</td>
+<td>相除后再赋值</td>
+</tr>
+<tr>
+<td>%&#x3D;</td>
+<td>求余后再赋值</td>
+</tr>
+<tr>
+<td>&lt;&lt;&#x3D;</td>
+<td>左移后赋值</td>
+</tr>
+<tr>
+<td>&gt;&gt;&#x3D;</td>
+<td>右移后赋值</td>
+</tr>
+<tr>
+<td>&amp;&#x3D;</td>
+<td>按位与后赋值</td>
+</tr>
+<tr>
+<td>l&#x3D;</td>
+<td>按位或后赋值</td>
+</tr>
+<tr>
+<td>^&#x3D;</td>
+<td>按位异或后赋值</td>
+</tr>
+</tbody></table>
+<h2 id="5、下划线"><a href="#5、下划线" class="headerlink" title="5、下划线"></a>5、下划线</h2><h3 id="（1）下划线在import中"><a href="#（1）下划线在import中" class="headerlink" title="（1）下划线在import中"></a>（1）下划线在import中</h3><p>​	import 下划线的作用：当导入一个包时，该包下的文件里所有init()函数都会被执行，然而，有些时候我们并不需要把整个包都导入进来，仅仅是是希望它执行init()函数而已。这个时候就可以使用 import* 引用该包。即使用【import _ 包路径】只是引用该包，仅仅是为了调用init()函数，所以无法通过包名来调用包中的其他函数。 示例：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> _ <span class="string">&quot;./hello&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// hello.Print() </span></span><br><span class="line">    <span class="comment">//编译报错：./main.go:6:5: undefined: hello</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出：imp-init() come here.</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> hello</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;imp-init() come here.&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Print</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;Hello!&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="（2）下划线在代码中"><a href="#（2）下划线在代码中" class="headerlink" title="（2）下划线在代码中"></a>（2）下划线在代码中</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;os&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    buf := <span class="built_in">make</span>([]<span class="type">byte</span>, <span class="number">1024</span>)</span><br><span class="line">    f, _ := os.Open(<span class="string">&quot;/Users/***/Desktop/text.txt&quot;</span>)</span><br><span class="line">    <span class="keyword">defer</span> f.Close()</span><br><span class="line">    <span class="keyword">for</span> &#123;</span><br><span class="line">        n, _ := f.Read(buf)</span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">break</span>    </span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        os.Stdout.Write(buf[:n])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 代表一个占位符，open方法返回两个结果，*os.File和error，但只需要第一个，忽略error，不会因不使用error而报错。</span></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>程序</category>
+      </categories>
+      <tags>
+        <tag>后端</tag>
+        <tag>GO</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript高级程序设计</title>
     <url>/2024/08/06/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</url>
     <content><![CDATA[<h1 id="一、变量"><a href="#一、变量" class="headerlink" title="一、变量"></a>一、变量</h1><h2 id="1、var"><a href="#1、var" class="headerlink" title="1、var"></a>1、var</h2><h3 id="1-1-变量提升"><a href="#1-1-变量提升" class="headerlink" title="1.1 变量提升"></a>1.1 变量提升</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(age)</span><br><span class="line">    <span class="keyword">var</span> age = <span class="number">26</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">foo</span>() <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
@@ -152,14 +618,11 @@
 
 ]]></content>
       <categories>
-        <category>前端</category>
-        <category>JavaScript</category>
         <category>程序</category>
       </categories>
       <tags>
         <tag>前端</tag>
         <tag>JavaScript</tag>
-        <tag>程序</tag>
       </tags>
   </entry>
 </search>
