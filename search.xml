@@ -1,133 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Gin学习笔记</title>
-    <url>/2024/08/16/Gin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="一、Gin简介"><a href="#一、Gin简介" class="headerlink" title="一、Gin简介"></a>一、Gin简介</h1><h2 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h2><ul>
-<li><code>Golang</code>编写的一个轻量级<code>HTTP Web</code>框架，运行速度快。</li>
-<li>擅长处理<code>API</code>接口的高并发。</li>
-<li>官网地址：<a href="https://gin-gonic.com/zh-cn">https://gin-gonic.com/zh-cn</a></li>
-<li><code>github</code>地址：<a href="https://github.com/gin-gonic/gin">https://github.com/gin-gonic/gin</a></li>
-</ul>
-<h3 id="特性："><a href="#特性：" class="headerlink" title="特性："></a>特性：</h3><ul>
-<li><p>快速：基于<code>Radix</code>树的路由，小内存占用。没有反射。可预测的<code>API</code>性能。</p>
-</li>
-<li><p>支持中间件：传入的<code>HTTP</code>请求可以由一系列中间件和最终操作来处理。 例如：<code>Logger</code>，<code>Authorization</code>，<code>GZIP</code>，最终操作<code>DB</code>。</p>
-</li>
-<li><p><code>Crash</code>处理：<code>Gin</code>可以<code>catch</code>一个发生在<code>HTTP</code>请求中的<code>panic</code>并<code>recover</code>它。这样，你的服务器将始终可用。例如，你可以向<code>Sentry</code>报告这个<code>panic</code>！</p>
-</li>
-<li><p><code>JSON</code>验证：<code>Gin</code>可以解析并验证请求的<code>JSON</code>，例如检查所需值的存在。</p>
-</li>
-<li><p>路由组：更好地组织路由。是否需要授权，不同的<code>API</code>版本…… 此外，这些组可以无限制地嵌套而不会降低性能。</p>
-</li>
-<li><p>错误管理：<code>Gin</code>提供了一种方便的方法来收集<code>HTTP</code>请求期间发生的所有错误。最终，中间件可以将它们写入日志文件，数据库并通过网络发送。</p>
-</li>
-<li><p>内置渲染：<code>Gin</code>为<code>JSON</code>，<code>XML</code>和<code>HTML</code>渲染提供了易于使用的<code>API</code>。</p>
-</li>
-<li><p>可扩展性：新建一个中间件非常简单，</p>
-</li>
-</ul>
-<h2 id="2、安装使用"><a href="#2、安装使用" class="headerlink" title="2、安装使用"></a>2、安装使用</h2><ol>
-<li><p>下载并安装 gin：</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">$ go get -u github.com/gin-gonic/gin</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将 gin 引入到代码中：</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;github.com/gin-gonic/gin&quot;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>（可选）如果使用诸如 <code>http.StatusOK</code> 之类的常量，则需要引入 <code>net/http</code> 包：</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;net/http&quot;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>新建main.go配置路由</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">&quot;net/http&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="string">&quot;github.com/gin-gonic/gin&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="comment">// 1.创建路由</span></span><br><span class="line">  r := gin.Default()</span><br><span class="line">  <span class="comment">// 2.绑定路由规则，执行的函数</span></span><br><span class="line">  <span class="comment">// gin.Context，封装了request和response</span></span><br><span class="line">  r.GET(<span class="string">&quot;/&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">    c.String(http.StatusOK, <span class="string">&quot;hello World!&quot;</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">// 3.监听端口，默认在8080</span></span><br><span class="line">  <span class="comment">// Run(&quot;里面不指定端口号默认为8080&quot;) </span></span><br><span class="line">  r.Run(<span class="string">&quot;:8000&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>打开<code>http://localhost:8000/</code></p>
-<p><img src="D:\新建文件夹\markdown\图片\image-20240816165633142.png" alt="image-20240816165633142"></p>
-</li>
-</ol>
-<h2 id="2、响应参数"><a href="#2、响应参数" class="headerlink" title="2、响应参数"></a>2、响应参数</h2><h3 id="（1）JSON数据"><a href="#（1）JSON数据" class="headerlink" title="（1）JSON数据"></a>（1）JSON数据</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">c.JSON(code, json)</span><br></pre></td></tr></table></figure>
-
-<h3 id="（2）JSONP数据"><a href="#（2）JSONP数据" class="headerlink" title="（2）JSONP数据"></a>（2）JSONP数据</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// http://localhost:8000/jsonp?callback=xxxx</span></span><br><span class="line"><span class="comment">// xxx(json)</span></span><br><span class="line">r.GET(<span class="string">&quot;/jsonp&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;</span><br><span class="line">  c.JSONP(code, json)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（3）XML数据"><a href="#（3）XML数据" class="headerlink" title="（3）XML数据"></a>（3）XML数据</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">c.XML(code, gin.H&#123;</span><br><span class="line">  <span class="string">&quot;success&quot;</span>: <span class="literal">true</span></span><br><span class="line">  <span class="string">&quot;msg&quot;</span>: <span class="string">&quot;这是XML数据&quot;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">&lt;map&gt;</span></span><br><span class="line"><span class="comment">	&lt;success&gt;true&lt;/success&gt;</span></span><br><span class="line"><span class="comment">	&lt;msg&gt;这是XML数据&lt;msg&gt;</span></span><br><span class="line"><span class="comment">&lt;/map&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="（4）HTML模板"><a href="#（4）HTML模板" class="headerlink" title="（4）HTML模板"></a>（4）HTML模板</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">r.LoadHTMLGlob(<span class="string">&quot;templates/*&quot;</span>)</span><br><span class="line">c.HTML(code, <span class="string">&quot;HTML文件名&quot;</span>, gin.H&#123;</span><br><span class="line">  <span class="string">&quot;title&quot;</span>: <span class="string">&quot;这是title&quot;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>&#123;&#123;.title&#125;&#125;<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>templates目录下有多级目录</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">-templates</span></span><br><span class="line"><span class="comment">	-admin</span></span><br><span class="line"><span class="comment">		-index.html</span></span><br><span class="line"><span class="comment">  -shop</span></span><br><span class="line"><span class="comment">		-index.html</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">r.LoadHTMLGlob(<span class="string">&quot;templates/**/*&quot;</span>)</span><br><span class="line">c.HTML(code, <span class="string">&quot;default/index.html&quot;</span>, gin.H&#123;</span><br><span class="line">  <span class="string">&quot;title&quot;</span>: <span class="string">&quot;这是title&quot;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 使用define定义文件名 --&gt;</span></span><br><span class="line">&#123;&#123; define: &quot;default/index.html&quot; &#125;&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>&#123;&#123;.title&#125;&#125;<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">&#123;&#123; end &#125;&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（5）静态文件"><a href="#（5）静态文件" class="headerlink" title="（5）静态文件"></a>（5）静态文件</h3><p>HTML引入了静态文件的，需要配置静态web服务</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">r.Status(<span class="string">&quot;静态文件路由&quot;</span>, <span class="string">&quot;静态文件地址&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="3、请求参数"><a href="#3、请求参数" class="headerlink" title="3、请求参数"></a>3、请求参数</h2><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> UserInfo <span class="keyword">struct</span> &#123;</span><br><span class="line">  UserName <span class="type">string</span> <span class="string">`json:&quot;username&quot; form:&quot;username&quot; xml:&quot;username&quot;`</span></span><br><span class="line">  Age <span class="type">string</span> <span class="string">`json:&quot;username&quot; form:&quot;username&quot; xml:&quot;age&quot;`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（1）get"><a href="#（1）get" class="headerlink" title="（1）get"></a>（1）get</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// http://xxx/getInfo?username=admin&amp;age=18</span></span><br><span class="line">r.GET(<span class="string">&quot;/getInfo&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;</span><br><span class="line">  username := c.Query(<span class="string">&quot;username&quot;</span>)</span><br><span class="line">  age := c.Query(<span class="string">&quot;age&quot;</span>)</span><br><span class="line">  page := c.DefaultQuery(<span class="string">&quot;page&quot;</span>, <span class="string">&quot;1&quot;</span>) <span class="comment">// 默认传参</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 参数绑定到结构体</span></span><br><span class="line">r.GET(<span class="string">&quot;/getInfo&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;</span><br><span class="line">  user := &amp;UserInfo&#123;&#125;</span><br><span class="line">  <span class="keyword">if</span> err := c.ShouldBind(&amp;user); err != <span class="literal">nil</span> &#123;</span><br><span class="line">    c.JSON(code, user)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    c.JSON(code, gin.H&#123;</span><br><span class="line">      <span class="string">&quot;err&quot;</span>: err.Error(),</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（2）post"><a href="#（2）post" class="headerlink" title="（2）post"></a>（2）post</h3><h4 id="获取表单数据"><a href="#获取表单数据" class="headerlink" title="获取表单数据"></a>获取表单数据</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/getInfo&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">  用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> /&gt;</span></span><br><span class="line">  年龄：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;age&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;提交&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">r.Post(<span class="string">&quot;/getInfo&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;</span><br><span class="line">  username := c.PostForm(<span class="string">&quot;username&quot;</span>)</span><br><span class="line">  age := c.PostForm(<span class="string">&quot;age&quot;</span>)</span><br><span class="line">  page := c.DefaultPostForm(<span class="string">&quot;page&quot;</span>, <span class="string">&quot;1&quot;</span>) <span class="comment">// 默认传参，没有传这个参数就会使用默认值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 参数绑定到结构体</span></span><br><span class="line">r.Post(<span class="string">&quot;/getInfo&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;</span><br><span class="line">  user := &amp;UserInfo&#123;&#125;</span><br><span class="line">  <span class="keyword">if</span> err := c.Bind(&amp;user); err == <span class="literal">nil</span> &#123;</span><br><span class="line">    c.JSON(code, user)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    c.JSON(code, gin.H&#123;</span><br><span class="line">      <span class="string">&quot;err&quot;</span>: err.Error(),</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="获取XML数据"><a href="#获取XML数据" class="headerlink" title="获取XML数据"></a>获取XML数据</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?XML version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">username</span> <span class="attr">type</span>=<span class="string">&quot;string&quot;</span>&gt;</span>张三<span class="tag">&lt;/<span class="name">content</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">age</span> <span class="attr">type</span>=<span class="string">&quot;string&quot;</span>&gt;</span>18<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">r.Post(<span class="string">&quot;/xml&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;</span><br><span class="line">  xmlSlice, err := c.GetRawData()</span><br><span class="line">  user := &amp;UserInfo&#123;&#125;</span><br><span class="line">  <span class="keyword">if</span> err == <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> err1 := xml.Unmarshal(xmlSlice, &amp;user); <span class="type">error</span> == <span class="literal">nil</span> &#123;</span><br><span class="line">      c.JSON(code, user)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      c.JSON(code, gin.H&#123;</span><br><span class="line">        <span class="string">&quot;err&quot;</span>: err1.Error(),</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    c.JSON(code, gin.H&#123;</span><br><span class="line">      <span class="string">&quot;err&quot;</span>: err.Error(),</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（3）动态路由"><a href="#（3）动态路由" class="headerlink" title="（3）动态路由"></a>（3）动态路由</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">r.GET(<span class="string">&quot;/user/:uid&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;</span><br><span class="line">  uid := c.Param(<span class="string">&quot;uid&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="4、路由组"><a href="#4、路由组" class="headerlink" title="4、路由组"></a>4、路由组</h2><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  router := gin.Default()</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 简单的路由组: v1</span></span><br><span class="line">  v1 := router.Group(<span class="string">&quot;/v1&quot;</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    v1.POST(<span class="string">&quot;/login&quot;</span>, loginEndpoint)</span><br><span class="line">    v1.POST(<span class="string">&quot;/submit&quot;</span>, submitEndpoint)</span><br><span class="line">    v1.POST(<span class="string">&quot;/read&quot;</span>, readEndpoint)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 简单的路由组: v2</span></span><br><span class="line">  v2 := router.Group(<span class="string">&quot;/v2&quot;</span>, 中间件<span class="number">1</span>, 中间件<span class="number">2</span> ...)</span><br><span class="line">  <span class="comment">// v2.use(中间件1, 中间件2 ...)</span></span><br><span class="line">  &#123;</span><br><span class="line">    v2.POST(<span class="string">&quot;/login&quot;</span>, loginEndpoint)</span><br><span class="line">    v2.POST(<span class="string">&quot;/submit&quot;</span>, submitEndpoint)</span><br><span class="line">    v2.POST(<span class="string">&quot;/read&quot;</span>, readEndpoint)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  router.Run(<span class="string">&quot;:8080&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="5、中间件"><a href="#5、中间件" class="headerlink" title="5、中间件"></a>5、中间件</h2><p>中间件：匹配路由前和匹配路由完成后执行的一系列操作。</p>
-<h3 id="（1）局部中间件"><a href="#（1）局部中间件" class="headerlink" title="（1）局部中间件"></a>（1）局部中间件</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在最后一个函数前的所有函数都代表中间件。</span></span><br><span class="line">r.GET(<span class="string">&quot;/xml&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;&#125;... <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;&#125;</span><br><span class="line">r.POST(<span class="string">&quot;/xml&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;&#125;... <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（2）Next"><a href="#（2）Next" class="headerlink" title="（2）Next"></a>（2）Next</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">r.GET(<span class="string">&quot;/xml&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">  <span class="comment">// 中间件开始执行的操作</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="comment">// 执行当前中间件的下一个函数</span></span><br><span class="line">  c.Next()</span><br><span class="line">  <span class="comment">// 中间件执行完成后续操作</span></span><br><span class="line">  ...</span><br><span class="line">&#125;... <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多个中间件</span></span><br><span class="line">r.GET(<span class="string">&quot;/xml&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">  fmt.Println(<span class="string">&quot;这是第一个中间件开始&quot;</span>)</span><br><span class="line">  c.Next()</span><br><span class="line">  fmt.Println(<span class="string">&quot;这是第一个中间件结束&quot;</span>)</span><br><span class="line">&#125;, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">  fmt.Println(<span class="string">&quot;这是第二个中间件开始&quot;</span>)</span><br><span class="line">  c.Next()</span><br><span class="line">  fmt.Println(<span class="string">&quot;这是第二个中间件结束&quot;</span>)</span><br><span class="line">&#125;... <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;</span><br><span class="line">  fmt.Println(<span class="string">&quot;路由操作&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">这是第一个中间件开始</span></span><br><span class="line"><span class="comment">这是第二个中间件开始</span></span><br><span class="line"><span class="comment">路由操作</span></span><br><span class="line"><span class="comment">这是第二个中间件结束</span></span><br><span class="line"><span class="comment">这是第一个中间件结束</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="（3）全局中间件"><a href="#（3）全局中间件" class="headerlink" title="（3）全局中间件"></a>（3）全局中间件</h3><p>所有路由函数都会执行。</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">r.use(<span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="（4）数据共享"><a href="#（4）数据共享" class="headerlink" title="（4）数据共享"></a>（4）数据共享</h3><p>中间件与中间件、控制器之间的数据传递。</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">c.Set(<span class="string">&quot;username&quot;</span>, <span class="string">&quot;go&quot;</span>)</span><br><span class="line">username, err := c.Get(<span class="string">&quot;username&quot;</span>)</span><br><span class="line">v, ok := username(.<span class="type">string</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="（5）Logger和Recovery"><a href="#（5）Logger和Recovery" class="headerlink" title="（5）Logger和Recovery"></a>（5）Logger和Recovery</h3><p>使用<code>gin.Default</code>创建路由默认带有<code>Logger</code>和<code>Recovery</code>中间件：</p>
-<ul>
-<li><code>Logger</code>：将日志写入<code>gin.DefaultWriter</code>。</li>
-<li><code>Recovery</code>：<code>recover</code>任何<code>panic</code>，如果有<code>panic</code>的话，就会写入<code>500</code>响应码。</li>
-</ul>
-<p>如果不想使用这两个中间件，可以使用<code>gin.New</code>创建路由。</p>
-<h3 id="（6）中间件使用goroutine"><a href="#（6）中间件使用goroutine" class="headerlink" title="（6）中间件使用goroutine"></a>（6）中间件使用goroutine</h3><p>当在中间件或<code>handler</code>中启动新的<code>Goroutine</code>时，<strong>不能</strong>使用原始的上下文，必须使用只读副本。</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r := gin.Default()</span><br><span class="line"></span><br><span class="line">	r.GET(<span class="string">&quot;/long_async&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		<span class="comment">// 创建在 goroutine 中使用的副本</span></span><br><span class="line">		cCp := c.Copy()</span><br><span class="line">    <span class="comment">// 不需要使用wg.Done()结束任务，因为主程序一直开启。</span></span><br><span class="line">		<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">			<span class="comment">// 用 time.Sleep() 模拟一个长任务。</span></span><br><span class="line">			time.Sleep(<span class="number">5</span> * time.Second)</span><br><span class="line"></span><br><span class="line">			<span class="comment">// 请注意您使用的是复制的上下文 &quot;cCp&quot;，这一点很重要</span></span><br><span class="line">			log.Println(<span class="string">&quot;Done! in path &quot;</span> + cCp.Request.URL.Path)</span><br><span class="line">		&#125;()</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	r.GET(<span class="string">&quot;/long_sync&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		<span class="comment">// 用 time.Sleep() 模拟一个长任务。</span></span><br><span class="line">		time.Sleep(<span class="number">5</span> * time.Second)</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 因为没有使用 goroutine，不需要拷贝上下文</span></span><br><span class="line">		log.Println(<span class="string">&quot;Done! in path &quot;</span> + c.Request.URL.Path)</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 监听并在 0.0.0.0:8080 上启动服务</span></span><br><span class="line">	r.Run(<span class="string">&quot;:8080&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（7）重定向"><a href="#（7）重定向" class="headerlink" title="（7）重定向"></a>（7）重定向</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Redirect</span></span><br><span class="line">r.GET(<span class="string">&quot;/test&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">  c.Redirect(code, <span class="string">&quot;重定向地址&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// HandleContext</span></span><br><span class="line">r.GET(<span class="string">&quot;/test&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">    c.Request.URL.Path = <span class="string">&quot;重定向地址&quot;</span></span><br><span class="line">    r.HandleContext(c)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="6、文件上传"><a href="#6、文件上传" class="headerlink" title="6、文件上传"></a>6、文件上传</h2><h3 id="（1）单文件上传"><a href="#（1）单文件上传" class="headerlink" title="（1）单文件上传"></a>（1）单文件上传</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  r := gin.Default()</span><br><span class="line">  <span class="comment">//限制上传最大尺寸</span></span><br><span class="line">  r.MaxMultipartMemory = <span class="number">8</span> &lt;&lt; <span class="number">20</span></span><br><span class="line">  r.POST(<span class="string">&quot;/upload&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">    <span class="comment">// file：input文件输入框的name</span></span><br><span class="line">    file, err := c.FormFile(<span class="string">&quot;file&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">      c.String(<span class="number">500</span>, <span class="string">&quot;上传图片出错&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 保存上传的文件至指定文件地址</span></span><br><span class="line">    dst := <span class="string">&quot;./&quot;</span> + file.Filename</span><br><span class="line">    c.SaveUploadedFile(file, dst)</span><br><span class="line">    c.String(http.StatusOK, file.Filename)</span><br><span class="line">  &#125;)</span><br><span class="line">  r.Run()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（2）多文件上传"><a href="#（2）多文件上传" class="headerlink" title="（2）多文件上传"></a>（2）多文件上传</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r := gin.Default()</span><br><span class="line">	<span class="comment">// 为 multipart forms 设置较低的内存限制 (默认是 32 MiB)</span></span><br><span class="line">	r.MaxMultipartMemory = <span class="number">8</span> &lt;&lt; <span class="number">20</span>  <span class="comment">// 8 MiB</span></span><br><span class="line">	r.POST(<span class="string">&quot;/upload&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		<span class="comment">// Multipart form</span></span><br><span class="line">		form, _ := c.MultipartForm()</span><br><span class="line">    <span class="comment">// upload[]：input文件输入框的name</span></span><br><span class="line">		files := form.File[<span class="string">&quot;upload[]&quot;</span>]</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> _, file := <span class="keyword">range</span> files &#123;</span><br><span class="line">			log.Println(file.Filename)</span><br><span class="line"></span><br><span class="line">			<span class="comment">// 上传文件至指定目录</span></span><br><span class="line">			dst := <span class="string">&quot;./&quot;</span> + file.Filename</span><br><span class="line">			c.SaveUploadedFile(file, dst)</span><br><span class="line">		&#125;</span><br><span class="line">		c.String(http.StatusOK, fmt.Sprintf(<span class="string">&quot;%d files uploaded!&quot;</span>, <span class="built_in">len</span>(files)))</span><br><span class="line">	&#125;)</span><br><span class="line">	r.Run()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="7、Cookie"><a href="#7、Cookie" class="headerlink" title="7、Cookie"></a>7、Cookie</h2><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="comment">// 1.创建路由</span></span><br><span class="line">  <span class="comment">// 默认使用了2个中间件Logger(), Recovery()</span></span><br><span class="line">  r := gin.Default()</span><br><span class="line">  <span class="comment">// 服务端要给客户端cookie</span></span><br><span class="line">  r.GET(<span class="string">&quot;cookie&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">    <span class="comment">// 获取客户端是否携带cookie</span></span><br><span class="line">    cookie, err := c.Cookie(<span class="string">&quot;key_cookie&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">      cookie = <span class="string">&quot;NotSet&quot;</span></span><br><span class="line">      <span class="comment">// 给客户端设置cookie：</span></span><br><span class="line">      <span class="comment">// name：cookie名称</span></span><br><span class="line">      <span class="comment">// value string：cookie的值</span></span><br><span class="line">      <span class="comment">// maxAge int：过期时间，单位为秒，-1表示删除cookie</span></span><br><span class="line">      <span class="comment">// path：cookie所在目录</span></span><br><span class="line">      <span class="comment">// domain string：域名，&quot;.wongzeonwai&quot;前面加.表示二级域名也设置cookie</span></span><br><span class="line">      <span class="comment">// secure bool：是否只能通过https访问</span></span><br><span class="line">      <span class="comment">// httpOnly bool：是否允许别人通过客户端获取自己的cookie</span></span><br><span class="line">      c.SetCookie(<span class="string">&quot;key_cookie&quot;</span>, <span class="string">&quot;value_cookie&quot;</span>, <span class="number">60</span>, <span class="string">&quot;/&quot;</span>,</span><br><span class="line">                  <span class="string">&quot;localhost&quot;</span>, <span class="literal">false</span>, <span class="literal">true</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Printf(<span class="string">&quot;cookie的值是： %s\n&quot;</span>, cookie)</span><br><span class="line">  &#125;)</span><br><span class="line">  r.Run(<span class="string">&quot;:8000&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="8、Session"><a href="#8、Session" class="headerlink" title="8、Session"></a>8、Session</h2><p>gorilla&#x2F;sessions为自定义session后端提供cookie和文件系统session以及基础结构。</p>
-<p>主要功能是：</p>
-<ul>
-<li>简单的API：将其用作设置签名（以及可选的加密）cookie的简便方法。</li>
-<li>内置的后端可将session存储在cookie或文件系统中。</li>
-<li>Flash消息：一直持续读取的session值。</li>
-<li>切换session持久性（又称“记住我”）和设置其他属性的便捷方法。</li>
-<li>旋转身份验证和加密密钥的机制。</li>
-<li>每个请求有多个session，即使使用不同的后端也是如此。</li>
-<li>自定义session后端的接口和基础结构：可以使用通用API检索并批量保存来自不同商店的session。</li>
-</ul>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">&quot;fmt&quot;</span></span><br><span class="line">  <span class="string">&quot;net/http&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="string">&quot;github.com/gorilla/sessions&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化一个cookie存储对象</span></span><br><span class="line"><span class="comment">// something-very-secret应该是一个你自己的密匙，只要不被别人知道就行</span></span><br><span class="line"><span class="keyword">var</span> store = sessions.NewCookieStore([]<span class="type">byte</span>(<span class="string">&quot;something-very-secret&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  http.HandleFunc(<span class="string">&quot;/save&quot;</span>, SaveSession)</span><br><span class="line">  http.HandleFunc(<span class="string">&quot;/get&quot;</span>, GetSession)</span><br><span class="line">  err := http.ListenAndServe(<span class="string">&quot;:8080&quot;</span>, <span class="literal">nil</span>)</span><br><span class="line">  <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;HTTP server failed,err:&quot;</span>, err)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SaveSession</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">  <span class="comment">// Get a session. We&#x27;re ignoring the error resulted from decoding an</span></span><br><span class="line">  <span class="comment">// existing session: Get() always returns a session, even if empty.</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//　获取一个session对象，session-name是session的名字</span></span><br><span class="line">  session, err := store.Get(r, <span class="string">&quot;session-name&quot;</span>)</span><br><span class="line">  <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    http.Error(w, err.Error(), http.StatusInternalServerError)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 在session中存储值</span></span><br><span class="line">  session.Values[<span class="string">&quot;foo&quot;</span>] = <span class="string">&quot;bar&quot;</span></span><br><span class="line">  session.Values[<span class="number">42</span>] = <span class="number">43</span></span><br><span class="line">  <span class="comment">// 保存更改</span></span><br><span class="line">  session.Save(r, w)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">GetSession</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">  session, err := store.Get(r, <span class="string">&quot;session-name&quot;</span>)</span><br><span class="line">  <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    http.Error(w, err.Error(), http.StatusInternalServerError)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  foo := session.Values[<span class="string">&quot;foo&quot;</span>]</span><br><span class="line">  fmt.Println(foo)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>程序</category>
-      </categories>
-      <tags>
-        <tag>后端</tag>
-        <tag>GO</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JavaScript高级程序设计</title>
     <url>/2024/08/06/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</url>
     <content><![CDATA[<h1 id="一、变量"><a href="#一、变量" class="headerlink" title="一、变量"></a>一、变量</h1><h2 id="1、var"><a href="#1、var" class="headerlink" title="1、var"></a>1、var</h2><h3 id="1-1-变量提升"><a href="#1-1-变量提升" class="headerlink" title="1.1 变量提升"></a>1.1 变量提升</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(age)</span><br><span class="line">    <span class="keyword">var</span> age = <span class="number">26</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">foo</span>() <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
@@ -1301,6 +1174,690 @@
       <tags>
         <tag>后端</tag>
         <tag>GO</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker学习笔记</title>
+    <url>/2024/09/12/Docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>程序</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Gin学习笔记</title>
+    <url>/2024/08/16/Gin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="一、Gin简介"><a href="#一、Gin简介" class="headerlink" title="一、Gin简介"></a>一、Gin简介</h1><h2 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h2><ul>
+<li><code>Golang</code>编写的一个轻量级<code>HTTP Web</code>框架，运行速度快。</li>
+<li>擅长处理<code>API</code>接口的高并发。</li>
+<li>官网地址：<a href="https://gin-gonic.com/zh-cn">https://gin-gonic.com/zh-cn</a></li>
+<li><code>github</code>地址：<a href="https://github.com/gin-gonic/gin">https://github.com/gin-gonic/gin</a></li>
+</ul>
+<h3 id="特性："><a href="#特性：" class="headerlink" title="特性："></a>特性：</h3><ul>
+<li><p>快速：基于<code>Radix</code>树的路由，小内存占用。没有反射。可预测的<code>API</code>性能。</p>
+</li>
+<li><p>支持中间件：传入的<code>HTTP</code>请求可以由一系列中间件和最终操作来处理。 例如：<code>Logger</code>，<code>Authorization</code>，<code>GZIP</code>，最终操作<code>DB</code>。</p>
+</li>
+<li><p><code>Crash</code>处理：<code>Gin</code>可以<code>catch</code>一个发生在<code>HTTP</code>请求中的<code>panic</code>并<code>recover</code>它。这样，你的服务器将始终可用。例如，你可以向<code>Sentry</code>报告这个<code>panic</code>！</p>
+</li>
+<li><p><code>JSON</code>验证：<code>Gin</code>可以解析并验证请求的<code>JSON</code>，例如检查所需值的存在。</p>
+</li>
+<li><p>路由组：更好地组织路由。是否需要授权，不同的<code>API</code>版本…… 此外，这些组可以无限制地嵌套而不会降低性能。</p>
+</li>
+<li><p>错误管理：<code>Gin</code>提供了一种方便的方法来收集<code>HTTP</code>请求期间发生的所有错误。最终，中间件可以将它们写入日志文件，数据库并通过网络发送。</p>
+</li>
+<li><p>内置渲染：<code>Gin</code>为<code>JSON</code>，<code>XML</code>和<code>HTML</code>渲染提供了易于使用的<code>API</code>。</p>
+</li>
+<li><p>可扩展性：新建一个中间件非常简单，</p>
+</li>
+</ul>
+<h2 id="2、安装使用"><a href="#2、安装使用" class="headerlink" title="2、安装使用"></a>2、安装使用</h2><ol>
+<li><p>下载并安装 gin：</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">$ go get -u github.com/gin-gonic/gin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将 gin 引入到代码中：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;github.com/gin-gonic/gin&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>（可选）如果使用诸如 <code>http.StatusOK</code> 之类的常量，则需要引入 <code>net/http</code> 包：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;net/http&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建main.go配置路由</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">&quot;net/http&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="string">&quot;github.com/gin-gonic/gin&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="comment">// 1.创建路由</span></span><br><span class="line">  r := gin.Default()</span><br><span class="line">  <span class="comment">// 2.绑定路由规则，执行的函数</span></span><br><span class="line">  <span class="comment">// gin.Context，封装了request和response</span></span><br><span class="line">  r.GET(<span class="string">&quot;/&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">    c.String(http.StatusOK, <span class="string">&quot;hello World!&quot;</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">// 3.监听端口，默认在8080</span></span><br><span class="line">  <span class="comment">// Run(&quot;里面不指定端口号默认为8080&quot;) </span></span><br><span class="line">  r.Run(<span class="string">&quot;:8000&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开<code>http://localhost:8000/</code></p>
+<p><img src="D:\新建文件夹\markdown\图片\image-20240816165633142.png" alt="image-20240816165633142"></p>
+</li>
+</ol>
+<h2 id="2、响应参数"><a href="#2、响应参数" class="headerlink" title="2、响应参数"></a>2、响应参数</h2><h3 id="（1）JSON数据"><a href="#（1）JSON数据" class="headerlink" title="（1）JSON数据"></a>（1）JSON数据</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">c.JSON(code, json)</span><br></pre></td></tr></table></figure>
+
+<h3 id="（2）JSONP数据"><a href="#（2）JSONP数据" class="headerlink" title="（2）JSONP数据"></a>（2）JSONP数据</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// http://localhost:8000/jsonp?callback=xxxx</span></span><br><span class="line"><span class="comment">// xxx(json)</span></span><br><span class="line">r.GET(<span class="string">&quot;/jsonp&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;</span><br><span class="line">  c.JSONP(code, json)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="（3）XML数据"><a href="#（3）XML数据" class="headerlink" title="（3）XML数据"></a>（3）XML数据</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">c.XML(code, gin.H&#123;</span><br><span class="line">  <span class="string">&quot;success&quot;</span>: <span class="literal">true</span></span><br><span class="line">  <span class="string">&quot;msg&quot;</span>: <span class="string">&quot;这是XML数据&quot;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">&lt;map&gt;</span></span><br><span class="line"><span class="comment">	&lt;success&gt;true&lt;/success&gt;</span></span><br><span class="line"><span class="comment">	&lt;msg&gt;这是XML数据&lt;msg&gt;</span></span><br><span class="line"><span class="comment">&lt;/map&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="（4）HTML模板"><a href="#（4）HTML模板" class="headerlink" title="（4）HTML模板"></a>（4）HTML模板</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">r.LoadHTMLGlob(<span class="string">&quot;templates/*&quot;</span>)</span><br><span class="line">c.HTML(code, <span class="string">&quot;HTML文件名&quot;</span>, gin.H&#123;</span><br><span class="line">  <span class="string">&quot;title&quot;</span>: <span class="string">&quot;这是title&quot;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>&#123;&#123;.title&#125;&#125;<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>templates目录下有多级目录</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">-templates</span></span><br><span class="line"><span class="comment">	-admin</span></span><br><span class="line"><span class="comment">		-index.html</span></span><br><span class="line"><span class="comment">  -shop</span></span><br><span class="line"><span class="comment">		-index.html</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">r.LoadHTMLGlob(<span class="string">&quot;templates/**/*&quot;</span>)</span><br><span class="line">c.HTML(code, <span class="string">&quot;default/index.html&quot;</span>, gin.H&#123;</span><br><span class="line">  <span class="string">&quot;title&quot;</span>: <span class="string">&quot;这是title&quot;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 使用define定义文件名 --&gt;</span></span><br><span class="line">&#123;&#123; define: &quot;default/index.html&quot; &#125;&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>&#123;&#123;.title&#125;&#125;<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">&#123;&#123; end &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="（5）静态文件"><a href="#（5）静态文件" class="headerlink" title="（5）静态文件"></a>（5）静态文件</h3><p>HTML引入了静态文件的，需要配置静态web服务</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">r.Status(<span class="string">&quot;静态文件路由&quot;</span>, <span class="string">&quot;静态文件地址&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、请求参数"><a href="#3、请求参数" class="headerlink" title="3、请求参数"></a>3、请求参数</h2><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> UserInfo <span class="keyword">struct</span> &#123;</span><br><span class="line">  UserName <span class="type">string</span> <span class="string">`json:&quot;username&quot; form:&quot;username&quot; xml:&quot;username&quot;`</span></span><br><span class="line">  Age <span class="type">string</span> <span class="string">`json:&quot;username&quot; form:&quot;username&quot; xml:&quot;age&quot;`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="（1）get"><a href="#（1）get" class="headerlink" title="（1）get"></a>（1）get</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// http://xxx/getInfo?username=admin&amp;age=18</span></span><br><span class="line">r.GET(<span class="string">&quot;/getInfo&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;</span><br><span class="line">  username := c.Query(<span class="string">&quot;username&quot;</span>)</span><br><span class="line">  age := c.Query(<span class="string">&quot;age&quot;</span>)</span><br><span class="line">  page := c.DefaultQuery(<span class="string">&quot;page&quot;</span>, <span class="string">&quot;1&quot;</span>) <span class="comment">// 默认传参</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 参数绑定到结构体</span></span><br><span class="line">r.GET(<span class="string">&quot;/getInfo&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;</span><br><span class="line">  user := &amp;UserInfo&#123;&#125;</span><br><span class="line">  <span class="keyword">if</span> err := c.ShouldBind(&amp;user); err != <span class="literal">nil</span> &#123;</span><br><span class="line">    c.JSON(code, user)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    c.JSON(code, gin.H&#123;</span><br><span class="line">      <span class="string">&quot;err&quot;</span>: err.Error(),</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="（2）post"><a href="#（2）post" class="headerlink" title="（2）post"></a>（2）post</h3><h4 id="获取表单数据"><a href="#获取表单数据" class="headerlink" title="获取表单数据"></a>获取表单数据</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/getInfo&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">  用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> /&gt;</span></span><br><span class="line">  年龄：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;age&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;提交&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">r.Post(<span class="string">&quot;/getInfo&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;</span><br><span class="line">  username := c.PostForm(<span class="string">&quot;username&quot;</span>)</span><br><span class="line">  age := c.PostForm(<span class="string">&quot;age&quot;</span>)</span><br><span class="line">  page := c.DefaultPostForm(<span class="string">&quot;page&quot;</span>, <span class="string">&quot;1&quot;</span>) <span class="comment">// 默认传参，没有传这个参数就会使用默认值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 参数绑定到结构体</span></span><br><span class="line">r.Post(<span class="string">&quot;/getInfo&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;</span><br><span class="line">  user := &amp;UserInfo&#123;&#125;</span><br><span class="line">  <span class="keyword">if</span> err := c.Bind(&amp;user); err == <span class="literal">nil</span> &#123;</span><br><span class="line">    c.JSON(code, user)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    c.JSON(code, gin.H&#123;</span><br><span class="line">      <span class="string">&quot;err&quot;</span>: err.Error(),</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取XML数据"><a href="#获取XML数据" class="headerlink" title="获取XML数据"></a>获取XML数据</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?XML version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">username</span> <span class="attr">type</span>=<span class="string">&quot;string&quot;</span>&gt;</span>张三<span class="tag">&lt;/<span class="name">content</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">age</span> <span class="attr">type</span>=<span class="string">&quot;string&quot;</span>&gt;</span>18<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">r.Post(<span class="string">&quot;/xml&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;</span><br><span class="line">  xmlSlice, err := c.GetRawData()</span><br><span class="line">  user := &amp;UserInfo&#123;&#125;</span><br><span class="line">  <span class="keyword">if</span> err == <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> err1 := xml.Unmarshal(xmlSlice, &amp;user); <span class="type">error</span> == <span class="literal">nil</span> &#123;</span><br><span class="line">      c.JSON(code, user)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      c.JSON(code, gin.H&#123;</span><br><span class="line">        <span class="string">&quot;err&quot;</span>: err1.Error(),</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    c.JSON(code, gin.H&#123;</span><br><span class="line">      <span class="string">&quot;err&quot;</span>: err.Error(),</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="（3）动态路由"><a href="#（3）动态路由" class="headerlink" title="（3）动态路由"></a>（3）动态路由</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">r.GET(<span class="string">&quot;/user/:uid&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;</span><br><span class="line">  uid := c.Param(<span class="string">&quot;uid&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4、路由组"><a href="#4、路由组" class="headerlink" title="4、路由组"></a>4、路由组</h2><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  router := gin.Default()</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 简单的路由组: v1</span></span><br><span class="line">  v1 := router.Group(<span class="string">&quot;/v1&quot;</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    v1.POST(<span class="string">&quot;/login&quot;</span>, loginEndpoint)</span><br><span class="line">    v1.POST(<span class="string">&quot;/submit&quot;</span>, submitEndpoint)</span><br><span class="line">    v1.POST(<span class="string">&quot;/read&quot;</span>, readEndpoint)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 简单的路由组: v2</span></span><br><span class="line">  v2 := router.Group(<span class="string">&quot;/v2&quot;</span>, 中间件<span class="number">1</span>, 中间件<span class="number">2</span> ...)</span><br><span class="line">  <span class="comment">// v2.use(中间件1, 中间件2 ...)</span></span><br><span class="line">  &#123;</span><br><span class="line">    v2.POST(<span class="string">&quot;/login&quot;</span>, loginEndpoint)</span><br><span class="line">    v2.POST(<span class="string">&quot;/submit&quot;</span>, submitEndpoint)</span><br><span class="line">    v2.POST(<span class="string">&quot;/read&quot;</span>, readEndpoint)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  router.Run(<span class="string">&quot;:8080&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5、中间件"><a href="#5、中间件" class="headerlink" title="5、中间件"></a>5、中间件</h2><p>中间件：匹配路由前和匹配路由完成后执行的一系列操作。</p>
+<h3 id="（1）局部中间件"><a href="#（1）局部中间件" class="headerlink" title="（1）局部中间件"></a>（1）局部中间件</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在最后一个函数前的所有函数都代表中间件。</span></span><br><span class="line">r.GET(<span class="string">&quot;/xml&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;&#125;... <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;&#125;</span><br><span class="line">r.POST(<span class="string">&quot;/xml&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;&#125;... <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="（2）Next"><a href="#（2）Next" class="headerlink" title="（2）Next"></a>（2）Next</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">r.GET(<span class="string">&quot;/xml&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">  <span class="comment">// 中间件开始执行的操作</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="comment">// 执行当前中间件的下一个函数</span></span><br><span class="line">  c.Next()</span><br><span class="line">  <span class="comment">// 中间件执行完成后续操作</span></span><br><span class="line">  ...</span><br><span class="line">&#125;... <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多个中间件</span></span><br><span class="line">r.GET(<span class="string">&quot;/xml&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">  fmt.Println(<span class="string">&quot;这是第一个中间件开始&quot;</span>)</span><br><span class="line">  c.Next()</span><br><span class="line">  fmt.Println(<span class="string">&quot;这是第一个中间件结束&quot;</span>)</span><br><span class="line">&#125;, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">  fmt.Println(<span class="string">&quot;这是第二个中间件开始&quot;</span>)</span><br><span class="line">  c.Next()</span><br><span class="line">  fmt.Println(<span class="string">&quot;这是第二个中间件结束&quot;</span>)</span><br><span class="line">&#125;... <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span>) &#123;</span><br><span class="line">  fmt.Println(<span class="string">&quot;路由操作&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">这是第一个中间件开始</span></span><br><span class="line"><span class="comment">这是第二个中间件开始</span></span><br><span class="line"><span class="comment">路由操作</span></span><br><span class="line"><span class="comment">这是第二个中间件结束</span></span><br><span class="line"><span class="comment">这是第一个中间件结束</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="（3）全局中间件"><a href="#（3）全局中间件" class="headerlink" title="（3）全局中间件"></a>（3）全局中间件</h3><p>所有路由函数都会执行。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">r.use(<span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="（4）数据共享"><a href="#（4）数据共享" class="headerlink" title="（4）数据共享"></a>（4）数据共享</h3><p>中间件与中间件、控制器之间的数据传递。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">c.Set(<span class="string">&quot;username&quot;</span>, <span class="string">&quot;go&quot;</span>)</span><br><span class="line">username, err := c.Get(<span class="string">&quot;username&quot;</span>)</span><br><span class="line">v, ok := username(.<span class="type">string</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="（5）Logger和Recovery"><a href="#（5）Logger和Recovery" class="headerlink" title="（5）Logger和Recovery"></a>（5）Logger和Recovery</h3><p>使用<code>gin.Default</code>创建路由默认带有<code>Logger</code>和<code>Recovery</code>中间件：</p>
+<ul>
+<li><code>Logger</code>：将日志写入<code>gin.DefaultWriter</code>。</li>
+<li><code>Recovery</code>：<code>recover</code>任何<code>panic</code>，如果有<code>panic</code>的话，就会写入<code>500</code>响应码。</li>
+</ul>
+<p>如果不想使用这两个中间件，可以使用<code>gin.New</code>创建路由。</p>
+<h3 id="（6）中间件使用goroutine"><a href="#（6）中间件使用goroutine" class="headerlink" title="（6）中间件使用goroutine"></a>（6）中间件使用goroutine</h3><p>当在中间件或<code>handler</code>中启动新的<code>Goroutine</code>时，<strong>不能</strong>使用原始的上下文，必须使用只读副本。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r := gin.Default()</span><br><span class="line"></span><br><span class="line">	r.GET(<span class="string">&quot;/long_async&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		<span class="comment">// 创建在 goroutine 中使用的副本</span></span><br><span class="line">		cCp := c.Copy()</span><br><span class="line">    <span class="comment">// 不需要使用wg.Done()结束任务，因为主程序一直开启。</span></span><br><span class="line">		<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">			<span class="comment">// 用 time.Sleep() 模拟一个长任务。</span></span><br><span class="line">			time.Sleep(<span class="number">5</span> * time.Second)</span><br><span class="line"></span><br><span class="line">			<span class="comment">// 请注意您使用的是复制的上下文 &quot;cCp&quot;，这一点很重要</span></span><br><span class="line">			log.Println(<span class="string">&quot;Done! in path &quot;</span> + cCp.Request.URL.Path)</span><br><span class="line">		&#125;()</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	r.GET(<span class="string">&quot;/long_sync&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		<span class="comment">// 用 time.Sleep() 模拟一个长任务。</span></span><br><span class="line">		time.Sleep(<span class="number">5</span> * time.Second)</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 因为没有使用 goroutine，不需要拷贝上下文</span></span><br><span class="line">		log.Println(<span class="string">&quot;Done! in path &quot;</span> + c.Request.URL.Path)</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 监听并在 0.0.0.0:8080 上启动服务</span></span><br><span class="line">	r.Run(<span class="string">&quot;:8080&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="（7）重定向"><a href="#（7）重定向" class="headerlink" title="（7）重定向"></a>（7）重定向</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Redirect</span></span><br><span class="line">r.GET(<span class="string">&quot;/test&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">  c.Redirect(code, <span class="string">&quot;重定向地址&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// HandleContext</span></span><br><span class="line">r.GET(<span class="string">&quot;/test&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">    c.Request.URL.Path = <span class="string">&quot;重定向地址&quot;</span></span><br><span class="line">    r.HandleContext(c)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="6、文件上传"><a href="#6、文件上传" class="headerlink" title="6、文件上传"></a>6、文件上传</h2><h3 id="（1）单文件上传"><a href="#（1）单文件上传" class="headerlink" title="（1）单文件上传"></a>（1）单文件上传</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  r := gin.Default()</span><br><span class="line">  <span class="comment">//限制上传最大尺寸</span></span><br><span class="line">  r.MaxMultipartMemory = <span class="number">8</span> &lt;&lt; <span class="number">20</span></span><br><span class="line">  r.POST(<span class="string">&quot;/upload&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">    <span class="comment">// file：input文件输入框的name</span></span><br><span class="line">    file, err := c.FormFile(<span class="string">&quot;file&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">      c.String(<span class="number">500</span>, <span class="string">&quot;上传图片出错&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 保存上传的文件至指定文件地址</span></span><br><span class="line">    dst := <span class="string">&quot;./&quot;</span> + file.Filename</span><br><span class="line">    c.SaveUploadedFile(file, dst)</span><br><span class="line">    c.String(http.StatusOK, file.Filename)</span><br><span class="line">  &#125;)</span><br><span class="line">  r.Run()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="（2）多文件上传"><a href="#（2）多文件上传" class="headerlink" title="（2）多文件上传"></a>（2）多文件上传</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r := gin.Default()</span><br><span class="line">	<span class="comment">// 为 multipart forms 设置较低的内存限制 (默认是 32 MiB)</span></span><br><span class="line">	r.MaxMultipartMemory = <span class="number">8</span> &lt;&lt; <span class="number">20</span>  <span class="comment">// 8 MiB</span></span><br><span class="line">	r.POST(<span class="string">&quot;/upload&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		<span class="comment">// Multipart form</span></span><br><span class="line">		form, _ := c.MultipartForm()</span><br><span class="line">    <span class="comment">// upload[]：input文件输入框的name</span></span><br><span class="line">		files := form.File[<span class="string">&quot;upload[]&quot;</span>]</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> _, file := <span class="keyword">range</span> files &#123;</span><br><span class="line">			log.Println(file.Filename)</span><br><span class="line"></span><br><span class="line">			<span class="comment">// 上传文件至指定目录</span></span><br><span class="line">			dst := <span class="string">&quot;./&quot;</span> + file.Filename</span><br><span class="line">			c.SaveUploadedFile(file, dst)</span><br><span class="line">		&#125;</span><br><span class="line">		c.String(http.StatusOK, fmt.Sprintf(<span class="string">&quot;%d files uploaded!&quot;</span>, <span class="built_in">len</span>(files)))</span><br><span class="line">	&#125;)</span><br><span class="line">	r.Run()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="7、Cookie"><a href="#7、Cookie" class="headerlink" title="7、Cookie"></a>7、Cookie</h2><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="comment">// 1.创建路由</span></span><br><span class="line">  <span class="comment">// 默认使用了2个中间件Logger(), Recovery()</span></span><br><span class="line">  r := gin.Default()</span><br><span class="line">  <span class="comment">// 服务端要给客户端cookie</span></span><br><span class="line">  r.GET(<span class="string">&quot;cookie&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">    <span class="comment">// 获取客户端是否携带cookie</span></span><br><span class="line">    cookie, err := c.Cookie(<span class="string">&quot;key_cookie&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">      cookie = <span class="string">&quot;NotSet&quot;</span></span><br><span class="line">      <span class="comment">// 给客户端设置cookie：</span></span><br><span class="line">      <span class="comment">// name：cookie名称</span></span><br><span class="line">      <span class="comment">// value string：cookie的值</span></span><br><span class="line">      <span class="comment">// maxAge int：过期时间，单位为秒，-1表示删除cookie</span></span><br><span class="line">      <span class="comment">// path：cookie所在目录</span></span><br><span class="line">      <span class="comment">// domain string：域名，&quot;.wongzeonwai&quot;前面加.表示二级域名也设置cookie</span></span><br><span class="line">      <span class="comment">// secure bool：是否只能通过https访问</span></span><br><span class="line">      <span class="comment">// httpOnly bool：是否允许别人通过客户端获取自己的cookie</span></span><br><span class="line">      c.SetCookie(<span class="string">&quot;key_cookie&quot;</span>, <span class="string">&quot;value_cookie&quot;</span>, <span class="number">60</span>, <span class="string">&quot;/&quot;</span>,</span><br><span class="line">                  <span class="string">&quot;localhost&quot;</span>, <span class="literal">false</span>, <span class="literal">true</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Printf(<span class="string">&quot;cookie的值是： %s\n&quot;</span>, cookie)</span><br><span class="line">  &#125;)</span><br><span class="line">  r.Run(<span class="string">&quot;:8000&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="8、Session"><a href="#8、Session" class="headerlink" title="8、Session"></a>8、Session</h2><p>gorilla&#x2F;sessions为自定义session后端提供cookie和文件系统session以及基础结构。</p>
+<p>主要功能是：</p>
+<ul>
+<li>简单的API：将其用作设置签名（以及可选的加密）cookie的简便方法。</li>
+<li>内置的后端可将session存储在cookie或文件系统中。</li>
+<li>Flash消息：一直持续读取的session值。</li>
+<li>切换session持久性（又称“记住我”）和设置其他属性的便捷方法。</li>
+<li>旋转身份验证和加密密钥的机制。</li>
+<li>每个请求有多个session，即使使用不同的后端也是如此。</li>
+<li>自定义session后端的接口和基础结构：可以使用通用API检索并批量保存来自不同商店的session。</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">&quot;fmt&quot;</span></span><br><span class="line">  <span class="string">&quot;net/http&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="string">&quot;github.com/gorilla/sessions&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化一个cookie存储对象</span></span><br><span class="line"><span class="comment">// something-very-secret应该是一个你自己的密匙，只要不被别人知道就行</span></span><br><span class="line"><span class="keyword">var</span> store = sessions.NewCookieStore([]<span class="type">byte</span>(<span class="string">&quot;something-very-secret&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  http.HandleFunc(<span class="string">&quot;/save&quot;</span>, SaveSession)</span><br><span class="line">  http.HandleFunc(<span class="string">&quot;/get&quot;</span>, GetSession)</span><br><span class="line">  err := http.ListenAndServe(<span class="string">&quot;:8080&quot;</span>, <span class="literal">nil</span>)</span><br><span class="line">  <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;HTTP server failed,err:&quot;</span>, err)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SaveSession</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">  <span class="comment">// Get a session. We&#x27;re ignoring the error resulted from decoding an</span></span><br><span class="line">  <span class="comment">// existing session: Get() always returns a session, even if empty.</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//　获取一个session对象，session-name是session的名字</span></span><br><span class="line">  session, err := store.Get(r, <span class="string">&quot;session-name&quot;</span>)</span><br><span class="line">  <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    http.Error(w, err.Error(), http.StatusInternalServerError)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 在session中存储值</span></span><br><span class="line">  session.Values[<span class="string">&quot;foo&quot;</span>] = <span class="string">&quot;bar&quot;</span></span><br><span class="line">  session.Values[<span class="number">42</span>] = <span class="number">43</span></span><br><span class="line">  <span class="comment">// 保存更改</span></span><br><span class="line">  session.Save(r, w)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">GetSession</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">  session, err := store.Get(r, <span class="string">&quot;session-name&quot;</span>)</span><br><span class="line">  <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    http.Error(w, err.Error(), http.StatusInternalServerError)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  foo := session.Values[<span class="string">&quot;foo&quot;</span>]</span><br><span class="line">  fmt.Println(foo)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="9、go-ini"><a href="#9、go-ini" class="headerlink" title="9、go-ini"></a>9、go-ini</h2><p>使用<code>go-ini</code>操作<code>ini</code>文件。</p>
+]]></content>
+      <categories>
+        <category>程序</category>
+      </categories>
+      <tags>
+        <tag>后端</tag>
+        <tag>GO</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis学习笔记</title>
+    <url>/2024/09/19/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="Redis的数据类型"><a href="#Redis的数据类型" class="headerlink" title="Redis的数据类型"></a>Redis的数据类型</h1><p>常用数据类型：String（字符串）、List（列表）、Hash（哈希）、Set（无序集合）、Sorted Set（有序集合）。</p>
+<p>不常用数据类型：HyperLogLog（一种基数统计算法）、Stream（消息队列）、Geospatial（地理空间）、Bitmap（位图）、Bitfield（位域）、Bloom Filter（布隆过滤器）、Module（模块）</p>
+<h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令格式</th>
+<th align="center">功能</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">SET key value</td>
+<td align="center">设置<code>key-value</code>缓存到<code>redis</code>中，<code>key</code>区分大小写，<code>key</code>已经存在会覆盖原来的<code>value</code></td>
+<td align="center">SET name wongzeonwai</td>
+</tr>
+<tr>
+<td align="center">GET key</td>
+<td align="center">根据<code>key</code>获取<code>value</code></td>
+<td align="center">GET name</td>
+</tr>
+<tr>
+<td align="center">INCR key</td>
+<td align="center">将<code>key</code>对应的<code>value</code>的值<code>+1</code>，只能对数字使用</td>
+<td align="center">INCR age</td>
+</tr>
+<tr>
+<td align="center">DECR key</td>
+<td align="center">将<code>key</code>对应的<code>value</code>的值<code>-1</code>，只能对数字使用</td>
+<td align="center">DECR age</td>
+</tr>
+<tr>
+<td align="center">SETEX key seconds value</td>
+<td align="center">设置<code>key-value</code>缓存到<code>redis</code>中，并设置缓存时间（秒）</td>
+<td align="center">SETEX name 10 wongzeonwai</td>
+</tr>
+<tr>
+<td align="center">TTL key</td>
+<td align="center">查看<code>key</code>剩余时间（秒），<code>-1</code>代表时效永久，<code>-2</code>代表已经失效</td>
+<td align="center">TTL name</td>
+</tr>
+<tr>
+<td align="center">DEL key</td>
+<td align="center">从<code>redis</code>中删除<code>key</code></td>
+<td align="center">DEL name</td>
+</tr>
+<tr>
+<td align="center">SETNX key value</td>
+<td align="center">如果<code>key</code>已经存在，不做任何操作，如果不存在，执行操作</td>
+<td align="center">SETNX name wongzeonwai</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id="不常用命令"><a href="#不常用命令" class="headerlink" title="不常用命令"></a>不常用命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令格式</th>
+<th align="center">功能</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">INCRBY key increment</td>
+<td align="center">给对应的<code>key</code>添加<code>increment</code>的大小</td>
+<td align="center">INCRBY age 10</td>
+</tr>
+<tr>
+<td align="center">MSET key1 value1 key2 value2…</td>
+<td align="center">批量添加<code>key-value</code></td>
+<td align="center">MSET name wongzeonwai age 26</td>
+</tr>
+<tr>
+<td align="center">MGET key1 key2</td>
+<td align="center">批量获取<code>key</code>对应的<code>value</code></td>
+<td align="center">MGET name age</td>
+</tr>
+<tr>
+<td align="center">APPEND key value</td>
+<td align="center">在<code>key</code>对应的<code>value</code>后拼接<code>value</code></td>
+<td align="center">APPEND name ok</td>
+</tr>
+<tr>
+<td align="center">SETRANGE key offset value</td>
+<td align="center">从<code>offset</code>对应的索引位置修改<code>key</code>的<code>value</code></td>
+<td align="center">SETRANGE age 1 5</td>
+</tr>
+</tbody></table>
+<h1 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h1><h2 id="常用命令-1"><a href="#常用命令-1" class="headerlink" title="常用命令"></a>常用命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令格式</th>
+<th align="center">功能</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">HSET key field value</td>
+<td align="center">将<code>field</code>存入名为<code>key</code>的<code>hash</code>结构中</td>
+<td align="center">HSET user name wongzeonwai</td>
+</tr>
+<tr>
+<td align="center">HGET key field</td>
+<td align="center">获取<code>key</code>中<code>field</code>的<code>value</code></td>
+<td align="center">HGET user name</td>
+</tr>
+<tr>
+<td align="center">HEXISTS key field</td>
+<td align="center">判断<code>key</code>中是否存在<code>field</code>这个哈希键</td>
+<td align="center">HEXISTS user name</td>
+</tr>
+<tr>
+<td align="center">HDEL key field</td>
+<td align="center">删除<code>key</code>中的<code>field</code>对应的键值对，所有键值对被删除后<code>key</code>也被删除</td>
+<td align="center">HDEL user name</td>
+</tr>
+<tr>
+<td align="center">HINCRBY key field increment</td>
+<td align="center">给<code>key</code>中<code>field</code>对应的<code>value</code>值加上<code>increment</code>的大小</td>
+<td align="center">HINCRBY user age 10</td>
+</tr>
+<tr>
+<td align="center">HLEN key</td>
+<td align="center">获取<code>key</code>中键值对的数量</td>
+<td align="center">HLEN user</td>
+</tr>
+<tr>
+<td align="center">HKEYS key</td>
+<td align="center">获取<code>key</code>中所有的<code>field</code></td>
+<td align="center">HKEYS user</td>
+</tr>
+<tr>
+<td align="center">HVALS key</td>
+<td align="center">获取<code>key</code>中所有的<code>value</code></td>
+<td align="center">HVALS user</td>
+</tr>
+<tr>
+<td align="center">HGETALL key</td>
+<td align="center">获取<code>key</code>中所有的键值对</td>
+<td align="center">HGETALL user</td>
+</tr>
+</tbody></table>
+<h1 id="List"><a href="#List" class="headerlink" title="List"></a>List</h1><h2 id="常用命令-2"><a href="#常用命令-2" class="headerlink" title="常用命令"></a>常用命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令格式</th>
+<th align="center">功能</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">LPUSH（RPUSH） key value1 value2…</td>
+<td align="center">从左边（右边）添加<code>value</code>，从左边添加按照<code>value</code>的先后顺序，<code>value2</code>会在<code>List</code>的开头</td>
+<td align="center">LPUSH（RPUSH）hobby go mysql…</td>
+</tr>
+<tr>
+<td align="center">LRANGE key start stop</td>
+<td align="center">从左边开始获取<code>key</code>的数据，<code>start</code>为开始索引，<code>stop</code>为结束索引，负数代表从右边开始计算，<code>-1</code>为最后一个数据</td>
+<td align="center">LRANGE key 2 -1</td>
+</tr>
+<tr>
+<td align="center">LPOP（RPOP） key</td>
+<td align="center">弹出左边（右边）的第一个数据</td>
+<td align="center">LPOP（RPOP） hobby</td>
+</tr>
+<tr>
+<td align="center">LLEN key</td>
+<td align="center">获取列表长度</td>
+<td align="center">LLEN hobby</td>
+</tr>
+</tbody></table>
+<h2 id="非常用命令"><a href="#非常用命令" class="headerlink" title="非常用命令"></a>非常用命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令格式</th>
+<th align="center">功能</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">LINSERT key before（after） pivot value</td>
+<td align="center">在<code>pivot</code>的前面（后面）插入<code>value</code></td>
+<td align="center">LINSERT hobby before（after） go redis</td>
+</tr>
+<tr>
+<td align="center">LSET key index value</td>
+<td align="center">更新索引为<code>index</code>的值为<code>value</code></td>
+<td align="center">LSET hobby 0 html</td>
+</tr>
+<tr>
+<td align="center">LREM key count value</td>
+<td align="center">从左边开始删除<code>count</code>个为<code>value</code>的值</td>
+<td align="center">LREM hobby 1 html</td>
+</tr>
+<tr>
+<td align="center">LTRIM key start stop</td>
+<td align="center">从左边开始截取从索引为<code>start</code>到索引为<code>stop</code>的列表</td>
+<td align="center">LTRIM hobby 1 3</td>
+</tr>
+<tr>
+<td align="center">LINDEX key index</td>
+<td align="center">从左边开始获取索引为<code>index</code>的值</td>
+<td align="center">LINDEX hobby redis</td>
+</tr>
+</tbody></table>
+<h1 id="SET"><a href="#SET" class="headerlink" title="SET"></a>SET</h1><h2 id="常用命令-3"><a href="#常用命令-3" class="headerlink" title="常用命令"></a>常用命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令格式</th>
+<th>功能</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">SADD key member1 member2…</td>
+<td>往<code>key</code>集合中添加<code>members</code>元素，不能重复</td>
+<td>SADD myset a b c</td>
+</tr>
+<tr>
+<td align="center">SMEMBERS key</td>
+<td>遍历<code>key</code>中所有的元素，返回的元素顺序是无序的</td>
+<td>SMEMBERS myset</td>
+</tr>
+<tr>
+<td align="center">SREM key member1 member2…</td>
+<td>删除<code>key</code>中的<code>member</code>元素</td>
+<td>SREM myset a b</td>
+</tr>
+<tr>
+<td align="center">SPOP key count</td>
+<td>从<code>key</code>集合随机弹出<code>count</code>个元素</td>
+<td>SPOP myset 2</td>
+</tr>
+</tbody></table>
+<h2 id="非常用命令-1"><a href="#非常用命令-1" class="headerlink" title="非常用命令"></a>非常用命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令格式</th>
+<th align="center">功能</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">SDIFF key1 key2</td>
+<td align="center">返回<code>key1</code>中特有的元素（差集）</td>
+<td align="center">SDIFF set1 set2</td>
+</tr>
+<tr>
+<td align="center">SIDIFFSTORE dest key1 key2</td>
+<td align="center">返回<code>key1</code>中特有的元素，并存储到<code>dest</code>集合中</td>
+<td align="center">SIDIFFSTORE dest set1 set2</td>
+</tr>
+<tr>
+<td align="center">SINTER key1 key2</td>
+<td align="center">返回<code>key1</code>与<code>key2</code>的交集</td>
+<td align="center">SINTER set1 set2</td>
+</tr>
+<tr>
+<td align="center">SINTERSTORE dest key1 key2</td>
+<td align="center">返回<code>key1</code>与<code>key2</code>的交集，并存储到<code>dest</code>集合中</td>
+<td align="center">SINTERSTORE dest set1 set2</td>
+</tr>
+<tr>
+<td align="center">SUNION</td>
+<td align="center">返回<code>key1</code>与<code>key2</code>的并集</td>
+<td align="center">SUNION set1 set2</td>
+</tr>
+<tr>
+<td align="center">SUNIONSTORE dest key1 key2</td>
+<td align="center">返回<code>key1</code>与<code>key2</code>的并集，并存储到<code>dest</code>集合中</td>
+<td align="center">SUNIONSTORE dest set1 set2</td>
+</tr>
+<tr>
+<td align="center">SMOVE source dest member</td>
+<td align="center">将<code>source</code>中的<code>member</code>元素移动到<code>dest</code>集合中</td>
+<td align="center">SMOVE key1 key2 a</td>
+</tr>
+<tr>
+<td align="center">SISMEMBER key member</td>
+<td align="center">判断<code>member</code>元素是否存在<code>key</code>集合中</td>
+<td align="center">SISMEMBER myset a</td>
+</tr>
+<tr>
+<td align="center">SRANDMEMBER key count</td>
+<td align="center">随机获取<code>key</code>集合中的<code>count</code>个元素</td>
+<td align="center">SRANDMEMBER myset 2</td>
+</tr>
+</tbody></table>
+<h1 id="Sorted-Set"><a href="#Sorted-Set" class="headerlink" title="Sorted Set"></a>Sorted Set</h1><p>每个元素都需要绑定一个<code>double</code>类型的分数。</p>
+<h2 id="常用命令-4"><a href="#常用命令-4" class="headerlink" title="常用命令"></a>常用命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令格式</th>
+<th align="center">功能</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ZADD key score1 member1 score2 member2…</td>
+<td align="center">往<code>key</code>集合中添加<code>member</code>元素，分数为<code>score</code></td>
+<td align="center">ZADD results 100 a 200 b</td>
+</tr>
+<tr>
+<td align="center">ZINCRBY key increment member</td>
+<td align="center">将<code>member</code>元素的分数<code>+</code>increment</td>
+<td align="center">ZADD results 100 a</td>
+</tr>
+<tr>
+<td align="center">ZRANGE key start stop [WITHSCORES]</td>
+<td align="center">将元素按分数升序排列【显示分数】</td>
+<td align="center">ZRANGE results 0 -1 WITHSCORES</td>
+</tr>
+<tr>
+<td align="center">ZREVRANGE key start stop [WITHSCORES]</td>
+<td align="center">将元素按分数降序排列【显示分数】</td>
+<td align="center">ZREVRANGE results 0 -1 WITHSCORES</td>
+</tr>
+<tr>
+<td align="center">ZRANK key member</td>
+<td align="center">返回<code>member</code>元素在<code>key</code>集合中的正序排名</td>
+<td align="center">ZRANK results a</td>
+</tr>
+<tr>
+<td align="center">ZREVRANK key member</td>
+<td align="center">返回<code>member</code>元素在<code>key</code>集合中的降序排名</td>
+<td align="center">ZREVRANK results a</td>
+</tr>
+<tr>
+<td align="center">ZCARD key</td>
+<td align="center">返回元素的个数</td>
+<td align="center">ZCARD results</td>
+</tr>
+<tr>
+<td align="center">ZSCORE key member</td>
+<td align="center">获取<code>member</code>元素的分数</td>
+<td align="center">ZSCORE results a</td>
+</tr>
+</tbody></table>
+<h2 id="非常用命令-2"><a href="#非常用命令-2" class="headerlink" title="非常用命令"></a>非常用命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令格式</th>
+<th align="center">功能</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ZRANGEBYSCORE key min max [WITHSCORES]</td>
+<td align="center">按<code>[min,max]</code>分数范围返回<code>key</code>集合中的元素（正序）</td>
+<td align="center">ZRANGEBYSCORE results 100 200 WITHSCORES</td>
+</tr>
+<tr>
+<td align="center">ZREVRANGEBYSCORE key max min [WITHSCORES]</td>
+<td align="center">按<code>[min,max]</code>分数范围返回<code>key</code>集合中的元素（降序）</td>
+<td align="center">ZREVRANGEBYSCORE results 200 100 WITHSCORES</td>
+</tr>
+<tr>
+<td align="center">ZREM key member</td>
+<td align="center">删除<code>member</code>元素</td>
+<td align="center">ZREM results a</td>
+</tr>
+<tr>
+<td align="center">ZREMRANGEBYSCORE key min max [WITHSCORES]</td>
+<td align="center">按<code>[min,max]</code>分数范围删除<code>key</code>集合中的元素（正序）</td>
+<td align="center">ZREMRANGEBYSCORE results 100 200 WITHSCORES</td>
+</tr>
+<tr>
+<td align="center">ZREMRANGEBYRANK key start stop</td>
+<td align="center">删除<code>key</code>集合正序排名在<code>[start,stop)</code>中的元素</td>
+<td align="center">ZREMRANGEBYRANK results 0 2</td>
+</tr>
+<tr>
+<td align="center">ZCOUNT key min max</td>
+<td align="center">返回<code>key</code>集合中分数在<code>[min,max]</code>中的元素个数</td>
+<td align="center">ZCOUNT results 100 200</td>
+</tr>
+</tbody></table>
+<h1 id="Redis全局命令"><a href="#Redis全局命令" class="headerlink" title="Redis全局命令"></a>Redis全局命令</h1><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">keys pattern</td>
+<td align="center">根据<code>pattern</code>条件查询<code>keys</code></td>
+</tr>
+<tr>
+<td align="center">EXISTS key</td>
+<td align="center">判断<code>key</code>是否存在</td>
+</tr>
+<tr>
+<td align="center">EXPIRE key seconds</td>
+<td align="center">给<code>key</code>设置过期时间（秒）</td>
+</tr>
+<tr>
+<td align="center">PERSIST key</td>
+<td align="center">取消<code>key</code>过期时间</td>
+</tr>
+<tr>
+<td align="center">SELECT index</td>
+<td align="center">切换数据库（0-15）</td>
+</tr>
+<tr>
+<td align="center">MOVE key index</td>
+<td align="center">从当前数据库将<code>key</code>移动到指定<code>index</code>库</td>
+</tr>
+<tr>
+<td align="center">RANDOMKEY</td>
+<td align="center">随机返回一个<code>key</code></td>
+</tr>
+<tr>
+<td align="center">RENAME key newkey</td>
+<td align="center">将<code>key</code>重命名为<code>newkey</code></td>
+</tr>
+<tr>
+<td align="center">ECHO message</td>
+<td align="center">打印<code>message</code>信息</td>
+</tr>
+<tr>
+<td align="center">DBSIZE</td>
+<td align="center">返回当前库中<code>key</code>的个数</td>
+</tr>
+<tr>
+<td align="center">INFO</td>
+<td align="center">查看数据库信息</td>
+</tr>
+<tr>
+<td align="center">CONFIG GET pattern</td>
+<td align="center">根据<code>pattern</code>匹配条件查看数据库配置信息</td>
+</tr>
+<tr>
+<td align="center">FLUSHDB</td>
+<td align="center">清空当前数据库</td>
+</tr>
+<tr>
+<td align="center">FLUSHALL</td>
+<td align="center">清空所有数据库</td>
+</tr>
+</tbody></table>
+<h1 id="设置密码"><a href="#设置密码" class="headerlink" title="设置密码"></a>设置密码</h1><ol>
+<li><code>Linux</code>系统<ol>
+<li>找到<code>redis.config</code>文件，在<code>requirepass</code>后面添加密码</li>
+<li>重启<code>redis</code>服务，使用带密码的命令<code>redis-cli -a ******</code></li>
+</ol>
+</li>
+<li><code>Windows</code>系统<ol>
+<li>步骤与<code>Linux</code>系统相同，但是在<code>redis.windows-service.config</code></li>
+</ol>
+</li>
+</ol>
+<h1 id="Redis事务"><a href="#Redis事务" class="headerlink" title="Redis事务"></a>Redis事务</h1><p>使用<code>MULTI</code>开启事务，使用<code>EXEC</code>执行事务，但是事务的执行并非<code>原子性的</code>，就算中间的命令出错，也不会影响到上下文的执行。</p>
+<h1 id="Redis持久化"><a href="#Redis持久化" class="headerlink" title="Redis持久化"></a>Redis持久化</h1><p><code>Redis</code>会将内存中的数据保存到硬盘中，实现数据的持久化。</p>
+<h2 id="RDB方式"><a href="#RDB方式" class="headerlink" title="RDB方式"></a>RDB方式</h2><h3 id="手动触发"><a href="#手动触发" class="headerlink" title="手动触发"></a>手动触发</h3><ol>
+<li>使用<code>save</code>命令，会阻塞当前<code>Redis</code>进程直到持久化完成。</li>
+<li>使用<code>bgsave</code>，创建一个子进程，由子进程实现持久化。</li>
+</ol>
+<h3 id="自动触发"><a href="#自动触发" class="headerlink" title="自动触发"></a>自动触发</h3><p>使用<code>save</code>相关配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">save m n</span><br><span class="line">#m秒内有n个key被修改时，则发起持久化保持数据。</span><br></pre></td></tr></table></figure>
+
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li><code>RDB</code>文件是一个可以压缩的二进制文件，适合用于数据备份，全量复制等场景，可以按照每<code>6</code>小时执行一次备份，用于容灾备份。</li>
+<li>恢复速度快于<code>ADF</code>方式。</li>
+</ul>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>无法实时、秒级持久化。</li>
+<li>不同版本快照文件不一样，容易引起兼容问题。</li>
+</ul>
+<h2 id="AOF方式"><a href="#AOF方式" class="headerlink" title="AOF方式"></a>AOF方式</h2><p>通过独立日志记录每次执行操作的命令，重启服务器的时候执行文件恢复数据，需要在配置文件中配置<code>appendonly yes</code>。</p>
+<p><code>AOF</code>有三种同步策略：</p>
+<table>
+<thead>
+<tr>
+<th align="center">策略</th>
+<th align="center">功能</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">appendfsync always</td>
+<td align="center">执行命令时立即写入到磁盘，效率最慢，但是能保证数据完全持久化</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">appendfsync everysec</td>
+<td align="center">每秒写入一次</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">appendfsync no</td>
+<td align="center">完全依赖<code>os</code>，一般周期为30秒</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>安全性高，最多损失一秒的数据量。</li>
+<li>执行<code>flushall</code>命令后，可以通过<code>AOF</code>方式恢复（删除<code>flushall</code>命令即可）。</li>
+<li><code>AOF</code>文件是一个增量日志文件，难以损坏。</li>
+<li><code>AOF</code>文件太大时，<code>Redis</code>会在后台自动重写文件。</li>
+</ul>
+<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>文件体积大。</li>
+<li>性能较慢。</li>
+</ul>
+<h2 id="RDB-AOF混合使用"><a href="#RDB-AOF混合使用" class="headerlink" title="RDB-AOF混合使用"></a>RDB-AOF混合使用</h2><p>在<code>Redis 4.0</code>提出的新的解决方法。在写入的时候，先把当前数据写入到<code>RDB</code>文件中，再将后续命令写入到<code>AOF</code>文件中，实现全量备份和增量备份，提升备份效率。</p>
+<p>如果不是混合模式，而是两种模式同时启动，<code>Redis</code>加载数据的流程：</p>
+<p><img src="D:\新建文件夹\markdown\图片\image-20240919233929823.png" alt="image-20240919233929823"></p>
+<h1 id="Redis内存淘汰机制"><a href="#Redis内存淘汰机制" class="headerlink" title="Redis内存淘汰机制"></a>Redis内存淘汰机制</h1><ol>
+<li>LRU（least recently used）：最近少使用的数据，仅和时间相关关。</li>
+<li>LFU（least frequently used）：最不经常使用的数据，和时间、频率相关。</li>
+<li>TTL：最接近过期时间的数据。</li>
+<li>随机淘汰。</li>
+</ol>
+<p><code>Redis</code>通过配置：<code>maxmemory-policy</code>来配置具体的淘汰机制：</p>
+<ul>
+<li><code>volatile-lru</code>：查询已设置过期时间的数据集，将最近最少使用的数据淘汰。</li>
+<li><code>volatile-ttl</code>：查询已设置过期时间的数据集，将即将过期的数据淘汰。</li>
+<li><code>volatile-random</code>：已设置过期时间的数据集，随机淘汰数据。</li>
+<li><code>volatile-lfu</code>：已设置过期时间的数据集，将一段时间内，使用次数最少的数据淘汰。</li>
+<li><code>allkeys-lru</code>：查询所有数据，将最近最少使用的数据淘汰。</li>
+<li><code>allkeys-lfu</code>：查询所有数据，将一段时间内，使用次数最少的数据淘汰。</li>
+<li><code>allkeys-random</code>：查询所有数据，随机淘汰数据。</li>
+<li><code>noeviction</code>：默认配置，内存不足时报错，保证数据不丢失。</li>
+</ul>
+<h1 id="过期key处理"><a href="#过期key处理" class="headerlink" title="过期key处理"></a>过期<code>key</code>处理</h1><ul>
+<li>惰性删除：当访问<code>key</code>时，才去判断是否过期，如果过期直接删除，长期不访问会占内存。</li>
+<li>定时删除：设置键的过期时间的同时，创建一个定时器，当到达过期时间点时立刻删除，对CPU不友好。</li>
+<li>定期删除：隔一段时间对数据检查，删除过期的<code>key</code>。</li>
+</ul>
+<p><code>Redis</code>服务器采用惰性和定期两种策略，<code>CPU</code>和内存浪费中取得平衡。</p>
+]]></content>
+      <categories>
+        <category>程序</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
       </tags>
   </entry>
 </search>
