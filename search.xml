@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>GVM安装笔记</title>
+    <url>/2024/10/17/GVM%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="一、GVM介绍"><a href="#一、GVM介绍" class="headerlink" title="一、GVM介绍"></a>一、GVM介绍</h1><p><strong>GVM（Go Version Manager）</strong>，一款<code>Go</code>语言版本管理工具，类似于<code>nodejs</code>版本管理工具<code>nvm</code>。</p>
+<h1 id="二、Windows安装方式"><a href="#二、Windows安装方式" class="headerlink" title="二、Windows安装方式"></a>二、Windows安装方式</h1><p>在<a href="https://github.com/voidint/g/blob/master/README_CN.md">g&#x2F;README_CN.md at master · voidint&#x2F;g (github.com)</a>下找到安装包进行安装。</p>
+<p><img src="/2024/10/17/GVM%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/image-20241017231550527.png" alt="image-20241017231550527"></p>
+<p>打开系统环境变量，增加如下变量：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line"># 配置golang下载镜像，不用翻墙。</span><br><span class="line">G_MIRROR=https://golang.google.cn/dl/</span><br><span class="line"># 开启实验特性，用于使修改go存放目录生效。</span><br><span class="line">G_EXPERIMENTAL=true</span><br><span class="line"># 更改go存放目录</span><br><span class="line">G_HOME=自定义地址</span><br><span class="line">GOROOT=%G_HOME%\go</span><br><span class="line"># 配置PATH变量</span><br><span class="line">%GOROOT%\bin</span><br></pre></td></tr></table></figure>
+
+<p>设置完成后，打开<code>powershell</code>或者<code>cmd</code>测试一下：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 输入：</span></span><br><span class="line">g</span><br><span class="line"><span class="comment"># 输出：</span></span><br><span class="line">NAME:</span><br><span class="line">  g - Golang Version Manager</span><br><span class="line"></span><br><span class="line"> USAGE:</span><br><span class="line">  g  command [<span class="type">arguments...</span>]</span><br><span class="line"></span><br><span class="line"> VERSION:</span><br><span class="line">  <span class="number">1.7</span>.<span class="number">0</span></span><br><span class="line"></span><br><span class="line"> AUTHOR:</span><br><span class="line">  voidint &lt;voidint@<span class="number">126</span>.com&gt;</span><br><span class="line"></span><br><span class="line"> COMMANDS:</span><br><span class="line">    <span class="built_in">ls</span>, l               List installed versions</span><br><span class="line">    <span class="built_in">ls</span><span class="literal">-remote</span>, lr, lsr  List remote versions available <span class="keyword">for</span> install</span><br><span class="line">    use                 <span class="keyword">Switch</span> to specified version</span><br><span class="line">    install, i          Download and install a version</span><br><span class="line">    uninstall           Uninstall a version</span><br><span class="line">    clean               Remove files from the package download directory</span><br><span class="line">    env                 Show env variables of g</span><br><span class="line">    self                Modify g itself</span><br><span class="line">    help, <span class="built_in">h</span>             Shows a list of commands or help <span class="keyword">for</span> one command</span><br><span class="line"></span><br><span class="line"> GLOBAL OPTIONS:</span><br><span class="line">  <span class="literal">--help</span>, <span class="literal">-h</span>     show help</span><br><span class="line">  <span class="literal">--version</span>, <span class="literal">-v</span>  print the version</span><br><span class="line"></span><br><span class="line"> COPYRIGHT:</span><br><span class="line">  Copyright (c) <span class="number">2019</span><span class="literal">-2024</span>, voidint. All rights reserved.</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 更新g本身：</span></span><br><span class="line">  g self update</span><br><span class="line">  <span class="comment"># 卸载g：</span></span><br><span class="line">  g self uninstall</span><br></pre></td></tr></table></figure>
+
+<p>有关<strong>Linux</strong>系统下安装或其他信息可以参考文档：<a href="https://github.com/voidint/g/blob/master/README_CN.md">g&#x2F;README_CN.md at master · voidint&#x2F;g (github.com)</a>。</p>
+<p><strong>Linux</strong>系统下也可以之间通过命令行方式安装。</p>
+]]></content>
+      <categories>
+        <category>程序</category>
+      </categories>
+      <tags>
+        <tag>GO</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Docker学习笔记</title>
     <url>/2024/09/12/Docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[]]></content>
@@ -136,30 +158,8 @@
         <category>程序</category>
       </categories>
       <tags>
+        <tag>GO</tag>
         <tag>后端</tag>
-        <tag>GO</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GVM安装笔记</title>
-    <url>/2024/10/17/GVM%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="一、GVM介绍"><a href="#一、GVM介绍" class="headerlink" title="一、GVM介绍"></a>一、GVM介绍</h1><p><strong>GVM（Go Version Manager）</strong>，一款<code>Go</code>语言版本管理工具，类似于<code>nodejs</code>版本管理工具<code>nvm</code>。</p>
-<h1 id="二、Windows安装方式"><a href="#二、Windows安装方式" class="headerlink" title="二、Windows安装方式"></a>二、Windows安装方式</h1><p>在<a href="https://github.com/voidint/g/blob/master/README_CN.md">g&#x2F;README_CN.md at master · voidint&#x2F;g (github.com)</a>下找到安装包进行安装。</p>
-<p><img src="/2024/10/17/GVM%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/image-20241017231550527.png" alt="image-20241017231550527"></p>
-<p>打开系统环境变量，增加如下变量：</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line"># 配置golang下载镜像，不用翻墙。</span><br><span class="line">G_MIRROR=https://golang.google.cn/dl/</span><br><span class="line"># 开启实验特性，用于使修改go存放目录生效。</span><br><span class="line">G_EXPERIMENTAL=true</span><br><span class="line"># 更改go存放目录</span><br><span class="line">G_HOME=自定义地址</span><br><span class="line">GOROOT=%G_HOME%\go</span><br><span class="line"># 配置PATH变量</span><br><span class="line">%GOROOT%\bin</span><br></pre></td></tr></table></figure>
-
-<p>设置完成后，打开<code>powershell</code>或者<code>cmd</code>测试一下：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 输入：</span></span><br><span class="line">g</span><br><span class="line"><span class="comment"># 输出：</span></span><br><span class="line">NAME:</span><br><span class="line">  g - Golang Version Manager</span><br><span class="line"></span><br><span class="line"> USAGE:</span><br><span class="line">  g  command [<span class="type">arguments...</span>]</span><br><span class="line"></span><br><span class="line"> VERSION:</span><br><span class="line">  <span class="number">1.7</span>.<span class="number">0</span></span><br><span class="line"></span><br><span class="line"> AUTHOR:</span><br><span class="line">  voidint &lt;voidint@<span class="number">126</span>.com&gt;</span><br><span class="line"></span><br><span class="line"> COMMANDS:</span><br><span class="line">    <span class="built_in">ls</span>, l               List installed versions</span><br><span class="line">    <span class="built_in">ls</span><span class="literal">-remote</span>, lr, lsr  List remote versions available <span class="keyword">for</span> install</span><br><span class="line">    use                 <span class="keyword">Switch</span> to specified version</span><br><span class="line">    install, i          Download and install a version</span><br><span class="line">    uninstall           Uninstall a version</span><br><span class="line">    clean               Remove files from the package download directory</span><br><span class="line">    env                 Show env variables of g</span><br><span class="line">    self                Modify g itself</span><br><span class="line">    help, <span class="built_in">h</span>             Shows a list of commands or help <span class="keyword">for</span> one command</span><br><span class="line"></span><br><span class="line"> GLOBAL OPTIONS:</span><br><span class="line">  <span class="literal">--help</span>, <span class="literal">-h</span>     show help</span><br><span class="line">  <span class="literal">--version</span>, <span class="literal">-v</span>  print the version</span><br><span class="line"></span><br><span class="line"> COPYRIGHT:</span><br><span class="line">  Copyright (c) <span class="number">2019</span><span class="literal">-2024</span>, voidint. All rights reserved.</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 更新g本身：</span></span><br><span class="line">  g self update</span><br><span class="line">  <span class="comment"># 卸载g：</span></span><br><span class="line">  g self uninstall</span><br></pre></td></tr></table></figure>
-
-<p>有关<strong>Linux</strong>系统下安装或其他信息可以参考文档：<a href="https://github.com/voidint/g/blob/master/README_CN.md">g&#x2F;README_CN.md at master · voidint&#x2F;g (github.com)</a>。</p>
-<p><strong>Linux</strong>系统下也可以之间通过命令行方式安装。</p>
-]]></content>
-      <categories>
-        <category>程序</category>
-      </categories>
-      <tags>
-        <tag>GO</tag>
       </tags>
   </entry>
   <entry>
@@ -319,576 +319,6 @@
       <tags>
         <tag>前端</tag>
         <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Redis学习笔记</title>
-    <url>/2024/09/19/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="Redis的数据类型"><a href="#Redis的数据类型" class="headerlink" title="Redis的数据类型"></a>Redis的数据类型</h1><ul>
-<li><p><strong>常用数据类型</strong>：String（字符串）、List（列表）、Hash（哈希）、Set（无序集合）、Sorted Set（有序集合）。</p>
-</li>
-<li><p><strong>不常用数据类型</strong>：HyperLogLog（一种基数统计算法）、Stream（消息队列）、Geospatial（地理空间）、Bitmap（位图）、Bitfield（位域）、Bloom Filter（布隆过滤器）、Module（模块）</p>
-</li>
-</ul>
-<h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><table>
-<thead>
-<tr>
-<th align="center">命令格式</th>
-<th align="center">功能</th>
-<th align="center">实例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">SET key value</td>
-<td align="center">设置<code>key-value</code>缓存到<code>redis</code>中，<code>key</code>区分大小写，<code>key</code>已经存在会覆盖原来的<code>value</code></td>
-<td align="center">SET name wongzeonwai</td>
-</tr>
-<tr>
-<td align="center">GET key</td>
-<td align="center">根据<code>key</code>获取<code>value</code></td>
-<td align="center">GET name</td>
-</tr>
-<tr>
-<td align="center">INCR key</td>
-<td align="center">将<code>key</code>对应的<code>value</code>的值<code>+1</code>，只能对数字使用</td>
-<td align="center">INCR age</td>
-</tr>
-<tr>
-<td align="center">DECR key</td>
-<td align="center">将<code>key</code>对应的<code>value</code>的值<code>-1</code>，只能对数字使用</td>
-<td align="center">DECR age</td>
-</tr>
-<tr>
-<td align="center">SETEX key seconds value</td>
-<td align="center">设置<code>key-value</code>缓存到<code>redis</code>中，并设置缓存时间（秒）</td>
-<td align="center">SETEX name 10 wongzeonwai</td>
-</tr>
-<tr>
-<td align="center">TTL key</td>
-<td align="center">查看<code>key</code>剩余时间（秒），<code>-1</code>代表时效永久，<code>-2</code>代表已经失效</td>
-<td align="center">TTL name</td>
-</tr>
-<tr>
-<td align="center">DEL key</td>
-<td align="center">从<code>redis</code>中删除<code>key</code></td>
-<td align="center">DEL name</td>
-</tr>
-<tr>
-<td align="center">SETNX key value</td>
-<td align="center">如果<code>key</code>已经存在，不做任何操作，如果不存在，执行操作</td>
-<td align="center">SETNX name wongzeonwai</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<h2 id="不常用命令"><a href="#不常用命令" class="headerlink" title="不常用命令"></a>不常用命令</h2><table>
-<thead>
-<tr>
-<th align="center">命令格式</th>
-<th align="center">功能</th>
-<th align="center">实例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">INCRBY key increment</td>
-<td align="center">给对应的<code>key</code>添加<code>increment</code>的大小</td>
-<td align="center">INCRBY age 10</td>
-</tr>
-<tr>
-<td align="center">MSET key1 value1 key2 value2…</td>
-<td align="center">批量添加<code>key-value</code></td>
-<td align="center">MSET name wongzeonwai age 26</td>
-</tr>
-<tr>
-<td align="center">MGET key1 key2</td>
-<td align="center">批量获取<code>key</code>对应的<code>value</code></td>
-<td align="center">MGET name age</td>
-</tr>
-<tr>
-<td align="center">APPEND key value</td>
-<td align="center">在<code>key</code>对应的<code>value</code>后拼接<code>value</code></td>
-<td align="center">APPEND name ok</td>
-</tr>
-<tr>
-<td align="center">SETRANGE key offset value</td>
-<td align="center">从<code>offset</code>对应的索引位置修改<code>key</code>的<code>value</code></td>
-<td align="center">SETRANGE age 1 5</td>
-</tr>
-</tbody></table>
-<h1 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h1><h2 id="常用命令-1"><a href="#常用命令-1" class="headerlink" title="常用命令"></a>常用命令</h2><table>
-<thead>
-<tr>
-<th align="center">命令格式</th>
-<th align="center">功能</th>
-<th align="center">实例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">HSET key field value</td>
-<td align="center">将<code>field</code>存入名为<code>key</code>的<code>hash</code>结构中</td>
-<td align="center">HSET user name wongzeonwai</td>
-</tr>
-<tr>
-<td align="center">HGET key field</td>
-<td align="center">获取<code>key</code>中<code>field</code>的<code>value</code></td>
-<td align="center">HGET user name</td>
-</tr>
-<tr>
-<td align="center">HEXISTS key field</td>
-<td align="center">判断<code>key</code>中是否存在<code>field</code>这个哈希键</td>
-<td align="center">HEXISTS user name</td>
-</tr>
-<tr>
-<td align="center">HDEL key field</td>
-<td align="center">删除<code>key</code>中的<code>field</code>对应的键值对，所有键值对被删除后<code>key</code>也被删除</td>
-<td align="center">HDEL user name</td>
-</tr>
-<tr>
-<td align="center">HINCRBY key field increment</td>
-<td align="center">给<code>key</code>中<code>field</code>对应的<code>value</code>值加上<code>increment</code>的大小</td>
-<td align="center">HINCRBY user age 10</td>
-</tr>
-<tr>
-<td align="center">HLEN key</td>
-<td align="center">获取<code>key</code>中键值对的数量</td>
-<td align="center">HLEN user</td>
-</tr>
-<tr>
-<td align="center">HKEYS key</td>
-<td align="center">获取<code>key</code>中所有的<code>field</code></td>
-<td align="center">HKEYS user</td>
-</tr>
-<tr>
-<td align="center">HVALS key</td>
-<td align="center">获取<code>key</code>中所有的<code>value</code></td>
-<td align="center">HVALS user</td>
-</tr>
-<tr>
-<td align="center">HGETALL key</td>
-<td align="center">获取<code>key</code>中所有的键值对</td>
-<td align="center">HGETALL user</td>
-</tr>
-</tbody></table>
-<h1 id="List"><a href="#List" class="headerlink" title="List"></a>List</h1><h2 id="常用命令-2"><a href="#常用命令-2" class="headerlink" title="常用命令"></a>常用命令</h2><table>
-<thead>
-<tr>
-<th align="center">命令格式</th>
-<th align="center">功能</th>
-<th align="center">实例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">LPUSH（RPUSH） key value1 value2…</td>
-<td align="center">从左边（右边）添加<code>value</code>，从左边添加按照<code>value</code>的先后顺序，<code>value2</code>会在<code>List</code>的开头</td>
-<td align="center">LPUSH（RPUSH）hobby go mysql…</td>
-</tr>
-<tr>
-<td align="center">LRANGE key start stop</td>
-<td align="center">从左边开始获取<code>key</code>的数据，<code>start</code>为开始索引，<code>stop</code>为结束索引，负数代表从右边开始计算，<code>-1</code>为最后一个数据</td>
-<td align="center">LRANGE key 2 -1</td>
-</tr>
-<tr>
-<td align="center">LPOP（RPOP） key</td>
-<td align="center">弹出左边（右边）的第一个数据</td>
-<td align="center">LPOP（RPOP） hobby</td>
-</tr>
-<tr>
-<td align="center">LLEN key</td>
-<td align="center">获取列表长度</td>
-<td align="center">LLEN hobby</td>
-</tr>
-</tbody></table>
-<h2 id="非常用命令"><a href="#非常用命令" class="headerlink" title="非常用命令"></a>非常用命令</h2><table>
-<thead>
-<tr>
-<th align="center">命令格式</th>
-<th align="center">功能</th>
-<th align="center">实例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">LINSERT key before（after） pivot value</td>
-<td align="center">在<code>pivot</code>的前面（后面）插入<code>value</code></td>
-<td align="center">LINSERT hobby before（after） go redis</td>
-</tr>
-<tr>
-<td align="center">LSET key index value</td>
-<td align="center">更新索引为<code>index</code>的值为<code>value</code></td>
-<td align="center">LSET hobby 0 html</td>
-</tr>
-<tr>
-<td align="center">LREM key count value</td>
-<td align="center">从左边开始删除<code>count</code>个为<code>value</code>的值</td>
-<td align="center">LREM hobby 1 html</td>
-</tr>
-<tr>
-<td align="center">LTRIM key start stop</td>
-<td align="center">从左边开始截取从索引为<code>start</code>到索引为<code>stop</code>的列表</td>
-<td align="center">LTRIM hobby 1 3</td>
-</tr>
-<tr>
-<td align="center">LINDEX key index</td>
-<td align="center">从左边开始获取索引为<code>index</code>的值</td>
-<td align="center">LINDEX hobby redis</td>
-</tr>
-</tbody></table>
-<h1 id="SET"><a href="#SET" class="headerlink" title="SET"></a>SET</h1><h2 id="常用命令-3"><a href="#常用命令-3" class="headerlink" title="常用命令"></a>常用命令</h2><table>
-<thead>
-<tr>
-<th align="center">命令格式</th>
-<th>功能</th>
-<th>实例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">SADD key member1 member2…</td>
-<td>往<code>key</code>集合中添加<code>members</code>元素，不能重复</td>
-<td>SADD myset a b c</td>
-</tr>
-<tr>
-<td align="center">SMEMBERS key</td>
-<td>遍历<code>key</code>中所有的元素，返回的元素顺序是无序的</td>
-<td>SMEMBERS myset</td>
-</tr>
-<tr>
-<td align="center">SREM key member1 member2…</td>
-<td>删除<code>key</code>中的<code>member</code>元素</td>
-<td>SREM myset a b</td>
-</tr>
-<tr>
-<td align="center">SPOP key count</td>
-<td>从<code>key</code>集合随机弹出<code>count</code>个元素</td>
-<td>SPOP myset 2</td>
-</tr>
-</tbody></table>
-<h2 id="非常用命令-1"><a href="#非常用命令-1" class="headerlink" title="非常用命令"></a>非常用命令</h2><table>
-<thead>
-<tr>
-<th align="center">命令格式</th>
-<th align="center">功能</th>
-<th align="center">实例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">SDIFF key1 key2</td>
-<td align="center">返回<code>key1</code>中特有的元素（差集）</td>
-<td align="center">SDIFF set1 set2</td>
-</tr>
-<tr>
-<td align="center">SIDIFFSTORE dest key1 key2</td>
-<td align="center">返回<code>key1</code>中特有的元素，并存储到<code>dest</code>集合中</td>
-<td align="center">SIDIFFSTORE dest set1 set2</td>
-</tr>
-<tr>
-<td align="center">SINTER key1 key2</td>
-<td align="center">返回<code>key1</code>与<code>key2</code>的交集</td>
-<td align="center">SINTER set1 set2</td>
-</tr>
-<tr>
-<td align="center">SINTERSTORE dest key1 key2</td>
-<td align="center">返回<code>key1</code>与<code>key2</code>的交集，并存储到<code>dest</code>集合中</td>
-<td align="center">SINTERSTORE dest set1 set2</td>
-</tr>
-<tr>
-<td align="center">SUNION</td>
-<td align="center">返回<code>key1</code>与<code>key2</code>的并集</td>
-<td align="center">SUNION set1 set2</td>
-</tr>
-<tr>
-<td align="center">SUNIONSTORE dest key1 key2</td>
-<td align="center">返回<code>key1</code>与<code>key2</code>的并集，并存储到<code>dest</code>集合中</td>
-<td align="center">SUNIONSTORE dest set1 set2</td>
-</tr>
-<tr>
-<td align="center">SMOVE source dest member</td>
-<td align="center">将<code>source</code>中的<code>member</code>元素移动到<code>dest</code>集合中</td>
-<td align="center">SMOVE key1 key2 a</td>
-</tr>
-<tr>
-<td align="center">SISMEMBER key member</td>
-<td align="center">判断<code>member</code>元素是否存在<code>key</code>集合中</td>
-<td align="center">SISMEMBER myset a</td>
-</tr>
-<tr>
-<td align="center">SRANDMEMBER key count</td>
-<td align="center">随机获取<code>key</code>集合中的<code>count</code>个元素</td>
-<td align="center">SRANDMEMBER myset 2</td>
-</tr>
-</tbody></table>
-<h1 id="Sorted-Set"><a href="#Sorted-Set" class="headerlink" title="Sorted Set"></a>Sorted Set</h1><p>每个元素都需要绑定一个<code>double</code>类型的分数。</p>
-<h2 id="常用命令-4"><a href="#常用命令-4" class="headerlink" title="常用命令"></a>常用命令</h2><table>
-<thead>
-<tr>
-<th align="center">命令格式</th>
-<th align="center">功能</th>
-<th align="center">实例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">ZADD key score1 member1 score2 member2…</td>
-<td align="center">往<code>key</code>集合中添加<code>member</code>元素，分数为<code>score</code></td>
-<td align="center">ZADD results 100 a 200 b</td>
-</tr>
-<tr>
-<td align="center">ZINCRBY key increment member</td>
-<td align="center">将<code>member</code>元素的分数<code>+</code>increment</td>
-<td align="center">ZADD results 100 a</td>
-</tr>
-<tr>
-<td align="center">ZRANGE key start stop [WITHSCORES]</td>
-<td align="center">将元素按分数升序排列【显示分数】</td>
-<td align="center">ZRANGE results 0 -1 WITHSCORES</td>
-</tr>
-<tr>
-<td align="center">ZREVRANGE key start stop [WITHSCORES]</td>
-<td align="center">将元素按分数降序排列【显示分数】</td>
-<td align="center">ZREVRANGE results 0 -1 WITHSCORES</td>
-</tr>
-<tr>
-<td align="center">ZRANK key member</td>
-<td align="center">返回<code>member</code>元素在<code>key</code>集合中的正序排名</td>
-<td align="center">ZRANK results a</td>
-</tr>
-<tr>
-<td align="center">ZREVRANK key member</td>
-<td align="center">返回<code>member</code>元素在<code>key</code>集合中的降序排名</td>
-<td align="center">ZREVRANK results a</td>
-</tr>
-<tr>
-<td align="center">ZCARD key</td>
-<td align="center">返回元素的个数</td>
-<td align="center">ZCARD results</td>
-</tr>
-<tr>
-<td align="center">ZSCORE key member</td>
-<td align="center">获取<code>member</code>元素的分数</td>
-<td align="center">ZSCORE results a</td>
-</tr>
-</tbody></table>
-<h2 id="非常用命令-2"><a href="#非常用命令-2" class="headerlink" title="非常用命令"></a>非常用命令</h2><table>
-<thead>
-<tr>
-<th align="center">命令格式</th>
-<th align="center">功能</th>
-<th align="center">实例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">ZRANGEBYSCORE key min max [WITHSCORES]</td>
-<td align="center">按<code>[min,max]</code>分数范围返回<code>key</code>集合中的元素（正序）</td>
-<td align="center">ZRANGEBYSCORE results 100 200 WITHSCORES</td>
-</tr>
-<tr>
-<td align="center">ZREVRANGEBYSCORE key max min [WITHSCORES]</td>
-<td align="center">按<code>[min,max]</code>分数范围返回<code>key</code>集合中的元素（降序）</td>
-<td align="center">ZREVRANGEBYSCORE results 200 100 WITHSCORES</td>
-</tr>
-<tr>
-<td align="center">ZREM key member</td>
-<td align="center">删除<code>member</code>元素</td>
-<td align="center">ZREM results a</td>
-</tr>
-<tr>
-<td align="center">ZREMRANGEBYSCORE key min max [WITHSCORES]</td>
-<td align="center">按<code>[min,max]</code>分数范围删除<code>key</code>集合中的元素（正序）</td>
-<td align="center">ZREMRANGEBYSCORE results 100 200 WITHSCORES</td>
-</tr>
-<tr>
-<td align="center">ZREMRANGEBYRANK key start stop</td>
-<td align="center">删除<code>key</code>集合正序排名在<code>[start,stop)</code>中的元素</td>
-<td align="center">ZREMRANGEBYRANK results 0 2</td>
-</tr>
-<tr>
-<td align="center">ZCOUNT key min max</td>
-<td align="center">返回<code>key</code>集合中分数在<code>[min,max]</code>中的元素个数</td>
-<td align="center">ZCOUNT results 100 200</td>
-</tr>
-</tbody></table>
-<h1 id="Redis全局命令"><a href="#Redis全局命令" class="headerlink" title="Redis全局命令"></a>Redis全局命令</h1><table>
-<thead>
-<tr>
-<th align="center">命令</th>
-<th align="center">功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">keys pattern</td>
-<td align="center">根据<code>pattern</code>条件查询<code>keys</code></td>
-</tr>
-<tr>
-<td align="center">EXISTS key</td>
-<td align="center">判断<code>key</code>是否存在</td>
-</tr>
-<tr>
-<td align="center">EXPIRE key seconds</td>
-<td align="center">给<code>key</code>设置过期时间（秒）</td>
-</tr>
-<tr>
-<td align="center">PERSIST key</td>
-<td align="center">取消<code>key</code>过期时间</td>
-</tr>
-<tr>
-<td align="center">SELECT index</td>
-<td align="center">切换数据库（0-15）</td>
-</tr>
-<tr>
-<td align="center">MOVE key index</td>
-<td align="center">从当前数据库将<code>key</code>移动到指定<code>index</code>库</td>
-</tr>
-<tr>
-<td align="center">RANDOMKEY</td>
-<td align="center">随机返回一个<code>key</code></td>
-</tr>
-<tr>
-<td align="center">RENAME key newkey</td>
-<td align="center">将<code>key</code>重命名为<code>newkey</code></td>
-</tr>
-<tr>
-<td align="center">ECHO message</td>
-<td align="center">打印<code>message</code>信息</td>
-</tr>
-<tr>
-<td align="center">DBSIZE</td>
-<td align="center">返回当前库中<code>key</code>的个数</td>
-</tr>
-<tr>
-<td align="center">INFO</td>
-<td align="center">查看数据库信息</td>
-</tr>
-<tr>
-<td align="center">CONFIG GET pattern</td>
-<td align="center">根据<code>pattern</code>匹配条件查看数据库配置信息</td>
-</tr>
-<tr>
-<td align="center">FLUSHDB</td>
-<td align="center">清空当前数据库</td>
-</tr>
-<tr>
-<td align="center">FLUSHALL</td>
-<td align="center">清空所有数据库</td>
-</tr>
-</tbody></table>
-<h1 id="设置密码"><a href="#设置密码" class="headerlink" title="设置密码"></a>设置密码</h1><ol>
-<li><code>Linux</code>系统<ol>
-<li>找到<code>redis.config</code>文件，在<code>requirepass</code>后面添加密码</li>
-<li>重启<code>redis</code>服务，使用带密码的命令<code>redis-cli -a ******</code></li>
-</ol>
-</li>
-<li><code>Windows</code>系统<ol>
-<li>步骤与<code>Linux</code>系统相同，但是在<code>redis.windows-service.config</code></li>
-</ol>
-</li>
-</ol>
-<h1 id="Redis事务"><a href="#Redis事务" class="headerlink" title="Redis事务"></a>Redis事务</h1><p>使用<code>MULTI</code>开启事务，使用<code>EXEC</code>执行事务，但是事务的执行并非<code>原子性的</code>，就算中间的命令出错，也不会影响到上下文的执行。</p>
-<h1 id="Redis持久化"><a href="#Redis持久化" class="headerlink" title="Redis持久化"></a>Redis持久化</h1><p><code>Redis</code>会将内存中的数据保存到硬盘中，实现数据的持久化。</p>
-<h2 id="RDB方式"><a href="#RDB方式" class="headerlink" title="RDB方式"></a>RDB方式</h2><h3 id="手动触发"><a href="#手动触发" class="headerlink" title="手动触发"></a>手动触发</h3><ol>
-<li>使用<code>save</code>命令，会阻塞当前<code>Redis</code>进程直到持久化完成。</li>
-<li>使用<code>bgsave</code>，创建一个子进程，由子进程实现持久化。</li>
-</ol>
-<h3 id="自动触发"><a href="#自动触发" class="headerlink" title="自动触发"></a>自动触发</h3><p>使用<code>save</code>相关配置：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">save m n</span><br><span class="line">#m秒内有n个key被修改时，则发起持久化保持数据。</span><br></pre></td></tr></table></figure>
-
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
-<li><code>RDB</code>文件是一个可以压缩的二进制文件，适合用于数据备份，全量复制等场景，可以按照每<code>6</code>小时执行一次备份，用于容灾备份。</li>
-<li>恢复速度快于<code>ADF</code>方式。</li>
-</ul>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
-<li>无法实时、秒级持久化。</li>
-<li>不同版本快照文件不一样，容易引起兼容问题。</li>
-</ul>
-<h2 id="AOF方式"><a href="#AOF方式" class="headerlink" title="AOF方式"></a>AOF方式</h2><p>通过独立日志记录每次执行操作的命令，重启服务器的时候执行文件恢复数据，需要在配置文件中配置<code>appendonly yes</code>。</p>
-<p><code>AOF</code>有三种同步策略：</p>
-<table>
-<thead>
-<tr>
-<th align="center">策略</th>
-<th align="center">功能</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">appendfsync always</td>
-<td align="center">执行命令时立即写入到磁盘，效率最慢，但是能保证数据完全持久化</td>
-<td></td>
-</tr>
-<tr>
-<td align="center">appendfsync everysec</td>
-<td align="center">每秒写入一次</td>
-<td></td>
-</tr>
-<tr>
-<td align="center">appendfsync no</td>
-<td align="center">完全依赖<code>os</code>，一般周期为30秒</td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ul>
-<li>安全性高，最多损失一秒的数据量。</li>
-<li>执行<code>flushall</code>命令后，可以通过<code>AOF</code>方式恢复（删除<code>flushall</code>命令即可）。</li>
-<li><code>AOF</code>文件是一个增量日志文件，难以损坏。</li>
-<li><code>AOF</code>文件太大时，<code>Redis</code>会在后台自动重写文件。</li>
-</ul>
-<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ul>
-<li>文件体积大。</li>
-<li>性能较慢。</li>
-</ul>
-<h2 id="RDB-AOF混合使用"><a href="#RDB-AOF混合使用" class="headerlink" title="RDB-AOF混合使用"></a>RDB-AOF混合使用</h2><p>在<code>Redis 4.0</code>提出的新的解决方法。在写入的时候，先把当前数据写入到<code>RDB</code>文件中，再将后续命令写入到<code>AOF</code>文件中，实现全量备份和增量备份，提升备份效率。</p>
-<p>如果不是混合模式，而是两种模式同时启动，<code>Redis</code>加载数据的流程：</p>
-<p><img src="/2024/09/19/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20240919233929823.png" alt="image-20240919233929823"></p>
-<h1 id="Redis内存淘汰机制"><a href="#Redis内存淘汰机制" class="headerlink" title="Redis内存淘汰机制"></a>Redis内存淘汰机制</h1><ol>
-<li><strong>LRU（least recently used）</strong>：最近少使用的数据，仅和时间相关关。</li>
-<li><strong>LFU（least frequently used）</strong>：最不经常使用的数据，和时间、频率相关。</li>
-<li><strong>TTL</strong>：最接近过期时间的数据。</li>
-<li><strong>随机淘汰</strong>。</li>
-</ol>
-<p><code>Redis</code>通过配置：<code>maxmemory-policy</code>来配置具体的淘汰机制：</p>
-<ul>
-<li><code>volatile-lru</code>：查询已设置过期时间的数据集，将最近最少使用的数据淘汰。</li>
-<li><code>volatile-ttl</code>：查询已设置过期时间的数据集，将即将过期的数据淘汰。</li>
-<li><code>volatile-random</code>：已设置过期时间的数据集，随机淘汰数据。</li>
-<li><code>volatile-lfu</code>：已设置过期时间的数据集，将一段时间内，使用次数最少的数据淘汰。</li>
-<li><code>allkeys-lru</code>：查询所有数据，将最近最少使用的数据淘汰。</li>
-<li><code>allkeys-lfu</code>：查询所有数据，将一段时间内，使用次数最少的数据淘汰。</li>
-<li><code>allkeys-random</code>：查询所有数据，随机淘汰数据。</li>
-<li><code>noeviction</code>：默认配置，内存不足时报错，保证数据不丢失。</li>
-</ul>
-<h1 id="过期key处理"><a href="#过期key处理" class="headerlink" title="过期key处理"></a>过期<code>key</code>处理</h1><ul>
-<li><strong>惰性删除</strong>：当访问<code>key</code>时，才去判断是否过期，如果过期直接删除，长期不访问会占内存。</li>
-<li><strong>定时删除</strong>：设置键的过期时间的同时，创建一个定时器，当到达过期时间点时立刻删除，对CPU不友好。</li>
-<li><strong>定期删除</strong>：隔一段时间对数据检查，删除过期的<code>key</code>。</li>
-</ul>
-<p><code>Redis</code>服务器采用惰性和定期两种策略，<code>CPU</code>和内存浪费中取得平衡。</p>
-<h1 id="主从架构"><a href="#主从架构" class="headerlink" title="主从架构"></a>主从架构</h1><p>单节点<code>Redis</code>的<strong>并发能力</strong>是有上限的，要进一步提高<code>Redis</code>的并发能力，就需要搭建主从集群，实现读写分离，由<code>主Redis</code>执行<strong>写</strong>操作，<code>从Redis</code>执行<strong>读</strong>操作。</p>
-<p>在从节点<code>redis.conf</code>文件中新增配置：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">slaveof &lt;masterip&gt; &lt;masterport&gt;</span><br></pre></td></tr></table></figure>
-
-<p>原理：通过<code>RDB-AOF</code>混合方式将数据文件发送给从节点。</p>
-<p>每个主节点都有一个<code>Replication id</code>，简称<code>replid</code>标记，从节点会继承主节点的<code>replid</code>，通过判断知道是否第一次复制数据。</p>
-<h1 id="哨兵"><a href="#哨兵" class="headerlink" title="哨兵"></a>哨兵</h1><p><code>Redis</code>提供了哨兵（Sentinel）来实现主从集群的自动故障恢复，哨兵的结构和作用如下：</p>
-<ul>
-<li><strong>监控</strong>：<code>Sentinel</code>会不断检测主从集群是否按预期工作。</li>
-<li><strong>自动故障恢复</strong>：如果主节点故障，<code>Sentinel</code>会将一个从节点提升为主节点。</li>
-</ul>
-<p><code>Sentinel</code>基于心跳机制监测服务状态，每隔一秒向集群的每个实例发送ping命令：</p>
-<ul>
-<li><strong>主观下线</strong>：如果某<code>Sentinel</code>节点发现某实例未在规定时间内响应，则会认为该实例<strong>主观下线</strong>。</li>
-<li><strong>客观下线</strong>：若超过指定数量（最好超过<code>Sentinel</code>数量的一半）的<code>Sentinel</code>都认为该实例<strong>主观下线</strong>，则该实例<strong>客观下线</strong>。</li>
-</ul>
-<h1 id="Go-redis"><a href="#Go-redis" class="headerlink" title="Go-redis"></a>Go-redis</h1><p><code>Redis</code>推出了<code>Go</code>语言使用<code>Redis</code>数据库的官方库<code>go-redis</code>，文档地址：[Go Redis <a href="https://redis.uptrace.dev/zh/guide/go-redis.html">快速入门] (uptrace.dev)</a>。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">初始化模块</span></span><br><span class="line">go mod init my_go_redis</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装go-redis库</span></span><br><span class="line">go get github.com/redis/go-redis/v9</span><br></pre></td></tr></table></figure>
-
-<p>在<code>Go</code>中使用</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;context&quot;</span></span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;github.com/redis/go-redis/v9&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="comment">// 连接redis数据库</span></span><br><span class="line">	client := redis.NewClient(&amp;redis.Options&#123;</span><br><span class="line">		Addr: <span class="string">&quot;localhost:6379&quot;</span>,</span><br><span class="line">		Password: <span class="string">&quot;&quot;</span>, <span class="comment">// no password set</span></span><br><span class="line">		DB: <span class="number">0</span>,  <span class="comment">// use default DB</span></span><br><span class="line">	&#125;)</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  另一种连接方式</span></span><br><span class="line"><span class="comment">  opt, err := redis.ParseURL(&quot;redis://&lt;user&gt;:&lt;pass&gt;@localhost:6379/&lt;db&gt;&quot;)</span></span><br><span class="line"><span class="comment">  if err != nil &#123;</span></span><br><span class="line"><span class="comment">    panic(err)</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	client := redis.NewClient(opt)</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">  </span><br><span class="line">  ctx := context.Background()</span><br><span class="line">	<span class="comment">// 使用String数据类型创建一个key-value：foo-bar</span></span><br><span class="line">	err := client.Set(ctx, <span class="string">&quot;foo&quot;</span>, <span class="string">&quot;bar&quot;</span>, <span class="number">0</span>).Err()</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="built_in">panic</span>(err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 获取key为foo的value值</span></span><br><span class="line">	val, err := client.Get(ctx, <span class="string">&quot;foo&quot;</span>).Result()</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="built_in">panic</span>(err)</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(<span class="string">&quot;foo&quot;</span>, val)</span><br><span class="line">  <span class="comment">// 创建一个Hash类型的数据</span></span><br><span class="line">  session := <span class="keyword">map</span>[<span class="type">string</span>]<span class="type">string</span>&#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;John&quot;</span>, <span class="string">&quot;surname&quot;</span>: <span class="string">&quot;Smith&quot;</span>, <span class="string">&quot;company&quot;</span>: <span class="string">&quot;Redis&quot;</span>, <span class="string">&quot;age&quot;</span>: <span class="string">&quot;29&quot;</span>&#125;</span><br><span class="line">  <span class="keyword">for</span> k, v := <span class="keyword">range</span> session &#123;</span><br><span class="line">      err := client.HSet(ctx, <span class="string">&quot;user-session:123&quot;</span>, k, v).Err()</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">          <span class="built_in">panic</span>(err)</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  userSession := client.HGetAll(ctx, <span class="string">&quot;user-session:123&quot;</span>).Val()</span><br><span class="line">  fmt.Println(userSession)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>程序</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
       </tags>
   </entry>
   <entry>
@@ -1904,8 +1334,578 @@
         <category>程序</category>
       </categories>
       <tags>
-        <tag>后端</tag>
         <tag>GO</tag>
+        <tag>后端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis学习笔记</title>
+    <url>/2024/09/19/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="Redis的数据类型"><a href="#Redis的数据类型" class="headerlink" title="Redis的数据类型"></a>Redis的数据类型</h1><ul>
+<li><p><strong>常用数据类型</strong>：String（字符串）、List（列表）、Hash（哈希）、Set（无序集合）、Sorted Set（有序集合）。</p>
+</li>
+<li><p><strong>不常用数据类型</strong>：HyperLogLog（一种基数统计算法）、Stream（消息队列）、Geospatial（地理空间）、Bitmap（位图）、Bitfield（位域）、Bloom Filter（布隆过滤器）、Module（模块）</p>
+</li>
+</ul>
+<h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令格式</th>
+<th align="center">功能</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">SET key value</td>
+<td align="center">设置<code>key-value</code>缓存到<code>redis</code>中，<code>key</code>区分大小写，<code>key</code>已经存在会覆盖原来的<code>value</code></td>
+<td align="center">SET name wongzeonwai</td>
+</tr>
+<tr>
+<td align="center">GET key</td>
+<td align="center">根据<code>key</code>获取<code>value</code></td>
+<td align="center">GET name</td>
+</tr>
+<tr>
+<td align="center">INCR key</td>
+<td align="center">将<code>key</code>对应的<code>value</code>的值<code>+1</code>，只能对数字使用</td>
+<td align="center">INCR age</td>
+</tr>
+<tr>
+<td align="center">DECR key</td>
+<td align="center">将<code>key</code>对应的<code>value</code>的值<code>-1</code>，只能对数字使用</td>
+<td align="center">DECR age</td>
+</tr>
+<tr>
+<td align="center">SETEX key seconds value</td>
+<td align="center">设置<code>key-value</code>缓存到<code>redis</code>中，并设置缓存时间（秒）</td>
+<td align="center">SETEX name 10 wongzeonwai</td>
+</tr>
+<tr>
+<td align="center">TTL key</td>
+<td align="center">查看<code>key</code>剩余时间（秒），<code>-1</code>代表时效永久，<code>-2</code>代表已经失效</td>
+<td align="center">TTL name</td>
+</tr>
+<tr>
+<td align="center">DEL key</td>
+<td align="center">从<code>redis</code>中删除<code>key</code></td>
+<td align="center">DEL name</td>
+</tr>
+<tr>
+<td align="center">SETNX key value</td>
+<td align="center">如果<code>key</code>已经存在，不做任何操作，如果不存在，执行操作</td>
+<td align="center">SETNX name wongzeonwai</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id="不常用命令"><a href="#不常用命令" class="headerlink" title="不常用命令"></a>不常用命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令格式</th>
+<th align="center">功能</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">INCRBY key increment</td>
+<td align="center">给对应的<code>key</code>添加<code>increment</code>的大小</td>
+<td align="center">INCRBY age 10</td>
+</tr>
+<tr>
+<td align="center">MSET key1 value1 key2 value2…</td>
+<td align="center">批量添加<code>key-value</code></td>
+<td align="center">MSET name wongzeonwai age 26</td>
+</tr>
+<tr>
+<td align="center">MGET key1 key2</td>
+<td align="center">批量获取<code>key</code>对应的<code>value</code></td>
+<td align="center">MGET name age</td>
+</tr>
+<tr>
+<td align="center">APPEND key value</td>
+<td align="center">在<code>key</code>对应的<code>value</code>后拼接<code>value</code></td>
+<td align="center">APPEND name ok</td>
+</tr>
+<tr>
+<td align="center">SETRANGE key offset value</td>
+<td align="center">从<code>offset</code>对应的索引位置修改<code>key</code>的<code>value</code></td>
+<td align="center">SETRANGE age 1 5</td>
+</tr>
+</tbody></table>
+<h1 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h1><h2 id="常用命令-1"><a href="#常用命令-1" class="headerlink" title="常用命令"></a>常用命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令格式</th>
+<th align="center">功能</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">HSET key field value</td>
+<td align="center">将<code>field</code>存入名为<code>key</code>的<code>hash</code>结构中</td>
+<td align="center">HSET user name wongzeonwai</td>
+</tr>
+<tr>
+<td align="center">HGET key field</td>
+<td align="center">获取<code>key</code>中<code>field</code>的<code>value</code></td>
+<td align="center">HGET user name</td>
+</tr>
+<tr>
+<td align="center">HEXISTS key field</td>
+<td align="center">判断<code>key</code>中是否存在<code>field</code>这个哈希键</td>
+<td align="center">HEXISTS user name</td>
+</tr>
+<tr>
+<td align="center">HDEL key field</td>
+<td align="center">删除<code>key</code>中的<code>field</code>对应的键值对，所有键值对被删除后<code>key</code>也被删除</td>
+<td align="center">HDEL user name</td>
+</tr>
+<tr>
+<td align="center">HINCRBY key field increment</td>
+<td align="center">给<code>key</code>中<code>field</code>对应的<code>value</code>值加上<code>increment</code>的大小</td>
+<td align="center">HINCRBY user age 10</td>
+</tr>
+<tr>
+<td align="center">HLEN key</td>
+<td align="center">获取<code>key</code>中键值对的数量</td>
+<td align="center">HLEN user</td>
+</tr>
+<tr>
+<td align="center">HKEYS key</td>
+<td align="center">获取<code>key</code>中所有的<code>field</code></td>
+<td align="center">HKEYS user</td>
+</tr>
+<tr>
+<td align="center">HVALS key</td>
+<td align="center">获取<code>key</code>中所有的<code>value</code></td>
+<td align="center">HVALS user</td>
+</tr>
+<tr>
+<td align="center">HGETALL key</td>
+<td align="center">获取<code>key</code>中所有的键值对</td>
+<td align="center">HGETALL user</td>
+</tr>
+</tbody></table>
+<h1 id="List"><a href="#List" class="headerlink" title="List"></a>List</h1><h2 id="常用命令-2"><a href="#常用命令-2" class="headerlink" title="常用命令"></a>常用命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令格式</th>
+<th align="center">功能</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">LPUSH（RPUSH） key value1 value2…</td>
+<td align="center">从左边（右边）添加<code>value</code>，从左边添加按照<code>value</code>的先后顺序，<code>value2</code>会在<code>List</code>的开头</td>
+<td align="center">LPUSH（RPUSH）hobby go mysql…</td>
+</tr>
+<tr>
+<td align="center">LRANGE key start stop</td>
+<td align="center">从左边开始获取<code>key</code>的数据，<code>start</code>为开始索引，<code>stop</code>为结束索引，负数代表从右边开始计算，<code>-1</code>为最后一个数据</td>
+<td align="center">LRANGE key 2 -1</td>
+</tr>
+<tr>
+<td align="center">LPOP（RPOP） key</td>
+<td align="center">弹出左边（右边）的第一个数据</td>
+<td align="center">LPOP（RPOP） hobby</td>
+</tr>
+<tr>
+<td align="center">LLEN key</td>
+<td align="center">获取列表长度</td>
+<td align="center">LLEN hobby</td>
+</tr>
+</tbody></table>
+<h2 id="非常用命令"><a href="#非常用命令" class="headerlink" title="非常用命令"></a>非常用命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令格式</th>
+<th align="center">功能</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">LINSERT key before（after） pivot value</td>
+<td align="center">在<code>pivot</code>的前面（后面）插入<code>value</code></td>
+<td align="center">LINSERT hobby before（after） go redis</td>
+</tr>
+<tr>
+<td align="center">LSET key index value</td>
+<td align="center">更新索引为<code>index</code>的值为<code>value</code></td>
+<td align="center">LSET hobby 0 html</td>
+</tr>
+<tr>
+<td align="center">LREM key count value</td>
+<td align="center">从左边开始删除<code>count</code>个为<code>value</code>的值</td>
+<td align="center">LREM hobby 1 html</td>
+</tr>
+<tr>
+<td align="center">LTRIM key start stop</td>
+<td align="center">从左边开始截取从索引为<code>start</code>到索引为<code>stop</code>的列表</td>
+<td align="center">LTRIM hobby 1 3</td>
+</tr>
+<tr>
+<td align="center">LINDEX key index</td>
+<td align="center">从左边开始获取索引为<code>index</code>的值</td>
+<td align="center">LINDEX hobby redis</td>
+</tr>
+</tbody></table>
+<h1 id="SET"><a href="#SET" class="headerlink" title="SET"></a>SET</h1><h2 id="常用命令-3"><a href="#常用命令-3" class="headerlink" title="常用命令"></a>常用命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令格式</th>
+<th>功能</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">SADD key member1 member2…</td>
+<td>往<code>key</code>集合中添加<code>members</code>元素，不能重复</td>
+<td>SADD myset a b c</td>
+</tr>
+<tr>
+<td align="center">SMEMBERS key</td>
+<td>遍历<code>key</code>中所有的元素，返回的元素顺序是无序的</td>
+<td>SMEMBERS myset</td>
+</tr>
+<tr>
+<td align="center">SREM key member1 member2…</td>
+<td>删除<code>key</code>中的<code>member</code>元素</td>
+<td>SREM myset a b</td>
+</tr>
+<tr>
+<td align="center">SPOP key count</td>
+<td>从<code>key</code>集合随机弹出<code>count</code>个元素</td>
+<td>SPOP myset 2</td>
+</tr>
+</tbody></table>
+<h2 id="非常用命令-1"><a href="#非常用命令-1" class="headerlink" title="非常用命令"></a>非常用命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令格式</th>
+<th align="center">功能</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">SDIFF key1 key2</td>
+<td align="center">返回<code>key1</code>中特有的元素（差集）</td>
+<td align="center">SDIFF set1 set2</td>
+</tr>
+<tr>
+<td align="center">SIDIFFSTORE dest key1 key2</td>
+<td align="center">返回<code>key1</code>中特有的元素，并存储到<code>dest</code>集合中</td>
+<td align="center">SIDIFFSTORE dest set1 set2</td>
+</tr>
+<tr>
+<td align="center">SINTER key1 key2</td>
+<td align="center">返回<code>key1</code>与<code>key2</code>的交集</td>
+<td align="center">SINTER set1 set2</td>
+</tr>
+<tr>
+<td align="center">SINTERSTORE dest key1 key2</td>
+<td align="center">返回<code>key1</code>与<code>key2</code>的交集，并存储到<code>dest</code>集合中</td>
+<td align="center">SINTERSTORE dest set1 set2</td>
+</tr>
+<tr>
+<td align="center">SUNION</td>
+<td align="center">返回<code>key1</code>与<code>key2</code>的并集</td>
+<td align="center">SUNION set1 set2</td>
+</tr>
+<tr>
+<td align="center">SUNIONSTORE dest key1 key2</td>
+<td align="center">返回<code>key1</code>与<code>key2</code>的并集，并存储到<code>dest</code>集合中</td>
+<td align="center">SUNIONSTORE dest set1 set2</td>
+</tr>
+<tr>
+<td align="center">SMOVE source dest member</td>
+<td align="center">将<code>source</code>中的<code>member</code>元素移动到<code>dest</code>集合中</td>
+<td align="center">SMOVE key1 key2 a</td>
+</tr>
+<tr>
+<td align="center">SISMEMBER key member</td>
+<td align="center">判断<code>member</code>元素是否存在<code>key</code>集合中</td>
+<td align="center">SISMEMBER myset a</td>
+</tr>
+<tr>
+<td align="center">SRANDMEMBER key count</td>
+<td align="center">随机获取<code>key</code>集合中的<code>count</code>个元素</td>
+<td align="center">SRANDMEMBER myset 2</td>
+</tr>
+</tbody></table>
+<h1 id="Sorted-Set"><a href="#Sorted-Set" class="headerlink" title="Sorted Set"></a>Sorted Set</h1><p>每个元素都需要绑定一个<code>double</code>类型的分数。</p>
+<h2 id="常用命令-4"><a href="#常用命令-4" class="headerlink" title="常用命令"></a>常用命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令格式</th>
+<th align="center">功能</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ZADD key score1 member1 score2 member2…</td>
+<td align="center">往<code>key</code>集合中添加<code>member</code>元素，分数为<code>score</code></td>
+<td align="center">ZADD results 100 a 200 b</td>
+</tr>
+<tr>
+<td align="center">ZINCRBY key increment member</td>
+<td align="center">将<code>member</code>元素的分数<code>+</code>increment</td>
+<td align="center">ZADD results 100 a</td>
+</tr>
+<tr>
+<td align="center">ZRANGE key start stop [WITHSCORES]</td>
+<td align="center">将元素按分数升序排列【显示分数】</td>
+<td align="center">ZRANGE results 0 -1 WITHSCORES</td>
+</tr>
+<tr>
+<td align="center">ZREVRANGE key start stop [WITHSCORES]</td>
+<td align="center">将元素按分数降序排列【显示分数】</td>
+<td align="center">ZREVRANGE results 0 -1 WITHSCORES</td>
+</tr>
+<tr>
+<td align="center">ZRANK key member</td>
+<td align="center">返回<code>member</code>元素在<code>key</code>集合中的正序排名</td>
+<td align="center">ZRANK results a</td>
+</tr>
+<tr>
+<td align="center">ZREVRANK key member</td>
+<td align="center">返回<code>member</code>元素在<code>key</code>集合中的降序排名</td>
+<td align="center">ZREVRANK results a</td>
+</tr>
+<tr>
+<td align="center">ZCARD key</td>
+<td align="center">返回元素的个数</td>
+<td align="center">ZCARD results</td>
+</tr>
+<tr>
+<td align="center">ZSCORE key member</td>
+<td align="center">获取<code>member</code>元素的分数</td>
+<td align="center">ZSCORE results a</td>
+</tr>
+</tbody></table>
+<h2 id="非常用命令-2"><a href="#非常用命令-2" class="headerlink" title="非常用命令"></a>非常用命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令格式</th>
+<th align="center">功能</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ZRANGEBYSCORE key min max [WITHSCORES]</td>
+<td align="center">按<code>[min,max]</code>分数范围返回<code>key</code>集合中的元素（正序）</td>
+<td align="center">ZRANGEBYSCORE results 100 200 WITHSCORES</td>
+</tr>
+<tr>
+<td align="center">ZREVRANGEBYSCORE key max min [WITHSCORES]</td>
+<td align="center">按<code>[min,max]</code>分数范围返回<code>key</code>集合中的元素（降序）</td>
+<td align="center">ZREVRANGEBYSCORE results 200 100 WITHSCORES</td>
+</tr>
+<tr>
+<td align="center">ZREM key member</td>
+<td align="center">删除<code>member</code>元素</td>
+<td align="center">ZREM results a</td>
+</tr>
+<tr>
+<td align="center">ZREMRANGEBYSCORE key min max [WITHSCORES]</td>
+<td align="center">按<code>[min,max]</code>分数范围删除<code>key</code>集合中的元素（正序）</td>
+<td align="center">ZREMRANGEBYSCORE results 100 200 WITHSCORES</td>
+</tr>
+<tr>
+<td align="center">ZREMRANGEBYRANK key start stop</td>
+<td align="center">删除<code>key</code>集合正序排名在<code>[start,stop)</code>中的元素</td>
+<td align="center">ZREMRANGEBYRANK results 0 2</td>
+</tr>
+<tr>
+<td align="center">ZCOUNT key min max</td>
+<td align="center">返回<code>key</code>集合中分数在<code>[min,max]</code>中的元素个数</td>
+<td align="center">ZCOUNT results 100 200</td>
+</tr>
+</tbody></table>
+<h1 id="Redis全局命令"><a href="#Redis全局命令" class="headerlink" title="Redis全局命令"></a>Redis全局命令</h1><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">keys pattern</td>
+<td align="center">根据<code>pattern</code>条件查询<code>keys</code></td>
+</tr>
+<tr>
+<td align="center">EXISTS key</td>
+<td align="center">判断<code>key</code>是否存在</td>
+</tr>
+<tr>
+<td align="center">EXPIRE key seconds</td>
+<td align="center">给<code>key</code>设置过期时间（秒）</td>
+</tr>
+<tr>
+<td align="center">PERSIST key</td>
+<td align="center">取消<code>key</code>过期时间</td>
+</tr>
+<tr>
+<td align="center">SELECT index</td>
+<td align="center">切换数据库（0-15）</td>
+</tr>
+<tr>
+<td align="center">MOVE key index</td>
+<td align="center">从当前数据库将<code>key</code>移动到指定<code>index</code>库</td>
+</tr>
+<tr>
+<td align="center">RANDOMKEY</td>
+<td align="center">随机返回一个<code>key</code></td>
+</tr>
+<tr>
+<td align="center">RENAME key newkey</td>
+<td align="center">将<code>key</code>重命名为<code>newkey</code></td>
+</tr>
+<tr>
+<td align="center">ECHO message</td>
+<td align="center">打印<code>message</code>信息</td>
+</tr>
+<tr>
+<td align="center">DBSIZE</td>
+<td align="center">返回当前库中<code>key</code>的个数</td>
+</tr>
+<tr>
+<td align="center">INFO</td>
+<td align="center">查看数据库信息</td>
+</tr>
+<tr>
+<td align="center">CONFIG GET pattern</td>
+<td align="center">根据<code>pattern</code>匹配条件查看数据库配置信息</td>
+</tr>
+<tr>
+<td align="center">FLUSHDB</td>
+<td align="center">清空当前数据库</td>
+</tr>
+<tr>
+<td align="center">FLUSHALL</td>
+<td align="center">清空所有数据库</td>
+</tr>
+</tbody></table>
+<h1 id="设置密码"><a href="#设置密码" class="headerlink" title="设置密码"></a>设置密码</h1><ol>
+<li><code>Linux</code>系统<ol>
+<li>找到<code>redis.config</code>文件，在<code>requirepass</code>后面添加密码</li>
+<li>重启<code>redis</code>服务，使用带密码的命令<code>redis-cli -a ******</code></li>
+</ol>
+</li>
+<li><code>Windows</code>系统<ol>
+<li>步骤与<code>Linux</code>系统相同，但是在<code>redis.windows-service.config</code></li>
+</ol>
+</li>
+</ol>
+<h1 id="Redis事务"><a href="#Redis事务" class="headerlink" title="Redis事务"></a>Redis事务</h1><p>使用<code>MULTI</code>开启事务，使用<code>EXEC</code>执行事务，但是事务的执行并非<code>原子性的</code>，就算中间的命令出错，也不会影响到上下文的执行。</p>
+<h1 id="Redis持久化"><a href="#Redis持久化" class="headerlink" title="Redis持久化"></a>Redis持久化</h1><p><code>Redis</code>会将内存中的数据保存到硬盘中，实现数据的持久化。</p>
+<h2 id="RDB方式"><a href="#RDB方式" class="headerlink" title="RDB方式"></a>RDB方式</h2><h3 id="手动触发"><a href="#手动触发" class="headerlink" title="手动触发"></a>手动触发</h3><ol>
+<li>使用<code>save</code>命令，会阻塞当前<code>Redis</code>进程直到持久化完成。</li>
+<li>使用<code>bgsave</code>，创建一个子进程，由子进程实现持久化。</li>
+</ol>
+<h3 id="自动触发"><a href="#自动触发" class="headerlink" title="自动触发"></a>自动触发</h3><p>使用<code>save</code>相关配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">save m n</span><br><span class="line">#m秒内有n个key被修改时，则发起持久化保持数据。</span><br></pre></td></tr></table></figure>
+
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li><code>RDB</code>文件是一个可以压缩的二进制文件，适合用于数据备份，全量复制等场景，可以按照每<code>6</code>小时执行一次备份，用于容灾备份。</li>
+<li>恢复速度快于<code>ADF</code>方式。</li>
+</ul>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>无法实时、秒级持久化。</li>
+<li>不同版本快照文件不一样，容易引起兼容问题。</li>
+</ul>
+<h2 id="AOF方式"><a href="#AOF方式" class="headerlink" title="AOF方式"></a>AOF方式</h2><p>通过独立日志记录每次执行操作的命令，重启服务器的时候执行文件恢复数据，需要在配置文件中配置<code>appendonly yes</code>。</p>
+<p><code>AOF</code>有三种同步策略：</p>
+<table>
+<thead>
+<tr>
+<th align="center">策略</th>
+<th align="center">功能</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">appendfsync always</td>
+<td align="center">执行命令时立即写入到磁盘，效率最慢，但是能保证数据完全持久化</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">appendfsync everysec</td>
+<td align="center">每秒写入一次</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">appendfsync no</td>
+<td align="center">完全依赖<code>os</code>，一般周期为30秒</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>安全性高，最多损失一秒的数据量。</li>
+<li>执行<code>flushall</code>命令后，可以通过<code>AOF</code>方式恢复（删除<code>flushall</code>命令即可）。</li>
+<li><code>AOF</code>文件是一个增量日志文件，难以损坏。</li>
+<li><code>AOF</code>文件太大时，<code>Redis</code>会在后台自动重写文件。</li>
+</ul>
+<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>文件体积大。</li>
+<li>性能较慢。</li>
+</ul>
+<h2 id="RDB-AOF混合使用"><a href="#RDB-AOF混合使用" class="headerlink" title="RDB-AOF混合使用"></a>RDB-AOF混合使用</h2><p>在<code>Redis 4.0</code>提出的新的解决方法。在写入的时候，先把当前数据写入到<code>RDB</code>文件中，再将后续命令写入到<code>AOF</code>文件中，实现全量备份和增量备份，提升备份效率。</p>
+<p>如果不是混合模式，而是两种模式同时启动，<code>Redis</code>加载数据的流程：</p>
+<p><img src="/2024/09/19/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20240919233929823.png" alt="image-20240919233929823"></p>
+<h1 id="Redis内存淘汰机制"><a href="#Redis内存淘汰机制" class="headerlink" title="Redis内存淘汰机制"></a>Redis内存淘汰机制</h1><ol>
+<li><strong>LRU（least recently used）</strong>：最近少使用的数据，仅和时间相关关。</li>
+<li><strong>LFU（least frequently used）</strong>：最不经常使用的数据，和时间、频率相关。</li>
+<li><strong>TTL</strong>：最接近过期时间的数据。</li>
+<li><strong>随机淘汰</strong>。</li>
+</ol>
+<p><code>Redis</code>通过配置：<code>maxmemory-policy</code>来配置具体的淘汰机制：</p>
+<ul>
+<li><code>volatile-lru</code>：查询已设置过期时间的数据集，将最近最少使用的数据淘汰。</li>
+<li><code>volatile-ttl</code>：查询已设置过期时间的数据集，将即将过期的数据淘汰。</li>
+<li><code>volatile-random</code>：已设置过期时间的数据集，随机淘汰数据。</li>
+<li><code>volatile-lfu</code>：已设置过期时间的数据集，将一段时间内，使用次数最少的数据淘汰。</li>
+<li><code>allkeys-lru</code>：查询所有数据，将最近最少使用的数据淘汰。</li>
+<li><code>allkeys-lfu</code>：查询所有数据，将一段时间内，使用次数最少的数据淘汰。</li>
+<li><code>allkeys-random</code>：查询所有数据，随机淘汰数据。</li>
+<li><code>noeviction</code>：默认配置，内存不足时报错，保证数据不丢失。</li>
+</ul>
+<h1 id="过期key处理"><a href="#过期key处理" class="headerlink" title="过期key处理"></a>过期<code>key</code>处理</h1><ul>
+<li><strong>惰性删除</strong>：当访问<code>key</code>时，才去判断是否过期，如果过期直接删除，长期不访问会占内存。</li>
+<li><strong>定时删除</strong>：设置键的过期时间的同时，创建一个定时器，当到达过期时间点时立刻删除，对CPU不友好。</li>
+<li><strong>定期删除</strong>：隔一段时间对数据检查，删除过期的<code>key</code>。</li>
+</ul>
+<p><code>Redis</code>服务器采用惰性和定期两种策略，<code>CPU</code>和内存浪费中取得平衡。</p>
+<h1 id="主从架构"><a href="#主从架构" class="headerlink" title="主从架构"></a>主从架构</h1><p>单节点<code>Redis</code>的<strong>并发能力</strong>是有上限的，要进一步提高<code>Redis</code>的并发能力，就需要搭建主从集群，实现读写分离，由<code>主Redis</code>执行<strong>写</strong>操作，<code>从Redis</code>执行<strong>读</strong>操作。</p>
+<p>在从节点<code>redis.conf</code>文件中新增配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">slaveof &lt;masterip&gt; &lt;masterport&gt;</span><br></pre></td></tr></table></figure>
+
+<p>原理：通过<code>RDB-AOF</code>混合方式将数据文件发送给从节点。</p>
+<p>每个主节点都有一个<code>Replication id</code>，简称<code>replid</code>标记，从节点会继承主节点的<code>replid</code>，通过判断知道是否第一次复制数据。</p>
+<h1 id="哨兵"><a href="#哨兵" class="headerlink" title="哨兵"></a>哨兵</h1><p><code>Redis</code>提供了哨兵（Sentinel）来实现主从集群的自动故障恢复，哨兵的结构和作用如下：</p>
+<ul>
+<li><strong>监控</strong>：<code>Sentinel</code>会不断检测主从集群是否按预期工作。</li>
+<li><strong>自动故障恢复</strong>：如果主节点故障，<code>Sentinel</code>会将一个从节点提升为主节点。</li>
+</ul>
+<p><code>Sentinel</code>基于心跳机制监测服务状态，每隔一秒向集群的每个实例发送ping命令：</p>
+<ul>
+<li><strong>主观下线</strong>：如果某<code>Sentinel</code>节点发现某实例未在规定时间内响应，则会认为该实例<strong>主观下线</strong>。</li>
+<li><strong>客观下线</strong>：若超过指定数量（最好超过<code>Sentinel</code>数量的一半）的<code>Sentinel</code>都认为该实例<strong>主观下线</strong>，则该实例<strong>客观下线</strong>。</li>
+</ul>
+<h1 id="Go-redis"><a href="#Go-redis" class="headerlink" title="Go-redis"></a>Go-redis</h1><p><code>Redis</code>推出了<code>Go</code>语言使用<code>Redis</code>数据库的官方库<code>go-redis</code>，文档地址：[Go Redis <a href="https://redis.uptrace.dev/zh/guide/go-redis.html">快速入门] (uptrace.dev)</a>。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">初始化模块</span></span><br><span class="line">go mod init my_go_redis</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装go-redis库</span></span><br><span class="line">go get github.com/redis/go-redis/v9</span><br></pre></td></tr></table></figure>
+
+<p>在<code>Go</code>中使用</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;context&quot;</span></span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;github.com/redis/go-redis/v9&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="comment">// 连接redis数据库</span></span><br><span class="line">	client := redis.NewClient(&amp;redis.Options&#123;</span><br><span class="line">		Addr: <span class="string">&quot;localhost:6379&quot;</span>,</span><br><span class="line">		Password: <span class="string">&quot;&quot;</span>, <span class="comment">// no password set</span></span><br><span class="line">		DB: <span class="number">0</span>,  <span class="comment">// use default DB</span></span><br><span class="line">	&#125;)</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  另一种连接方式</span></span><br><span class="line"><span class="comment">  opt, err := redis.ParseURL(&quot;redis://&lt;user&gt;:&lt;pass&gt;@localhost:6379/&lt;db&gt;&quot;)</span></span><br><span class="line"><span class="comment">  if err != nil &#123;</span></span><br><span class="line"><span class="comment">    panic(err)</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	client := redis.NewClient(opt)</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">  </span><br><span class="line">  ctx := context.Background()</span><br><span class="line">	<span class="comment">// 使用String数据类型创建一个key-value：foo-bar</span></span><br><span class="line">	err := client.Set(ctx, <span class="string">&quot;foo&quot;</span>, <span class="string">&quot;bar&quot;</span>, <span class="number">0</span>).Err()</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="built_in">panic</span>(err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 获取key为foo的value值</span></span><br><span class="line">	val, err := client.Get(ctx, <span class="string">&quot;foo&quot;</span>).Result()</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="built_in">panic</span>(err)</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(<span class="string">&quot;foo&quot;</span>, val)</span><br><span class="line">  <span class="comment">// 创建一个Hash类型的数据</span></span><br><span class="line">  session := <span class="keyword">map</span>[<span class="type">string</span>]<span class="type">string</span>&#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;John&quot;</span>, <span class="string">&quot;surname&quot;</span>: <span class="string">&quot;Smith&quot;</span>, <span class="string">&quot;company&quot;</span>: <span class="string">&quot;Redis&quot;</span>, <span class="string">&quot;age&quot;</span>: <span class="string">&quot;29&quot;</span>&#125;</span><br><span class="line">  <span class="keyword">for</span> k, v := <span class="keyword">range</span> session &#123;</span><br><span class="line">      err := client.HSet(ctx, <span class="string">&quot;user-session:123&quot;</span>, k, v).Err()</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">          <span class="built_in">panic</span>(err)</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  userSession := client.HGetAll(ctx, <span class="string">&quot;user-session:123&quot;</span>).Val()</span><br><span class="line">  fmt.Println(userSession)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>程序</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
       </tags>
   </entry>
   <entry>
