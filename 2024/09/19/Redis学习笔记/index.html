@@ -666,7 +666,7 @@
 </ul>
 <h2 id="RDB-AOF混合使用"><a href="#RDB-AOF混合使用" class="headerlink" title="RDB-AOF混合使用"></a>RDB-AOF混合使用</h2><p>在<code>Redis 4.0</code>提出的新的解决方法。在写入的时候，先把当前数据写入到<code>RDB</code>文件中，再将后续命令写入到<code>AOF</code>文件中，实现全量备份和增量备份，提升备份效率。</p>
 <p>如果不是混合模式，而是两种模式同时启动，<code>Redis</code>加载数据的流程：</p>
-<p><img src="D:\新建文件夹\markdown\图片\image-20240919233929823.png" alt="image-20240919233929823"></p>
+<p><img src="/../../static/image-20240919233929823.png" alt="image-20240919233929823"></p>
 <h1 id="Redis内存淘汰机制"><a href="#Redis内存淘汰机制" class="headerlink" title="Redis内存淘汰机制"></a>Redis内存淘汰机制</h1><ol>
 <li><strong>LRU（least recently used）</strong>：最近少使用的数据，仅和时间相关关。</li>
 <li><strong>LFU（least frequently used）</strong>：最不经常使用的数据，和时间、频率相关。</li>
