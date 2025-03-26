@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Go改变命令行输出颜色 | Wongzeonwai的主页</title><meta name="author" content="Wongzeonwai,wongzeonwai@163.com"><meta name="copyright" content="Wongzeonwai"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="faith&#x2F;color包faith&#x2F;color是一个用于美化终端输出的Golang库，可以改变输出文本的颜色。GitHub地址：https:&#x2F;&#x2F;github.com&#x2F;faith&#x2F;color。下面是它的一些用法： 安装1go get github.com&#x2F;fatih&#x2F;color  使用例子标准颜色123456789&#x2F;&#x2F; Print with default helper func">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go改变命令行输出颜色">
+<meta property="og:url" content="http://wongzeonwai.github.io/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/index.html">
+<meta property="og:site_name" content="Wongzeonwai的主页">
+<meta property="og:description" content="faith&#x2F;color包faith&#x2F;color是一个用于美化终端输出的Golang库，可以改变输出文本的颜色。GitHub地址：https:&#x2F;&#x2F;github.com&#x2F;faith&#x2F;color。下面是它的一些用法： 安装1go get github.com&#x2F;fatih&#x2F;color  使用例子标准颜色123456789&#x2F;&#x2F; Print with default helper func">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://wongzeonwai.github.io/img/avatar.jpg">
+<meta property="article:published_time" content="2025-03-26T15:01:56.000Z">
+<meta property="article:modified_time" content="2025-03-26T15:01:56.000Z">
+<meta property="article:author" content="Wongzeonwai">
+<meta property="article:tag" content="GO">
+<meta property="article:tag" content="后端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://wongzeonwai.github.io/img/avatar.jpg"><link rel="shortcut icon" href="/img/avatar.jpg"><link rel="canonical" href="http://wongzeonwai.github.io/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Go改变命令行输出颜色',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-03-26 23:01:56'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/rain.gif')"><nav id="nav"><span id="blog-info"><a href="/" title="Wongzeonwai的主页"><span class="site-name">Wongzeonwai的主页</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Go改变命令行输出颜色</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-03-26T15:01:56.000Z" title="发表于 2025-03-26 23:01:56">2025-03-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-03-26T15:01:56.000Z" title="更新于 2025-03-26 23:01:56">2025-03-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%A8%8B%E5%BA%8F/">程序</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="faith-color包"><a href="#faith-color包" class="headerlink" title="faith&#x2F;color包"></a>faith&#x2F;color包</h1><p><em><strong>faith&#x2F;color</strong></em>是一个用于美化终端输出的<em><strong>Golang</strong></em>库，可以改变输出文本的颜色。GitHub地址：<a target="_blank" rel="noopener" href="https://github.com/faith/color%E3%80%82%E4%B8%8B%E9%9D%A2%E6%98%AF%E5%AE%83%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95%EF%BC%9A">https://github.com/faith/color。下面是它的一些用法：</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> get github.com/fatih/color</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用例子"><a href="#使用例子" class="headerlink" title="使用例子"></a>使用例子</h2><h3 id="标准颜色"><a href="#标准颜色" class="headerlink" title="标准颜色"></a>标准颜色</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Print with default helper functions</span></span><br><span class="line">color.Cyan(<span class="string">&quot;Prints text in cyan.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// A newline will be appended automatically</span></span><br><span class="line">color.Blue(<span class="string">&quot;Prints %s in blue.&quot;</span>, <span class="string">&quot;text&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// These are using the default foreground colors</span></span><br><span class="line">color.Red(<span class="string">&quot;We have red&quot;</span>)</span><br><span class="line">color.Magenta(<span class="string">&quot;And many others ..&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/standard.png" alt="standard"></p>
+<h3 id="RGB颜色"><a href="#RGB颜色" class="headerlink" title="RGB颜色"></a>RGB颜色</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">color.RGB(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>).Println(<span class="string">&quot;foreground orange&quot;</span>)</span><br><span class="line">color.RGB(<span class="number">230</span>, <span class="number">42</span>, <span class="number">42</span>).Println(<span class="string">&quot;foreground red&quot;</span>)</span><br><span class="line"></span><br><span class="line">color.BgRGB(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>).Println(<span class="string">&quot;background orange&quot;</span>)</span><br><span class="line">color.BgRGB(<span class="number">230</span>, <span class="number">42</span>, <span class="number">42</span>).Println(<span class="string">&quot;background red&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/RGB.png" alt="RGB"></p>
+<h3 id="混合颜色"><a href="#混合颜色" class="headerlink" title="混合颜色"></a>混合颜色</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a new color object</span></span><br><span class="line">c := color.New(color.FgCyan).Add(color.Underline)</span><br><span class="line">c.Println(<span class="string">&quot;Prints cyan text with an underline.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Or just add them to New()</span></span><br><span class="line">d := color.New(color.FgCyan, color.Bold)</span><br><span class="line">d.Printf(<span class="string">&quot;This prints bold cyan %s\n&quot;</span>, <span class="string">&quot;too!.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Mix up foreground and background colors, create new mixes!</span></span><br><span class="line">red := color.New(color.FgRed)</span><br><span class="line"></span><br><span class="line">boldRed := red.Add(color.Bold)</span><br><span class="line">boldRed.Println(<span class="string">&quot;This will print text in bold red.&quot;</span>)</span><br><span class="line"></span><br><span class="line">whiteBackground := red.Add(color.BgWhite)</span><br><span class="line">whiteBackground.Println(<span class="string">&quot;Red text with white background.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Mix with RGB color codes</span></span><br><span class="line">color.RGB(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>).AddBgRGB(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>).Println(<span class="string">&quot;orange with black background&quot;</span>)</span><br><span class="line"></span><br><span class="line">color.BgRGB(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>).AddRGB(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>).Println(<span class="string">&quot;orange background with white foreground&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/mix.png" alt="mix"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://wongzeonwai.github.io">Wongzeonwai</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://wongzeonwai.github.io/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/">http://wongzeonwai.github.io/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://wongzeonwai.github.io" target="_blank">Wongzeonwai的主页</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/GO/">GO</a><a class="post-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF/">后端</a></div><div class="post_share"><div class="social-share" data-image="/img/avatar.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2025/03/18/RPC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="RPC学习笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">RPC学习笔记</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/08/16/Gin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Gin学习笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-16</div><div class="title">Gin学习笔记</div></div></a></div><div><a href="/2024/08/07/Go%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="GO学习笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-07</div><div class="title">GO学习笔记</div></div></a></div><div><a href="/2024/10/17/GVM%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/" title="GVM安装笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-17</div><div class="title">GVM安装笔记</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Wongzeonwai</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Wongzeonwai"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Wongzeonwai" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wongzeonwai@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#faith-color%E5%8C%85"><span class="toc-number">1.</span> <span class="toc-text">faith&#x2F;color包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BE%8B%E5%AD%90"><span class="toc-number">1.2.</span> <span class="toc-text">使用例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E9%A2%9C%E8%89%B2"><span class="toc-number">1.2.1.</span> <span class="toc-text">标准颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RGB%E9%A2%9C%E8%89%B2"><span class="toc-number">1.2.2.</span> <span class="toc-text">RGB颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B7%E5%90%88%E9%A2%9C%E8%89%B2"><span class="toc-number">1.2.3.</span> <span class="toc-text">混合颜色</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/" title="Go改变命令行输出颜色">Go改变命令行输出颜色</a><time datetime="2025-03-26T15:01:56.000Z" title="发表于 2025-03-26 23:01:56">2025-03-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/18/RPC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="RPC学习笔记">RPC学习笔记</a><time datetime="2025-03-18T10:45:38.000Z" title="发表于 2025-03-18 18:45:38">2025-03-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/17/GVM%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/" title="GVM安装笔记">GVM安装笔记</a><time datetime="2024-10-17T13:09:19.000Z" title="发表于 2024-10-17 21:09:19">2024-10-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/25/gPRC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="gPRC学习笔记">gPRC学习笔记</a><time datetime="2024-09-25T12:36:49.000Z" title="发表于 2024-09-25 20:36:49">2024-09-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/19/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Redis学习笔记">Redis学习笔记</a><time datetime="2024-09-19T07:17:49.000Z" title="发表于 2024-09-19 15:17:49">2024-09-19</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Wongzeonwai</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
