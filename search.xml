@@ -1,28 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>GVM安装笔记</title>
-    <url>/2024/10/17/GVM%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="一、GVM介绍"><a href="#一、GVM介绍" class="headerlink" title="一、GVM介绍"></a>一、GVM介绍</h1><p><strong>GVM（Go Version Manager）</strong>，一款<code>Go</code>语言版本管理工具，类似于<code>nodejs</code>版本管理工具<code>nvm</code>。</p>
-<h1 id="二、Windows安装方式"><a href="#二、Windows安装方式" class="headerlink" title="二、Windows安装方式"></a>二、Windows安装方式</h1><p>在<a href="https://github.com/voidint/g/blob/master/README_CN.md">g&#x2F;README_CN.md at master · voidint&#x2F;g (github.com)</a>下找到安装包进行安装。</p>
-<p><img src="/2024/10/17/GVM%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/install.png" alt="install"></p>
-<p>打开系统环境变量，增加如下变量：</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line"># 配置golang下载镜像，不用翻墙。</span><br><span class="line">G_MIRROR=https://golang.google.cn/dl/</span><br><span class="line"># 开启实验特性，用于使修改go存放目录生效。</span><br><span class="line">G_EXPERIMENTAL=true</span><br><span class="line"># 更改go存放目录</span><br><span class="line">G_HOME=自定义地址</span><br><span class="line">GOROOT=%G_HOME%\go</span><br><span class="line"># 配置PATH变量</span><br><span class="line">%GOROOT%\bin</span><br></pre></td></tr></table></figure>
-
-<p>设置完成后，打开<code>powershell</code>或者<code>cmd</code>测试一下：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 输入：</span></span><br><span class="line">g</span><br><span class="line"><span class="comment"># 输出：</span></span><br><span class="line">NAME:</span><br><span class="line">  g - Golang Version Manager</span><br><span class="line"></span><br><span class="line"> USAGE:</span><br><span class="line">  g  command [<span class="type">arguments...</span>]</span><br><span class="line"></span><br><span class="line"> VERSION:</span><br><span class="line">  <span class="number">1.7</span>.<span class="number">0</span></span><br><span class="line"></span><br><span class="line"> AUTHOR:</span><br><span class="line">  voidint &lt;voidint@<span class="number">126</span>.com&gt;</span><br><span class="line"></span><br><span class="line"> COMMANDS:</span><br><span class="line">    <span class="built_in">ls</span>, l               List installed versions</span><br><span class="line">    <span class="built_in">ls</span><span class="literal">-remote</span>, lr, lsr  List remote versions available <span class="keyword">for</span> install</span><br><span class="line">    use                 <span class="keyword">Switch</span> to specified version</span><br><span class="line">    install, i          Download and install a version</span><br><span class="line">    uninstall           Uninstall a version</span><br><span class="line">    clean               Remove files from the package download directory</span><br><span class="line">    env                 Show env variables of g</span><br><span class="line">    self                Modify g itself</span><br><span class="line">    help, <span class="built_in">h</span>             Shows a list of commands or help <span class="keyword">for</span> one command</span><br><span class="line"></span><br><span class="line"> GLOBAL OPTIONS:</span><br><span class="line">  <span class="literal">--help</span>, <span class="literal">-h</span>     show help</span><br><span class="line">  <span class="literal">--version</span>, <span class="literal">-v</span>  print the version</span><br><span class="line"></span><br><span class="line"> COPYRIGHT:</span><br><span class="line">  Copyright (c) <span class="number">2019</span><span class="literal">-2024</span>, voidint. All rights reserved.</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 更新g本身：</span></span><br><span class="line">  g self update</span><br><span class="line">  <span class="comment"># 卸载g：</span></span><br><span class="line">  g self uninstall</span><br></pre></td></tr></table></figure>
-
-<p>有关<strong>Linux</strong>系统下安装或其他信息可以参考文档：<a href="https://github.com/voidint/g/blob/master/README_CN.md">g&#x2F;README_CN.md at master · voidint&#x2F;g (github.com)</a>。</p>
-<p><strong>Linux</strong>系统下也可以之间通过命令行方式安装。</p>
-]]></content>
-      <categories>
-        <category>程序</category>
-      </categories>
-      <tags>
-        <tag>GO</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Docker学习笔记</title>
     <url>/2024/09/12/Docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="一、Docker安装"><a href="#一、Docker安装" class="headerlink" title="一、Docker安装"></a>一、Docker安装</h1><h2 id="1、Centos安装过程"><a href="#1、Centos安装过程" class="headerlink" title="1、Centos安装过程"></a>1、Centos安装过程</h2><h3 id="（1）卸载旧版本的Docker"><a href="#（1）卸载旧版本的Docker" class="headerlink" title="（1）卸载旧版本的Docker"></a>（1）卸载旧版本的Docker</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum remove docker \</span><br><span class="line">                  docker-client \</span><br><span class="line">                  docker-client-latest \</span><br><span class="line">                  docker-common \</span><br><span class="line">                  docker-latest \</span><br><span class="line">                  docker-latest-logrotate \</span><br><span class="line">                  docker-logrotate \</span><br><span class="line">                  docker-selinux \</span><br><span class="line">                  docker-engine-selinux \</span><br><span class="line">                  docker-engine \</span><br><span class="line">                  docker-ce</span><br></pre></td></tr></table></figure>
@@ -60,14 +38,120 @@
 <p>查看版本：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker-compose version // Docker Compose version v2.32.1</span><br></pre></td></tr></table></figure>
 
+<p>国内镜像站配置：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;https://docker.m.daocloud.io&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://docker.1panel.live&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://hub.rat.dev&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://hub-mirror.c.163.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://mirror.ccs.tencentyun.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://mirrors.aliyun.com&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
 <h1 id="二、Docker基本命令"><a href="#二、Docker基本命令" class="headerlink" title="二、Docker基本命令"></a>二、Docker基本命令</h1><p><img src="/2024/09/12/Docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/docker.png" alt="docker"></p>
-<p>一</p>
+<h2 id="1、镜像"><a href="#1、镜像" class="headerlink" title="1、镜像"></a>1、镜像</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">拉取镜像</span></span><br><span class="line">docker pull 镜像库/作者/镜像名:版本</span><br><span class="line">docker pull docker.io/library/nginx:latest</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">--platform=系统架构</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看下载的镜像</span></span><br><span class="line">docker images</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除镜像</span></span><br><span class="line">docker rmi 镜像ID/镜像名</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、容器"><a href="#2、容器" class="headerlink" title="2、容器"></a>2、容器</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建并启动容器</span></span><br><span class="line">docker run 镜像名</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-d 在后台运行</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-p 宿主机端口:容器端口 端口映射</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-v 宿主机文件存放地址、挂载卷:容器文件存放地址 数据卷映射</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-e 配置环境变量</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">--name 容器自定义名</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">--<span class="built_in">rm</span> 停止容器后自动删除</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-it 启动容器后可以进入容器内部，如 Linux 容器</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">--restart 容器停止后自动重启，always 总是生效，unless-stopper 手动停止容器后不生效</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-c 替换 dockerfile 中的 CMD 命令</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">--network 子网名 加入子网，host 下容器可以直接使用宿主机网络，不需要指定端口号</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看正在运行的容器</span></span><br><span class="line">docker ps</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-a 查看所有容器</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除容器</span></span><br><span class="line">docker rm 容器名/容器ID</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-f 强制删除正在运行的容器</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止容器</span></span><br><span class="line">docker stop 容器名/容器ID</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动容器</span></span><br><span class="line">docker start 容器名/容器ID</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看容器配置</span></span><br><span class="line">docker inspect 容器ID</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建容器，后面可选参数与 run 命令相同</span></span><br><span class="line">docker create 镜像名</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看日志</span></span><br><span class="line">docker logs 容器名/容器ID</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">执行 Linux 命令</span></span><br><span class="line">docker exec 容器名/容器ID Linux命令</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入容器并开启一个 Linux 命令行</span></span><br><span class="line">docker exec -it 容器名/容器ID /bin/sh</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、挂载卷"><a href="#3、挂载卷" class="headerlink" title="3、挂载卷"></a>3、挂载卷</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建挂载卷名</span></span><br><span class="line">docker volume create 挂载卷名</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看挂载卷地址</span></span><br><span class="line">docker volume inspect 挂载卷名</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看所有挂载卷</span></span><br><span class="line">docker volume list</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除挂载卷</span></span><br><span class="line">docker volume rm 挂载卷名</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除所有没有容器使用的挂载卷</span></span><br><span class="line">docker volume prune -a</span><br></pre></td></tr></table></figure>
+
+<h2 id="4、网络"><a href="#4、网络" class="headerlink" title="4、网络"></a>4、网络</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建一个子网，同一个子网下的容器可以相互访问，在 Linux 使用 ping 容器名 可以查看子网IP</span></span><br><span class="line">docker network create 子网名</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看所有网络</span></span><br><span class="line">docker network list</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除自定义子网</span></span><br><span class="line">docker network rm 子网名/子网ID</span><br></pre></td></tr></table></figure>
+
+<h2 id="5、compose"><a href="#5、compose" class="headerlink" title="5、compose"></a>5、compose</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">执行 compose 文件</span></span><br><span class="line">docker compose up</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-d 在后台执行</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-f 指定文件名</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止并删除 compose 下的容器</span></span><br><span class="line">docker compose down</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止容器</span></span><br><span class="line">docker compose stop</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动容器</span></span><br><span class="line">docker compose start</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、Dockerfile"><a href="#三、Dockerfile" class="headerlink" title="三、Dockerfile"></a>三、Dockerfile</h1><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> 镜像名</span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> 工作目录</span></span><br><span class="line"><span class="comment"># 复制工程下的所有文件到，第一个点表示当前工程文件夹，第二个点表示工作目录</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . .</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> 执行命令</span></span><br><span class="line"><span class="comment"># 只能存在一个 CMD</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [容器运行时默认执行的命令]</span></span><br><span class="line"><span class="comment"># 同 CMD</span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> []</span></span><br><span class="line"><span class="comment"># 环境变量，一个 ENV 下可以设置多个环境变量</span></span><br><span class="line"><span class="keyword">ENV</span> key=value</span><br><span class="line"><span class="comment"># 监听端口，实际不发布，只是作为开发之间的约束，不指定协议默认为 tcp</span></span><br><span class="line"><span class="keyword">EXPOSE</span> port/protocol</span><br><span class="line"><span class="keyword">MAINTAINER</span> 镜像维护者</span><br><span class="line"><span class="comment"># 设置容器下的用户，默认为 root</span></span><br><span class="line"><span class="keyword">USER</span> 用户名</span><br></pre></td></tr></table></figure>
+
+<h1 id="四、docker-compose-yaml"><a href="#四、docker-compose-yaml" class="headerlink" title="四、docker-compose.yaml"></a>四、docker-compose.yaml</h1><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">版本号</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="string">容器名:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">使用的镜像</span></span><br><span class="line">    <span class="attr">environment:</span> <span class="string">环境变量</span></span><br><span class="line">    <span class="attr">volumes:</span> </span><br><span class="line">      <span class="bullet">-</span> <span class="string">本地数据存放地址:容器数据存放地址</span></span><br><span class="line">    <span class="attr">ports:</span> </span><br><span class="line">      <span class="bullet">-</span> <span class="string">本机端口:容器端口</span></span><br><span class="line">    <span class="attr">depends-on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">依赖于哪个容器（判断执行顺序）</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">重启策略</span></span><br><span class="line"></span><br><span class="line"><span class="attr">network:</span></span><br><span class="line">	<span class="string">自定义子网名:</span></span><br><span class="line">	</span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">	<span class="string">自定义数据卷名:</span></span><br></pre></td></tr></table></figure>
+
+<p>同一个 <strong>yaml</strong> 文件下的子网地址是相同的。</p>
 ]]></content>
       <categories>
         <category>程序</category>
       </categories>
       <tags>
         <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GVM安装笔记</title>
+    <url>/2024/10/17/GVM%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="一、GVM介绍"><a href="#一、GVM介绍" class="headerlink" title="一、GVM介绍"></a>一、GVM介绍</h1><p><strong>GVM（Go Version Manager）</strong>，一款<code>Go</code>语言版本管理工具，类似于<code>nodejs</code>版本管理工具<code>nvm</code>。</p>
+<h1 id="二、Windows安装方式"><a href="#二、Windows安装方式" class="headerlink" title="二、Windows安装方式"></a>二、Windows安装方式</h1><p>在<a href="https://github.com/voidint/g/blob/master/README_CN.md">g&#x2F;README_CN.md at master · voidint&#x2F;g (github.com)</a>下找到安装包进行安装。</p>
+<p><img src="/2024/10/17/GVM%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/install.png" alt="install"></p>
+<p>打开系统环境变量，增加如下变量：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line"># 配置golang下载镜像，不用翻墙。</span><br><span class="line">G_MIRROR=https://golang.google.cn/dl/</span><br><span class="line"># 开启实验特性，用于使修改go存放目录生效。</span><br><span class="line">G_EXPERIMENTAL=true</span><br><span class="line"># 更改go存放目录</span><br><span class="line">G_HOME=自定义地址</span><br><span class="line">GOROOT=%G_HOME%\go</span><br><span class="line"># 配置PATH变量</span><br><span class="line">%GOROOT%\bin</span><br></pre></td></tr></table></figure>
+
+<p>设置完成后，打开<code>powershell</code>或者<code>cmd</code>测试一下：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 输入：</span></span><br><span class="line">g</span><br><span class="line"><span class="comment"># 输出：</span></span><br><span class="line">NAME:</span><br><span class="line">  g - Golang Version Manager</span><br><span class="line"></span><br><span class="line"> USAGE:</span><br><span class="line">  g  command [<span class="type">arguments...</span>]</span><br><span class="line"></span><br><span class="line"> VERSION:</span><br><span class="line">  <span class="number">1.7</span>.<span class="number">0</span></span><br><span class="line"></span><br><span class="line"> AUTHOR:</span><br><span class="line">  voidint &lt;voidint@<span class="number">126</span>.com&gt;</span><br><span class="line"></span><br><span class="line"> COMMANDS:</span><br><span class="line">    <span class="built_in">ls</span>, l               List installed versions</span><br><span class="line">    <span class="built_in">ls</span><span class="literal">-remote</span>, lr, lsr  List remote versions available <span class="keyword">for</span> install</span><br><span class="line">    use                 <span class="keyword">Switch</span> to specified version</span><br><span class="line">    install, i          Download and install a version</span><br><span class="line">    uninstall           Uninstall a version</span><br><span class="line">    clean               Remove files from the package download directory</span><br><span class="line">    env                 Show env variables of g</span><br><span class="line">    self                Modify g itself</span><br><span class="line">    help, <span class="built_in">h</span>             Shows a list of commands or help <span class="keyword">for</span> one command</span><br><span class="line"></span><br><span class="line"> GLOBAL OPTIONS:</span><br><span class="line">  <span class="literal">--help</span>, <span class="literal">-h</span>     show help</span><br><span class="line">  <span class="literal">--version</span>, <span class="literal">-v</span>  print the version</span><br><span class="line"></span><br><span class="line"> COPYRIGHT:</span><br><span class="line">  Copyright (c) <span class="number">2019</span><span class="literal">-2024</span>, voidint. All rights reserved.</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 更新g本身：</span></span><br><span class="line">  g self update</span><br><span class="line">  <span class="comment"># 卸载g：</span></span><br><span class="line">  g self uninstall</span><br></pre></td></tr></table></figure>
+
+<p>有关<strong>Linux</strong>系统下安装或其他信息可以参考文档：<a href="https://github.com/voidint/g/blob/master/README_CN.md">g&#x2F;README_CN.md at master · voidint&#x2F;g (github.com)</a>。</p>
+<p><strong>Linux</strong>系统下也可以之间通过命令行方式安装。</p>
+]]></content>
+      <categories>
+        <category>程序</category>
+      </categories>
+      <tags>
+        <tag>GO</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>深入理解GMP模型</title>
+    <url>/2025/06/09/Golang%E7%9A%84GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</url>
+    <content><![CDATA[<h1 id="一、Go-V1-3-标记清除法"><a href="#一、Go-V1-3-标记清除法" class="headerlink" title="一、Go V1.3 标记清除法"></a>一、Go V1.3 标记清除法</h1><p>Go 在 V1.3 之前使用的是标记清除法：</p>
+<p><img src="/2025/06/09/Golang%E7%9A%84GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/marksweep.png" alt="标记清除法"></p>
+<ol>
+<li>暂停程序业务逻辑，分类出可达和不可达的对象，然后做上标记。</li>
+<li>开始标记，程序找出它所有可达的对象，并做上标记。</li>
+<li>标记完了之后，然后开始清除未标记的对象。</li>
+<li>停止暂停，让程序继续跑。然后循环重复这个过程，直到process程序生命周期结束。</li>
+</ol>
+<p>标记清除法有非常严重的问题：</p>
+<ul>
+<li>STW（stop the world），让程序暂停，程序出现卡顿。</li>
+<li>标记需要扫描整个 heap。</li>
+<li>清除数据会产生 heap 碎片。</li>
+</ul>
+<p>STW 整个过程经过“暂停程序 -&gt; 标记 -&gt; 清除 -&gt; 重新启动程序”，Go 在 GC 回收中优化了 STW 过程，将清除放到 STW 之外，减少了程序暂停时间，但是仍会造成程序卡顿。</p>
+<h1 id="二、Go-V1-5-三色标记法"><a href="#二、Go-V1-5-三色标记法" class="headerlink" title="二、Go V1.5 三色标记法"></a>二、Go V1.5 三色标记法</h1><p>为了解决 STW 带来的问题，Go 在 V1.5 之后引入了三色标记法。</p>
+<ol>
+<li>每次创建新的对象，都会将对象标记为**<span style="color: #C0C4CC;">白色</span>**。</li>
+<li>GC 开始时，从根节点开始遍历，将根节点对象标记为**<span style="color: gray;">灰色</span>**。</li>
+<li>遍历**<span style="color: gray;">灰色</span><strong>节点，将</strong><span style="color: gray;">灰色</span><strong>节点引用的对象标记为</strong><span style="color: gray;">灰色</span><strong>，原来的</strong><span style="color: gray;">灰色</span><strong>节点标记为</strong>黑色**。</li>
+<li>重复步骤 3，直到没有**<span style="color: gray;">灰色</span>**节点。</li>
+<li>回收所有**<span style="color: #C0C4CC;">白色</span>**节点。</li>
+</ol>
+<h2 id="标记出错"><a href="#标记出错" class="headerlink" title="标记出错"></a>标记出错</h2><p>但是由于 V1.5 的垃圾回收机制是跟程序并发执行的，所以在一些特定条件下，三色标记法可能会出现错误。</p>
+<h3 id="（1）对象漏标"><a href="#（1）对象漏标" class="headerlink" title="（1）对象漏标"></a>（1）对象漏标</h3><ul>
+<li>对象 A 在 GC 开始时被标记为<strong>黑色</strong>，对象 B 是与另一个<strong>黑色</strong>对象的引用对象，因此会被标记为**<span style="color: gray;">灰色</span>**，对象 C 是对象 B 的引用对象。</li>
+<li>在 GC 进行过程中，对象 B 删除了对对象 C 的引用，而对象 A 建立与对象 C 的引用。</li>
+<li>对象 C 因为没有被标记成**<span style="color: gray;">灰色</span>**被错误扫描从而在 GC 结束后被回收。</li>
+</ul>
+<h3 id="（2）对象多标"><a href="#（2）对象多标" class="headerlink" title="（2）对象多标"></a>（2）对象多标</h3><ul>
+<li>对象 A 在 GC 开始时被标记为<strong>黑色</strong>，对象 B 是对象 A 的引用，因此会被标记为**<span style="color: gray;">灰色</span>**。</li>
+<li>在 GC 进行过程中，对象 A 删除了对对象 B 的引用。</li>
+<li>因为对象 B 是**<span style="color: gray;">灰色</span><strong>，因此在下一轮扫描中仍然会被标记为</strong>黑色**，因此对象 B 没有被正确回收。这种对象成为“浮动垃圾”，但是由于对象 B 在下一次 GC 还是会被回收，我们可以容忍这种错误。</li>
+</ul>
+<p>在两种条件同时存在的情况下，对象漏标就会发生：</p>
+<ol>
+<li>一个白色对象被<strong>黑色</strong>对象引用。</li>
+<li>**<span style="color: gray;">灰色</span><strong>对象与它之间的可达关系的</strong><span style="color: #C0C4CC;">白色</span>**对象遭到破坏。</li>
+</ol>
+<h2 id="强弱三色不变式"><a href="#强弱三色不变式" class="headerlink" title="强弱三色不变式"></a>强弱三色不变式</h2><p>为了解决这种问题，Go 提出了<strong>“强弱三色不变式”</strong>：</p>
+<ul>
+<li>强三色不变式：**<span style="color: #C0C4CC;">白色</span><strong>对象不能被</strong>黑色**对象直接引用（直接破坏条件 1）。</li>
+<li>弱三色不变式：**<span style="color: #C0C4CC;">白色</span><strong>对象可以被</strong>黑色<strong>对象引用，但在白色对象的引用链上必须存在</strong><span style="color: gray;">灰色</span>**对象（破坏条件 2）。</li>
+</ul>
+<h2 id="屏障机制"><a href="#屏障机制" class="headerlink" title="屏障机制"></a>屏障机制</h2><p>遵循这两种方法，GC 算法引入了屏障机制。即在执行某种特定行动前，必须完成屏障的条件：</p>
+<h3 id="（1）插入写屏障"><a href="#（1）插入写屏障" class="headerlink" title="（1）插入写屏障"></a>（1）插入写屏障</h3><p>当一个<strong>黑色</strong>对象指向一个**<span style="color: #C0C4CC;">白色</span><strong>对象前，会先触发屏障将</strong><span style="color: #C0C4CC;">白色</span><strong>对象置为</strong><span style="color: gray;">灰色</span>**，再建立引用。</p>
+<h3 id="（2）删除写屏障"><a href="#（2）删除写屏障" class="headerlink" title="（2）删除写屏障"></a>（2）删除写屏障</h3><p>当一个**<span style="color: #C0C4CC;">白色</span><strong>对象即将被上游删除引用前，会触发屏障将其置为</strong><span style="color: gray;">灰色</span>**，之后再删除上游指向其的引用。</p>
+<p>屏障机制依旧存在缺陷，不能对栈对象生效，因此在 GC 最后依旧需要 STW 最后进行一次栈的扫描。</p>
+<h1 id="三、Go-V1-8混合写屏障"><a href="#三、Go-V1-8混合写屏障" class="headerlink" title="三、Go V1.8混合写屏障"></a>三、Go V1.8混合写屏障</h1><p>为了消除最后一次 STW 的成本，Go V1.8 开始使用混合写屏障 + 三色标记法模式：</p>
+<ol>
+<li>在 GC 开始前，将栈上所有可达对象置<strong>黑</strong>。</li>
+<li>GC 期间，栈上新创建的对象都会被置<strong>黑</strong>。</li>
+<li>堆对象正常使用插入、删除写屏障。</li>
+</ol>
+<p>在 V1.8 中，GC 只在开始和结束使用 STW，告知程序启用和关闭屏障。</p>
+]]></content>
+      <categories>
+        <category>程序</category>
+      </categories>
+      <tags>
+        <tag>GO</tag>
+        <tag>后端</tag>
       </tags>
   </entry>
   <entry>
@@ -200,63 +284,35 @@
       </tags>
   </entry>
   <entry>
-    <title>深入理解GMP模型</title>
-    <url>/2025/06/09/Golang%E7%9A%84GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</url>
-    <content><![CDATA[<h1 id="一、Go-V1-3-标记清除法"><a href="#一、Go-V1-3-标记清除法" class="headerlink" title="一、Go V1.3 标记清除法"></a>一、Go V1.3 标记清除法</h1><p>Go 在 V1.3 之前使用的是标记清除法：</p>
-<p><img src="/2025/06/09/Golang%E7%9A%84GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/marksweep.png" alt="标记清除法"></p>
-<ol>
-<li>暂停程序业务逻辑，分类出可达和不可达的对象，然后做上标记。</li>
-<li>开始标记，程序找出它所有可达的对象，并做上标记。</li>
-<li>标记完了之后，然后开始清除未标记的对象。</li>
-<li>停止暂停，让程序继续跑。然后循环重复这个过程，直到process程序生命周期结束。</li>
-</ol>
-<p>标记清除法有非常严重的问题：</p>
-<ul>
-<li>STW（stop the world），让程序暂停，程序出现卡顿。</li>
-<li>标记需要扫描整个 heap。</li>
-<li>清除数据会产生 heap 碎片。</li>
-</ul>
-<p>STW 整个过程经过“暂停程序 -&gt; 标记 -&gt; 清除 -&gt; 重新启动程序”，Go 在 GC 回收中优化了 STW 过程，将清除放到 STW 之外，减少了程序暂停时间，但是仍会造成程序卡顿。</p>
-<h1 id="二、Go-V1-5-三色标记法"><a href="#二、Go-V1-5-三色标记法" class="headerlink" title="二、Go V1.5 三色标记法"></a>二、Go V1.5 三色标记法</h1><p>为了解决 STW 带来的问题，Go 在 V1.5 之后引入了三色标记法。</p>
-<ol>
-<li>每次创建新的对象，都会将对象标记为**<span style="color: #C0C4CC;">白色</span>**。</li>
-<li>GC 开始时，从根节点开始遍历，将根节点对象标记为**<span style="color: gray;">灰色</span>**。</li>
-<li>遍历**<span style="color: gray;">灰色</span><strong>节点，将</strong><span style="color: gray;">灰色</span><strong>节点引用的对象标记为</strong><span style="color: gray;">灰色</span><strong>，原来的</strong><span style="color: gray;">灰色</span><strong>节点标记为</strong>黑色**。</li>
-<li>重复步骤 3，直到没有**<span style="color: gray;">灰色</span>**节点。</li>
-<li>回收所有**<span style="color: #C0C4CC;">白色</span>**节点。</li>
-</ol>
-<h2 id="标记出错"><a href="#标记出错" class="headerlink" title="标记出错"></a>标记出错</h2><p>但是由于 V1.5 的垃圾回收机制是跟程序并发执行的，所以在一些特定条件下，三色标记法可能会出现错误。</p>
-<h3 id="（1）对象漏标"><a href="#（1）对象漏标" class="headerlink" title="（1）对象漏标"></a>（1）对象漏标</h3><ul>
-<li>对象 A 在 GC 开始时被标记为<strong>黑色</strong>，对象 B 是与另一个<strong>黑色</strong>对象的引用对象，因此会被标记为**<span style="color: gray;">灰色</span>**，对象 C 是对象 B 的引用对象。</li>
-<li>在 GC 进行过程中，对象 B 删除了对对象 C 的引用，而对象 A 建立与对象 C 的引用。</li>
-<li>对象 C 因为没有被标记成**<span style="color: gray;">灰色</span>**被错误扫描从而在 GC 结束后被回收。</li>
-</ul>
-<h3 id="（2）对象多标"><a href="#（2）对象多标" class="headerlink" title="（2）对象多标"></a>（2）对象多标</h3><ul>
-<li>对象 A 在 GC 开始时被标记为<strong>黑色</strong>，对象 B 是对象 A 的引用，因此会被标记为**<span style="color: gray;">灰色</span>**。</li>
-<li>在 GC 进行过程中，对象 A 删除了对对象 B 的引用。</li>
-<li>因为对象 B 是**<span style="color: gray;">灰色</span><strong>，因此在下一轮扫描中仍然会被标记为</strong>黑色**，因此对象 B 没有被正确回收。这种对象成为“浮动垃圾”，但是由于对象 B 在下一次 GC 还是会被回收，我们可以容忍这种错误。</li>
-</ul>
-<p>在两种条件同时存在的情况下，对象漏标就会发生：</p>
-<ol>
-<li>一个白色对象被<strong>黑色</strong>对象引用。</li>
-<li>**<span style="color: gray;">灰色</span><strong>对象与它之间的可达关系的</strong><span style="color: #C0C4CC;">白色</span>**对象遭到破坏。</li>
-</ol>
-<h2 id="强弱三色不变式"><a href="#强弱三色不变式" class="headerlink" title="强弱三色不变式"></a>强弱三色不变式</h2><p>为了解决这种问题，Go 提出了<strong>“强弱三色不变式”</strong>：</p>
-<ul>
-<li>强三色不变式：**<span style="color: #C0C4CC;">白色</span><strong>对象不能被</strong>黑色**对象直接引用（直接破坏条件 1）。</li>
-<li>弱三色不变式：**<span style="color: #C0C4CC;">白色</span><strong>对象可以被</strong>黑色<strong>对象引用，但在白色对象的引用链上必须存在</strong><span style="color: gray;">灰色</span>**对象（破坏条件 2）。</li>
-</ul>
-<h2 id="屏障机制"><a href="#屏障机制" class="headerlink" title="屏障机制"></a>屏障机制</h2><p>遵循这两种方法，GC 算法引入了屏障机制。即在执行某种特定行动前，必须完成屏障的条件：</p>
-<h3 id="（1）插入写屏障"><a href="#（1）插入写屏障" class="headerlink" title="（1）插入写屏障"></a>（1）插入写屏障</h3><p>当一个<strong>黑色</strong>对象指向一个**<span style="color: #C0C4CC;">白色</span><strong>对象前，会先触发屏障将</strong><span style="color: #C0C4CC;">白色</span><strong>对象置为</strong><span style="color: gray;">灰色</span>**，再建立引用。</p>
-<h3 id="（2）删除写屏障"><a href="#（2）删除写屏障" class="headerlink" title="（2）删除写屏障"></a>（2）删除写屏障</h3><p>当一个**<span style="color: #C0C4CC;">白色</span><strong>对象即将被上游删除引用前，会触发屏障将其置为</strong><span style="color: gray;">灰色</span>**，之后再删除上游指向其的引用。</p>
-<p>屏障机制依旧存在缺陷，不能对栈对象生效，因此在 GC 最后依旧需要 STW 最后进行一次栈的扫描。</p>
-<h1 id="三、Go-V1-8混合写屏障"><a href="#三、Go-V1-8混合写屏障" class="headerlink" title="三、Go V1.8混合写屏障"></a>三、Go V1.8混合写屏障</h1><p>为了消除最后一次 STW 的成本，Go V1.8 开始使用混合写屏障 + 三色标记法模式：</p>
-<ol>
-<li>在 GC 开始前，将栈上所有可达对象置<strong>黑</strong>。</li>
-<li>GC 期间，栈上新创建的对象都会被置<strong>黑</strong>。</li>
-<li>堆对象正常使用插入、删除写屏障。</li>
-</ol>
-<p>在 V1.8 中，GC 只在开始和结束使用 STW，告知程序启用和关闭屏障。</p>
+    <title>Go改变命令行输出颜色</title>
+    <url>/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/</url>
+    <content><![CDATA[<h1 id="faith-color包"><a href="#faith-color包" class="headerlink" title="faith&#x2F;color包"></a>faith&#x2F;color包</h1><p><em><strong>faith&#x2F;color</strong></em>是一个用于美化终端输出的<em><strong>Golang</strong></em>库，可以改变输出文本的颜色。GitHub地址：<a href="https://github.com/faith/color%E3%80%82%E4%B8%8B%E9%9D%A2%E6%98%AF%E5%AE%83%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95%EF%BC%9A">https://github.com/faith/color。下面是它的一些用法：</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">go</span> get github.com/fatih/color</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用例子"><a href="#使用例子" class="headerlink" title="使用例子"></a>使用例子</h2><h3 id="标准颜色"><a href="#标准颜色" class="headerlink" title="标准颜色"></a>标准颜色</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Print with default helper functions</span></span><br><span class="line">color.Cyan(<span class="string">&quot;Prints text in cyan.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// A newline will be appended automatically</span></span><br><span class="line">color.Blue(<span class="string">&quot;Prints %s in blue.&quot;</span>, <span class="string">&quot;text&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// These are using the default foreground colors</span></span><br><span class="line">color.Red(<span class="string">&quot;We have red&quot;</span>)</span><br><span class="line">color.Magenta(<span class="string">&quot;And many others ..&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/standard.png" alt="standard"></p>
+<h3 id="RGB颜色"><a href="#RGB颜色" class="headerlink" title="RGB颜色"></a>RGB颜色</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">color.RGB(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>).Println(<span class="string">&quot;foreground orange&quot;</span>)</span><br><span class="line">color.RGB(<span class="number">230</span>, <span class="number">42</span>, <span class="number">42</span>).Println(<span class="string">&quot;foreground red&quot;</span>)</span><br><span class="line"></span><br><span class="line">color.BgRGB(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>).Println(<span class="string">&quot;background orange&quot;</span>)</span><br><span class="line">color.BgRGB(<span class="number">230</span>, <span class="number">42</span>, <span class="number">42</span>).Println(<span class="string">&quot;background red&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/RGB.png" alt="RGB"></p>
+<h3 id="混合颜色"><a href="#混合颜色" class="headerlink" title="混合颜色"></a>混合颜色</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Create a new color object</span></span><br><span class="line">c := color.New(color.FgCyan).Add(color.Underline)</span><br><span class="line">c.Println(<span class="string">&quot;Prints cyan text with an underline.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Or just add them to New()</span></span><br><span class="line">d := color.New(color.FgCyan, color.Bold)</span><br><span class="line">d.Printf(<span class="string">&quot;This prints bold cyan %s\n&quot;</span>, <span class="string">&quot;too!.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Mix up foreground and background colors, create new mixes!</span></span><br><span class="line">red := color.New(color.FgRed)</span><br><span class="line"></span><br><span class="line">boldRed := red.Add(color.Bold)</span><br><span class="line">boldRed.Println(<span class="string">&quot;This will print text in bold red.&quot;</span>)</span><br><span class="line"></span><br><span class="line">whiteBackground := red.Add(color.BgWhite)</span><br><span class="line">whiteBackground.Println(<span class="string">&quot;Red text with white background.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Mix with RGB color codes</span></span><br><span class="line">color.RGB(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>).AddBgRGB(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>).Println(<span class="string">&quot;orange with black background&quot;</span>)</span><br><span class="line"></span><br><span class="line">color.BgRGB(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>).AddRGB(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>).Println(<span class="string">&quot;orange background with white foreground&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/mix.png" alt="mix"></p>
+<h3 id="配合fmt使用"><a href="#配合fmt使用" class="headerlink" title="配合fmt使用"></a>配合fmt使用</h3><p>在fmt中使用</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Create SprintXxx functions to mix strings with other non-colorized strings:</span></span><br><span class="line">yellow := color.New(color.FgYellow).SprintFunc()</span><br><span class="line">red := color.New(color.FgRed).SprintFunc()</span><br><span class="line">fmt.Printf(<span class="string">&quot;This is a %s and this is %s.\n&quot;</span>, yellow(<span class="string">&quot;warning&quot;</span>), red(<span class="string">&quot;error&quot;</span>))</span><br><span class="line"></span><br><span class="line">info := color.New(color.FgWhite, color.BgGreen).SprintFunc()</span><br><span class="line">fmt.Printf(<span class="string">&quot;This %s rocks!\n&quot;</span>, info(<span class="string">&quot;package&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// Use helper functions</span></span><br><span class="line">fmt.Println(<span class="string">&quot;This&quot;</span>, color.RedString(<span class="string">&quot;warning&quot;</span>), <span class="string">&quot;should be not neglected.&quot;</span>)</span><br><span class="line">fmt.Printf(<span class="string">&quot;%v %v\n&quot;</span>, color.GreenString(<span class="string">&quot;Info:&quot;</span>), <span class="string">&quot;an important message.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Windows supported too! Just don&#x27;t forget to change the output to color.Output</span></span><br><span class="line">fmt.Fprintf(color.Output, <span class="string">&quot;Windows support: %s&quot;</span>, color.GreenString(<span class="string">&quot;PASS&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/fmt.png" alt="fmt"></p>
+<p>插入fmt打印</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Use handy standard colors</span></span><br><span class="line">color.Set(color.FgYellow)</span><br><span class="line"></span><br><span class="line">fmt.Println(<span class="string">&quot;Existing text will now be in yellow&quot;</span>)</span><br><span class="line">fmt.Printf(<span class="string">&quot;This one %s\n&quot;</span>, <span class="string">&quot;too&quot;</span>)</span><br><span class="line"></span><br><span class="line">color.Unset() <span class="comment">// Don&#x27;t forget to unset</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// You can mix up parameters</span></span><br><span class="line">color.Set(color.FgMagenta, color.Bold)</span><br><span class="line"><span class="keyword">defer</span> color.Unset() <span class="comment">// Use it in your function</span></span><br><span class="line"></span><br><span class="line">fmt.Println(<span class="string">&quot;All text will now be bold magenta.&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/insertfmt.png" alt="insertfmt"></p>
+<h2 id="配合Logrus日志库打印出带颜色的日志"><a href="#配合Logrus日志库打印出带颜色的日志" class="headerlink" title="配合Logrus日志库打印出带颜色的日志"></a>配合Logrus日志库打印出带颜色的日志</h2><p>我们需要定义一个继承<strong>logrus.TextFormatter</strong>的结构体<strong>CustomTextFormatter</strong>，并实现<strong>Format</strong>方法来自定义日志的输出格式。还需要将<strong>Logrus</strong>实例的<strong>Formatter</strong>设置为自定义格式化器<strong>CustomTextFormatter</strong>。而不是直接使用<strong>logrus.TextFormatter</strong>。</p>
+<p>在<strong>CustomTextFormatter</strong>结构体中，我们添加了<strong>ForceColors</strong>属性以及四个<strong>color.Color</strong>用于不同级别的日志消息。</p>
+<p>同时在<strong>CustomTextFormatter</strong>的<strong>Format</strong>方法中根据日志级别选择设置对应的自定义颜色并打印日志消息。如果<strong>ForceColors</strong>为<strong>true</strong>，则使用定义的颜色样式来打印日志；否则，调用父类的<strong>TextFormatter.Format</strong>方法进行默认的格式化操作。</p>
+<p><strong>PrintColored</strong>方法用于默认颜色的方式打印日志条目。它将日志级别添加到消息前面，并根据需要添加调用者信息。最后，通过调用**fmt.Fprintln(color.Output, msg)**将带颜色的消息打印到终端。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义一个全局的Logger变量</span></span><br><span class="line"><span class="keyword">var</span> Logg *logrus.Logger</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义格式化器，继承自logrus.TextFormatter</span></span><br><span class="line"><span class="keyword">type</span> ColorLogger <span class="keyword">struct</span> &#123;</span><br><span class="line">	logrus.TextFormatter</span><br><span class="line">	ForceColors   <span class="type">bool</span></span><br><span class="line">	ColorInfo     *color.Color</span><br><span class="line">	ColorWarning  *color.Color</span><br><span class="line">	ColorError    *color.Color</span><br><span class="line">	ColorCritical *color.Color</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 格式化方法，用于将日志条目格式化为字节数组</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *ColorLogger)</span></span> Format(entry *logrus.Entry) ([]<span class="type">byte</span>, <span class="type">error</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> c.ForceColors &#123;</span><br><span class="line">    <span class="comment">// 按日志级别更改日志颜色</span></span><br><span class="line">		<span class="keyword">switch</span> entry.Level &#123;</span><br><span class="line">		<span class="keyword">case</span> logrus.InfoLevel:</span><br><span class="line">			c.ColorInfo.Println(entry.Message)</span><br><span class="line">		<span class="keyword">case</span> logrus.WarnLevel:</span><br><span class="line">			c.ColorWarning.Println(entry.Message)</span><br><span class="line">		<span class="keyword">case</span> logrus.ErrorLevel:</span><br><span class="line">			c.ColorError.Println(entry.Message)</span><br><span class="line">		<span class="keyword">case</span> logrus.FatalLevel, logrus.PanicLevel:</span><br><span class="line">			c.ColorCritical.Println(entry.Message)</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			c.PrintColored(entry)</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span>, <span class="literal">nil</span></span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> c.TextFormatter.Format(entry)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义方法，用于将日志条目以带颜色的方式打印出来</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *ColorLogger)</span></span> PrintColored(entry *logrus.Entry) &#123;</span><br><span class="line">	levelColor := color.New(color.FgCyan, color.Bold)             <span class="comment">// 定义蓝色和粗体样式</span></span><br><span class="line">	levelText := levelColor.Sprintf(<span class="string">&quot;%-6s&quot;</span>, entry.Level.String()) <span class="comment">// 格式化日志级别文本</span></span><br><span class="line"></span><br><span class="line">	msg := levelText + <span class="string">&quot; &quot;</span> + entry.Message</span><br><span class="line">	<span class="keyword">if</span> entry.HasCaller() &#123;</span><br><span class="line">		msg += <span class="string">&quot; (&quot;</span> + entry.Caller.File + <span class="string">&quot;:&quot;</span> + strconv.Itoa(entry.Caller.Line) + <span class="string">&quot;)&quot;</span> <span class="comment">// 添加调用者信息</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Fprintln(color.Output, msg) <span class="comment">// 使用有颜色的方式打印消息到终端</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化全局变量</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewLogger</span><span class="params">()</span></span> &#123;</span><br><span class="line">	Logg = logrus.New()</span><br><span class="line">	Logg.Formatter = &amp;ColorLogger&#123;</span><br><span class="line">		ForceColors:   <span class="literal">true</span>,</span><br><span class="line">		ColorInfo:     color.New(color.FgBlue),</span><br><span class="line">		ColorWarning:  color.New(color.FgYellow),</span><br><span class="line">		ColorError:    color.New(color.FgRed),</span><br><span class="line">		ColorCritical: color.New(color.BgRed, color.FgWhite),</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参考自：<a href="https://blog.csdn.net/qq_20185737/article/details/133560820">Logrus 日志框架——自定义日志颜色_logrus日志颜色-CSDN博客</a></p>
 ]]></content>
       <categories>
         <category>程序</category>
@@ -269,7 +325,7 @@
   <entry>
     <title>GO学习笔记</title>
     <url>/2024/08/07/Go%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="一、Go基础"><a href="#一、Go基础" class="headerlink" title="一、Go基础"></a>一、Go基础</h1><h2 id="1、Go的25个关键字"><a href="#1、Go的25个关键字" class="headerlink" title="1、Go的25个关键字"></a>1、Go的25个关键字</h2><table>
+    <content><![CDATA[<h1 id="一、Go-基础"><a href="#一、Go-基础" class="headerlink" title="一、Go 基础"></a>一、Go 基础</h1><h2 id="1、Go-的-25-个关键字"><a href="#1、Go-的-25-个关键字" class="headerlink" title="1、Go 的 25 个关键字"></a>1、Go 的 25 个关键字</h2><table>
      <tr>
         <td>break</td>
         <td>default</td>
@@ -307,7 +363,7 @@
     </tr>
 </table>
 
-<h2 id="2、Go的36个预定义标识符："><a href="#2、Go的36个预定义标识符：" class="headerlink" title="2、Go的36个预定义标识符："></a>2、Go的36个预定义标识符：</h2><table>
+<h2 id="2、Go-的-36-个预定义标识符："><a href="#2、Go-的-36-个预定义标识符：" class="headerlink" title="2、Go 的 36 个预定义标识符："></a>2、Go 的 36 个预定义标识符：</h2><table>
     <tr>
         <td>append</td>
         <td>bool</td>
@@ -356,9 +412,9 @@
 
 
 
-<h2 id="3、Go的基本数据类型"><a href="#3、Go的基本数据类型" class="headerlink" title="3、Go的基本数据类型"></a>3、Go的基本数据类型</h2><h3 id="（1）布尔类型"><a href="#（1）布尔类型" class="headerlink" title="（1）布尔类型"></a>（1）布尔类型</h3><p>使用boolean声明的类型，只有true（真）和false（假）两种值。默认值为<code>false</code>。</p>
+<h2 id="3、Go-的基本数据类型"><a href="#3、Go-的基本数据类型" class="headerlink" title="3、Go 的基本数据类型"></a>3、Go 的基本数据类型</h2><h3 id="（1）布尔类型"><a href="#（1）布尔类型" class="headerlink" title="（1）布尔类型"></a>（1）布尔类型</h3><p>使用 <strong>boolean</strong> 声明的类型，只有 <strong>true（真）和 false（假）</strong>两种值。默认值为 <code>false</code>。</p>
 <h3 id="（2）数字类型"><a href="#（2）数字类型" class="headerlink" title="（2）数字类型"></a>（2）数字类型</h3><p>包括整型和浮点型以及其他数据类型。</p>
-<h4 id="整型（默认值为0）："><a href="#整型（默认值为0）：" class="headerlink" title="整型（默认值为0）："></a>整型（默认值为0）：</h4><table>
+<h4 id="整型（默认值为-0）："><a href="#整型（默认值为-0）：" class="headerlink" title="整型（默认值为 0）："></a>整型（默认值为 0）：</h4><table>
 <thead>
 <tr>
 <th>类型</th>
@@ -369,27 +425,27 @@
 <tbody><tr>
 <td>int</td>
 <td>4</td>
-<td>有符号32位整型</td>
+<td>有符号 32 位整型</td>
 </tr>
 <tr>
 <td>int8</td>
 <td>1</td>
-<td>有符号8位整型（-128 ~ 128）</td>
+<td>有符号 8 位整型（-128 ~ 128）</td>
 </tr>
 <tr>
 <td>int16</td>
 <td>2</td>
-<td>有符号16位整型（-32768 ~ 32767）</td>
+<td>有符号 16 位整型（-32768 ~ 32767）</td>
 </tr>
 <tr>
 <td>int32</td>
 <td>4</td>
-<td>有符号32位整型（-2147483648 ~ 2147483647）</td>
+<td>有符号 32 位整型（-2147483648 ~ 2147483647）</td>
 </tr>
 <tr>
 <td>int64</td>
 <td>8</td>
-<td>有符号64位整型（-9223372036854775808 ~ 9223372036854775807）</td>
+<td>有符号 64 位整型（-9223372036854775808 ~ 9223372036854775807）</td>
 </tr>
 </tbody></table>
 <table>
@@ -403,27 +459,27 @@
 <tbody><tr>
 <td>uint</td>
 <td>4</td>
-<td>无符号32位整型</td>
+<td>无符号 32 位整型</td>
 </tr>
 <tr>
 <td>uint8</td>
 <td>1</td>
-<td>无符号8位整型（0 ~ 255）</td>
+<td>无符号 8 位整型（0 ~ 255）</td>
 </tr>
 <tr>
 <td>uint16</td>
 <td>2</td>
-<td>无符号16位整型（0 ~ 65535）</td>
+<td>无符号 16 位整型（0 ~ 65535）</td>
 </tr>
 <tr>
 <td>uint32</td>
 <td>4</td>
-<td>无符号32位整型（0 ~ 4294967295）</td>
+<td>无符号 32 位整型（0 ~ 4294967295）</td>
 </tr>
 <tr>
 <td>uint64</td>
 <td>8</td>
-<td>无符号64位整型（0 ~ 18446744073709551615）</td>
+<td>无符号 64 位整型（0 ~ 18446744073709551615）</td>
 </tr>
 </tbody></table>
 <h4 id="浮点型："><a href="#浮点型：" class="headerlink" title="浮点型："></a>浮点型：</h4><table>
@@ -435,19 +491,19 @@
 </thead>
 <tbody><tr>
 <td>float32</td>
-<td>32位浮点型数，默认值为0</td>
+<td>32 位浮点型数，默认值为 0</td>
 </tr>
 <tr>
 <td>float64</td>
-<td>64位浮点型数，默认值为0</td>
+<td>64 位浮点型数，默认值为 0</td>
 </tr>
 <tr>
 <td>complex64</td>
-<td>32位实数和虚数</td>
+<td>32 位实数和虚数</td>
 </tr>
 <tr>
 <td>complex128</td>
-<td>64位实数和虚数</td>
+<td>64 位实数和虚数</td>
 </tr>
 </tbody></table>
 <h4 id="其他数字类型："><a href="#其他数字类型：" class="headerlink" title="其他数字类型："></a>其他数字类型：</h4><table>
@@ -459,18 +515,18 @@
 </thead>
 <tbody><tr>
 <td>byte</td>
-<td>uint8，默认值为0</td>
+<td>uint8，默认值为 0</td>
 </tr>
 <tr>
 <td>rune</td>
-<td>Unicode Code Point, int32，默认值为0</td>
+<td>Unicode Code Point, int32，默认值为 0</td>
 </tr>
 <tr>
 <td>uintptr</td>
 <td>以存储指针的 uint32 或 uint64 整数</td>
 </tr>
 </tbody></table>
-<h3 id="（3）字符串类型："><a href="#（3）字符串类型：" class="headerlink" title="（3）字符串类型："></a>（3）字符串类型：</h3><p>使用string声明的UTF-8字符串。默认值为<code>&quot;&quot;</code>。</p>
+<h3 id="（3）字符串类型："><a href="#（3）字符串类型：" class="headerlink" title="（3）字符串类型："></a>（3）字符串类型：</h3><p>使用 string 声明的 UTF-8 字符串。默认值为<code>&quot;&quot;</code>。</p>
 <h4 id="字符串转义符："><a href="#字符串转义符：" class="headerlink" title="字符串转义符："></a>字符串转义符：</h4><table>
 <thead>
 <tr>
@@ -503,7 +559,7 @@
 <td>反斜杠</td>
 </tr>
 </tbody></table>
-<p>Go语言中要定义一个多行字符串时，就必须使用反引号字符：</p>
+<p>Go 语言中要定义一个多行字符串时，就必须使用反引号字符：</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line">s1 := <span class="string">`第一行</span></span><br><span class="line"><span class="string">    第二行</span></span><br><span class="line"><span class="string">    第三行</span></span><br><span class="line"><span class="string">`</span></span><br><span class="line">fmt.Println(s1)</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">第一行</span></span><br><span class="line"><span class="comment">                第二行</span></span><br><span class="line"><span class="comment">                第三\&#x27;行</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 
 <p>但是在多行字符串中转义字符无法生效。</p>
@@ -544,14 +600,14 @@
 </tr>
 </tbody></table>
 <h3 id="（4）其他类型："><a href="#（4）其他类型：" class="headerlink" title="（4）其他类型："></a>（4）其他类型：</h3><ul>
-<li>指针类型（Pointer）：默认值为<code>nil</code></li>
+<li>指针类型（Pointer）：默认值为 <code>nil</code></li>
 <li>数组类型（array）</li>
 <li>结构化类型（struct）</li>
-<li>Channel 类型（channel）：默认值为<code>nil</code></li>
-<li>函数类型（function）：默认值为<code>nil</code></li>
-<li>切片类型（slice）：默认值为<code>nil</code></li>
-<li>接口类型（interface）：默认值为<code>nil</code></li>
-<li>Map 类型（map）：默认值为<code>nil</code></li>
+<li>Channel 类型（channel）：默认值为 <code>nil</code></li>
+<li>函数类型（function）：默认值为 <code>nil</code></li>
+<li>切片类型（slice）：默认值为 <code>nil</code></li>
+<li>接口类型（interface）：默认值为 <code>nil</code></li>
+<li>Map 类型（map）：默认值为 <code>nil</code></li>
 </ul>
 <h2 id="4、运算符"><a href="#4、运算符" class="headerlink" title="4、运算符"></a>4、运算符</h2><h3 id="（1）算术运算符"><a href="#（1）算术运算符" class="headerlink" title="（1）算术运算符"></a>（1）算术运算符</h3><table>
 <thead>
@@ -643,23 +699,23 @@
 </thead>
 <tbody><tr>
 <td>&amp;</td>
-<td>参与运算的两数各对应的二进位相与。（两位均为1才为1）</td>
+<td>参与运算的两数各对应的二进位相与。（两位均为 1 才为 1 ）</td>
 </tr>
 <tr>
 <td>l</td>
-<td>参与运算的两数各对应的二进位相或。（两位有一个为1就为1）</td>
+<td>参与运算的两数各对应的二进位相或。（两位有一个为 1 就为 1 ）</td>
 </tr>
 <tr>
 <td>^</td>
-<td>参与运算的两数各对应的二进位相异或，当两对应的二进位相异时，结果为1。（两位不一样则为1）</td>
+<td>参与运算的两数各对应的二进位相异或，当两对应的二进位相异时，结果为 1。（两位不一样则为 1）</td>
 </tr>
 <tr>
 <td>&lt;&lt;</td>
-<td>左移n位就是乘以2的n次方。“a&lt;&lt;b”是把a的各二进位全部左移b位，高位丢弃，低位补0。</td>
+<td>左移 n 位就是乘以 2 的 n 次方。“a&lt;&lt;b”是把 a 的各二进位全部左移 b 位，高位丢弃，低位补 0。</td>
 </tr>
 <tr>
 <td>&gt;&gt;</td>
-<td>右移n位就是除以2的n次方。“a&gt;&gt;b”是把a的各二进位全部右移b位。</td>
+<td>右移 n 位就是除以 2 的 n 次方。“a&gt;&gt;b”是把 a 的各二进位全部右移 b 位。</td>
 </tr>
 </tbody></table>
 <h3 id="（5）赋值运算符"><a href="#（5）赋值运算符" class="headerlink" title="（5）赋值运算符"></a>（5）赋值运算符</h3><table>
@@ -714,7 +770,7 @@
 <td>按位异或后赋值</td>
 </tr>
 </tbody></table>
-<h2 id="5、常用标准库"><a href="#5、常用标准库" class="headerlink" title="5、常用标准库"></a>5、常用标准库</h2><h3 id="（1）fmt"><a href="#（1）fmt" class="headerlink" title="（1）fmt"></a>（1）fmt</h3><h4 id="Print、Printf、Println"><a href="#Print、Printf、Println" class="headerlink" title="Print、Printf、Println"></a>Print、Printf、Println</h4><p>Print系列函数会将内容输出到系统的标准输出，区别在于Print函数直接输出内容，Printf函数支持格式化输出字符串，Println函数会在输出内容的结尾添加一个换行符。</p>
+<h2 id="5、常用标准库"><a href="#5、常用标准库" class="headerlink" title="5、常用标准库"></a>5、常用标准库</h2><h3 id="（1）fmt"><a href="#（1）fmt" class="headerlink" title="（1）fmt"></a>（1）fmt</h3><h4 id="Print、Printf、Println"><a href="#Print、Printf、Println" class="headerlink" title="Print、Printf、Println"></a>Print、Printf、Println</h4><p>Print系列函数会将内容输出到系统的标准输出，区别在于 Print 函数直接输出内容，Printf 函数支持格式化输出字符串，Println 函数会在输出内容的结尾添加一个换行符。</p>
 <h5 id="通用占位符"><a href="#通用占位符" class="headerlink" title="通用占位符"></a>通用占位符</h5><table>
 <thead>
 <tr>
@@ -728,11 +784,11 @@
 </tr>
 <tr>
 <td>%+v</td>
-<td>类似%v，但输出结构体时会添加字段名</td>
+<td>类似 %v，但输出结构体时会添加字段名</td>
 </tr>
 <tr>
 <td>%#v</td>
-<td>值的Go语法表示</td>
+<td>值的 Go 语法表示</td>
 </tr>
 <tr>
 <td>%T</td>
@@ -752,7 +808,7 @@
 </thead>
 <tbody><tr>
 <td>%t</td>
-<td>true或false</td>
+<td>true 或 false</td>
 </tr>
 </tbody></table>
 <h5 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h5><table>
@@ -768,7 +824,7 @@
 </tr>
 <tr>
 <td>%c</td>
-<td>该值对应的unicode码值</td>
+<td>该值对应的 unicode 码值</td>
 </tr>
 <tr>
 <td>%d</td>
@@ -780,19 +836,19 @@
 </tr>
 <tr>
 <td>%x</td>
-<td>表示为十六进制，使用a-f</td>
+<td>表示为十六进制，使用 a-f</td>
 </tr>
 <tr>
 <td>%X</td>
-<td>表示为十六进制，使用A-F</td>
+<td>表示为十六进制，使用 A-F</td>
 </tr>
 <tr>
 <td>%U</td>
-<td>表示为Unicode格式：U+1234，等价于”U+%04X”</td>
+<td>表示为 Unicode 格式：U+1234，等价于 ”U+%04X”</td>
 </tr>
 <tr>
 <td>%q</td>
-<td>该值对应的单引号括起来的go语法字符字面值，必要时会采用安全的转义表示</td>
+<td>该值对应的单引号括起来的 go 语法字符字面值，必要时会采用安全的转义表示</td>
 </tr>
 </tbody></table>
 <h5 id="浮点数与复数"><a href="#浮点数与复数" class="headerlink" title="浮点数与复数"></a>浮点数与复数</h5><table>
@@ -804,31 +860,31 @@
 </thead>
 <tbody><tr>
 <td>%b</td>
-<td>无小数部分、二进制指数的科学计数法，如-123456p-78</td>
+<td>无小数部分、二进制指数的科学计数法，如 -123456p-78</td>
 </tr>
 <tr>
 <td>%e</td>
-<td>科学计数法，如-1234.456e+78</td>
+<td>科学计数法，如 -1234.456e+78</td>
 </tr>
 <tr>
 <td>%E</td>
-<td>科学计数法，如-1234.456E+78</td>
+<td>科学计数法，如 -1234.456E+78</td>
 </tr>
 <tr>
 <td>%f</td>
-<td>有小数部分但无指数部分，如123.456</td>
+<td>有小数部分但无指数部分，如 123.456</td>
 </tr>
 <tr>
 <td>%F</td>
-<td>等价于%f</td>
+<td>等价于 %f</td>
 </tr>
 <tr>
 <td>%g</td>
-<td>根据实际情况采用%e或%f格式（以获得更简洁、准确的输出）</td>
+<td>根据实际情况采用 %e 或 %f 格式（以获得更简洁、准确的输出）</td>
 </tr>
 <tr>
 <td>%G</td>
-<td>根据实际情况采用%E或%F格式（以获得更简洁、准确的输出）</td>
+<td>根据实际情况采用 %E 或 %F 格式（以获得更简洁、准确的输出）</td>
 </tr>
 </tbody></table>
 <h5 id="字符串和-byte"><a href="#字符串和-byte" class="headerlink" title="字符串和[]byte"></a>字符串和[]byte</h5><table>
@@ -840,19 +896,19 @@
 </thead>
 <tbody><tr>
 <td>%s</td>
-<td>直接输出字符串或者[]byte</td>
+<td>直接输出字符串或者 []byte</td>
 </tr>
 <tr>
 <td>%q</td>
-<td>该值对应的双引号括起来的go语法字符串字面值，必要时会采用安全的转义表示</td>
+<td>该值对应的双引号括起来的 go 语法字符串字面值，必要时会采用安全的转义表示</td>
 </tr>
 <tr>
 <td>%x</td>
-<td>每个字节用两字符十六进制数表示（使用a-f</td>
+<td>每个字节用两字符十六进制数表示（使用 a-f）</td>
 </tr>
 <tr>
 <td>%X</td>
-<td>每个字节用两字符十六进制数表示（使用A-F）</td>
+<td>每个字节用两字符十六进制数表示（使用 A-F）</td>
 </tr>
 </tbody></table>
 <h5 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h5><table>
@@ -864,10 +920,10 @@
 </thead>
 <tbody><tr>
 <td>%p</td>
-<td>表示为十六进制，并加上前导的0x</td>
+<td>表示为十六进制，并加上前导的 0x</td>
 </tr>
 </tbody></table>
-<h5 id="宽度标识符"><a href="#宽度标识符" class="headerlink" title="宽度标识符"></a>宽度标识符</h5><p>宽度通过一个紧跟在百分号后面的十进制数指定，如果未指定宽度，则表示值时除必需之外不作填充。精度通过（可选的）宽度后跟点号后跟的十进制数指定。如果未指定精度，会使用默认精度；如果点号后没有跟数字，表示精度为0。举例如下</p>
+<h5 id="宽度标识符"><a href="#宽度标识符" class="headerlink" title="宽度标识符"></a>宽度标识符</h5><p>宽度通过一个紧跟在百分号后面的十进制数指定，如果未指定宽度，则表示值时除必需之外不作填充。精度通过（可选的）宽度后跟点号后跟的十进制数指定。如果未指定精度，会使用默认精度；如果点号后没有跟数字，表示精度为 0。举例如下</p>
 <table>
 <thead>
 <tr>
@@ -881,31 +937,31 @@
 </tr>
 <tr>
 <td>%9f</td>
-<td>宽度9，默认精度</td>
+<td>宽度 9，默认精度</td>
 </tr>
 <tr>
 <td>%.2f</td>
-<td>默认宽度，精度2</td>
+<td>默认宽度，精度 2</td>
 </tr>
 <tr>
 <td>%9.2f</td>
-<td>宽度9，精度2</td>
+<td>宽度 9，精度 2</td>
 </tr>
 <tr>
 <td>%9.f</td>
-<td>宽度9，精度0</td>
+<td>宽度 9，精度 0</td>
 </tr>
 </tbody></table>
 <h3 id="（2）time"><a href="#（2）time" class="headerlink" title="（2）time"></a>（2）time</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">timeDemo</span><span class="params">()</span></span> &#123;</span><br><span class="line">  now := time.Now() <span class="comment">//获取当前时间</span></span><br><span class="line">  fmt.Printf(<span class="string">&quot;current time:%v\n&quot;</span>, now)</span><br><span class="line"></span><br><span class="line">  year := now.Year()     <span class="comment">//年</span></span><br><span class="line">  month := now.Month()   <span class="comment">//月</span></span><br><span class="line">  day := now.Day()       <span class="comment">//日</span></span><br><span class="line">  hour := now.Hour()     <span class="comment">//小时</span></span><br><span class="line">  minute := now.Minute() <span class="comment">//分钟</span></span><br><span class="line">  second := now.Second() <span class="comment">//秒</span></span><br><span class="line">  fmt.Printf(<span class="string">&quot;%d-%02d-%02d %02d:%02d:%02d\n&quot;</span>, year, month, day, hour, minute, second)</span><br><span class="line"></span><br><span class="line">  timestamp1 := now.Unix()     <span class="comment">//时间戳</span></span><br><span class="line">  timestamp2 := now.UnixNano() <span class="comment">//纳秒时间戳</span></span><br><span class="line">  fmt.Printf(<span class="string">&quot;current timestamp1:%v\n&quot;</span>, timestamp1)</span><br><span class="line">  fmt.Printf(<span class="string">&quot;current timestamp2:%v\n&quot;</span>, timestamp2)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="时间戳转换日期"><a href="#时间戳转换日期" class="headerlink" title="时间戳转换日期"></a>时间戳转换日期</h4><p>使用Unix函数将时间戳转换为时间格式，第一个参数为毫秒时间戳，第二个参数为纳秒时间戳。</p>
+<h4 id="时间戳转换日期"><a href="#时间戳转换日期" class="headerlink" title="时间戳转换日期"></a>时间戳转换日期</h4><p>使用 Unix 函数将时间戳转换为时间格式，第一个参数为毫秒时间戳，第二个参数为纳秒时间戳。</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">timestampDemo2</span><span class="params">(timestamp <span class="type">int64</span>)</span></span> &#123;</span><br><span class="line">    timeObj := time.Unix(timestamp, <span class="number">0</span>) <span class="comment">//将时间戳转为时间格式</span></span><br><span class="line">    fmt.Println(timeObj)</span><br><span class="line">    year := timeObj.Year()     <span class="comment">//年</span></span><br><span class="line">    month := timeObj.Month()   <span class="comment">//月</span></span><br><span class="line">    day := timeObj.Day()       <span class="comment">//日</span></span><br><span class="line">    hour := timeObj.Hour()     <span class="comment">//小时</span></span><br><span class="line">    minute := timeObj.Minute() <span class="comment">//分钟</span></span><br><span class="line">    second := timeObj.Second() <span class="comment">//秒</span></span><br><span class="line">    fmt.Printf(<span class="string">&quot;%d-%02d-%02d %02d:%02d:%02d\n&quot;</span>, year, month, day, hour, minute, second)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="时间常量"><a href="#时间常量" class="headerlink" title="时间常量"></a>时间常量</h4><p>time.Duration是time包定义的一个类型，它代表两个时间点之间经过的时间，以纳秒为单位。time.Duration表示一段时间间隔，可表示的最长时间段大约290年。</p>
+<h4 id="时间常量"><a href="#时间常量" class="headerlink" title="时间常量"></a>时间常量</h4><p>time.Duration 是 time 包定义的一个类型，它代表两个时间点之间经过的时间，以纳秒为单位。time.Duration 表示一段时间间隔，可表示的最长时间段大约 290 年。</p>
 <p>time包中定义的时间间隔类型的常量如下：</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">  Nanosecond  Duration = <span class="number">1</span></span><br><span class="line">  Microsecond          = <span class="number">1000</span> * Nanosecond</span><br><span class="line">  Millisecond          = <span class="number">1000</span> * Microsecond</span><br><span class="line">  Second               = <span class="number">1000</span> * Millisecond</span><br><span class="line">  Minute               = <span class="number">60</span> * Second</span><br><span class="line">  Hour                 = <span class="number">60</span> * Minute</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
-<p>例如：time.Duration表示1纳秒，time.Second表示1秒。</p>
+<p>例如：time.Duration 表示 1 纳秒，time.Second 表示 1 秒。</p>
 <h4 id="Add"><a href="#Add" class="headerlink" title="Add"></a>Add</h4><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t Time)</span></span> Add(d Duration) Time</span><br></pre></td></tr></table></figure>
 
 <p>求一个小时之后的时间：</p>
@@ -914,15 +970,15 @@
 <h4 id="Sub"><a href="#Sub" class="headerlink" title="Sub"></a>Sub</h4><p>求两个时间之间的差值：</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t Time)</span></span> Sub(u Time) Duration</span><br></pre></td></tr></table></figure>
 
-<h4 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h4><p>使用time.Tick(时间间隔)来设置定时器，定时器的本质上是一个通道（channel）。</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">tickDemo</span><span class="params">()</span></span> &#123;</span><br><span class="line">  ticker := time.Tick(time.Second) <span class="comment">//定义一个1秒间隔的定时器</span></span><br><span class="line">  <span class="keyword">for</span> i := <span class="keyword">range</span> ticker &#123;</span><br><span class="line">    fmt.Println(i)<span class="comment">//每秒都会执行的任务</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h4><p>使用 time.Tick（时间间隔）来设置定时器，定时器的本质上是一个通道（channel）。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">tickDemo</span><span class="params">()</span></span> &#123;</span><br><span class="line">  ticker := time.NewTicker(time.Second) <span class="comment">//定义一个1秒间隔的定时器</span></span><br><span class="line">  <span class="keyword">for</span> i := <span class="keyword">range</span> ticker.C &#123;</span><br><span class="line">    fmt.Println(i)<span class="comment">//每秒都会执行的任务</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="时间格式化"><a href="#时间格式化" class="headerlink" title="时间格式化"></a>时间格式化</h4><p>使用Format函数传入格式化模板（2006 1 2 3 4 Mon Jan），如果想格式化为12小时方式，需指定PM。</p>
+<h4 id="时间格式化"><a href="#时间格式化" class="headerlink" title="时间格式化"></a>时间格式化</h4><p>使用 Format 函数传入格式化模板（2006 1 2 3 4 Mon Jan），如果想格式化为 12 小时方式，需指定 PM。</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">formatDemo</span><span class="params">()</span></span> &#123;</span><br><span class="line">  now := time.Now()</span><br><span class="line">  <span class="comment">// 格式化的模板为Go的出生时间2006年1月2号15点04分 Mon Jan</span></span><br><span class="line">  <span class="comment">// 24小时制</span></span><br><span class="line">  fmt.Println(now.Format(<span class="string">&quot;2006-01-02 15:04:05.000 Mon Jan&quot;</span>))</span><br><span class="line">  <span class="comment">// 12小时制</span></span><br><span class="line">  fmt.Println(now.Format(<span class="string">&quot;2006-01-02 03:04:05.000 PM Mon Jan&quot;</span>))</span><br><span class="line">  fmt.Println(now.Format(<span class="string">&quot;2006/01/02 15:04&quot;</span>))</span><br><span class="line">  fmt.Println(now.Format(<span class="string">&quot;15:04 2006/01/02&quot;</span>))</span><br><span class="line">  fmt.Println(now.Format(<span class="string">&quot;2006/01/02&quot;</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="（3）reflect"><a href="#（3）reflect" class="headerlink" title="（3）reflect"></a>（3）reflect</h3><h4 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h4><ul>
 <li>反射是指在程序运行期对程序本身进行访问和修改的能力。</li>
-<li><code>reflect</code>包封装了反射相关的方法。</li>
+<li><code>reflect </code> 包封装了反射相关的方法。</li>
 <li>获取类型信息：<code>reflect.TypeOf</code>，是静态的。</li>
 <li>获取值信息：<code>reflect.ValueOf</code>，是动态的。</li>
 <li>获取类型名称：<code>reflect.Name</code></li>
@@ -970,7 +1026,7 @@
 </tbody></table>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以只读方式打开文件</span></span><br><span class="line">file, err := os.Open(<span class="string">&quot;./main.go&quot;</span>)</span><br><span class="line"><span class="keyword">defer</span> file.Close() <span class="comment">// 必须关闭文件流</span></span><br><span class="line"></span><br><span class="line">fmt.Println(file) <span class="comment">// 返回文件地址 &amp;&#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取文件内容</span></span><br><span class="line"><span class="keyword">var</span> strSlice []<span class="type">byte</span></span><br><span class="line">tempSlice := <span class="built_in">make</span>([]<span class="type">byte</span>, <span class="number">128</span>)</span><br><span class="line"><span class="keyword">for</span> &#123;</span><br><span class="line">  n, err := file.Read(tempSlice)</span><br><span class="line">  <span class="comment">// 读到文件末尾会返回io.EOF错误</span></span><br><span class="line">  <span class="keyword">if</span> err == io.EOF &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;读取完毕&quot;</span>)</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;读取完毕&quot;</span>)</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">  &#125;</span><br><span class="line">  fmt.Printf(<span class="string">&quot;读取到%v个字节&quot;</span>, n) <span class="comment">// 128</span></span><br><span class="line">  strSlice = <span class="built_in">append</span>(strSlice, tempSlice[:n]...)</span><br><span class="line">&#125;</span><br><span class="line">fmt.Println(<span class="type">string</span>(strSlice)) <span class="comment">// 完整的文件内容</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="perm："><a href="#perm：" class="headerlink" title="perm："></a>perm：</h5><p>文件权限，一个八进制数。r（读）04，w（写）02，x（执行）01。默认为0666，所有人有所有权限。</p>
+<h5 id="perm："><a href="#perm：" class="headerlink" title="perm："></a>perm：</h5><p>文件权限，一个八进制数。r（读）04，w（写）02，x（执行）01。默认为 0666，所有人有所有权限。</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 读写文件</span></span><br><span class="line">file, err := os.OpenFile(<span class="string">&quot;./main.go&quot;</span>, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, <span class="number">0666</span>)</span><br><span class="line"><span class="keyword">defer</span> file.Close()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">  file.WriteString(<span class="string">&quot;ab\n&quot;</span>)</span><br><span class="line">  file.Write([]<span class="type">byte</span>(<span class="string">&quot;cd\n&quot;</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h5 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h5><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">err := os.Mkdir(<span class="string">&quot;./abc&quot;</span>, <span class="number">0666</span>)</span><br><span class="line">err := os.Mkdir(<span class="string">&quot;./dir1/dir2/dir3&quot;</span>, <span class="number">0666</span>) <span class="comment">// 创建多级目录</span></span><br></pre></td></tr></table></figure>
@@ -989,7 +1045,7 @@
 
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 复制文件</span></span><br><span class="line">byteStr, err := ioutil.ReadFile(<span class="string">&quot;C:/main.go&quot;</span>)</span><br><span class="line">err := ioutil.WriteFile(<span class="string">&quot;D:/main.go&quot;</span>, byteStr, <span class="number">0666</span>)</span><br></pre></td></tr></table></figure>
 
-<h2 id="6、下划线"><a href="#6、下划线" class="headerlink" title="6、下划线"></a>6、下划线</h2><h3 id="（1）下划线在import中"><a href="#（1）下划线在import中" class="headerlink" title="（1）下划线在import中"></a>（1）下划线在import中</h3><p>​	import 下划线的作用：当导入一个包时，该包下的文件里所有init()函数都会被执行，然而，有些时候我们并不需要把整个包都导入进来，仅仅是是希望它执行init()函数而已。这个时候就可以使用 import* 引用该包。即使用【import _ 包路径】只是引用该包，仅仅是为了调用init()函数，所以无法通过包名来调用包中的其他函数。 示例：</p>
+<h2 id="6、下划线"><a href="#6、下划线" class="headerlink" title="6、下划线"></a>6、下划线</h2><h3 id="（1）下划线在-import-中"><a href="#（1）下划线在-import-中" class="headerlink" title="（1）下划线在 import 中"></a>（1）下划线在 import 中</h3><p>​	import 下划线的作用：当导入一个包时，该包下的文件里所有 init() 函数都会被执行，然而，有些时候我们并不需要把整个包都导入进来，仅仅是是希望它执行 init() 函数而已。这个时候就可以使用 import* 引用该包。即使用【import _ 包路径】只是引用该包，仅仅是为了调用 init() 函数，所以无法通过包名来调用包中的其他函数。 示例：</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> _ <span class="string">&quot;./hello&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="comment">// hello.Print() </span></span><br><span class="line">  <span class="comment">//编译报错：./main.go:6:5: undefined: hello</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出：imp-init() come here.</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> hello</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">  fmt.Println(<span class="string">&quot;imp-init() come here.&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Print</span><span class="params">()</span></span> &#123;</span><br><span class="line">  fmt.Println(<span class="string">&quot;Hello!&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1010,27 +1066,27 @@
 
 <h4 id="匿名变量（用下划线表示）"><a href="#匿名变量（用下划线表示）" class="headerlink" title="匿名变量（用下划线表示）"></a>匿名变量（用下划线表示）</h4><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">foo</span><span class="params">()</span></span> (<span class="type">int</span>, <span class="type">string</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">10</span>, <span class="string">&quot;Q1mi&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  x, _ := foo()</span><br><span class="line">  _, y := foo()</span><br><span class="line">  fmt.Println(<span class="string">&quot;x=&quot;</span>, x)</span><br><span class="line">  fmt.Println(<span class="string">&quot;y=&quot;</span>, y)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="（2）常量声明"><a href="#（2）常量声明" class="headerlink" title="（2）常量声明"></a>（2）常量声明</h3><p>相对于变量，常量是恒定不变的值，多用于定义程序运行期间不会改变的那些值。 常量的声明和变量声明非常类似，只是把<code>var</code>换成了<code>const</code>，常量在定义的时候必须赋值。</p>
+<h3 id="（2）常量声明"><a href="#（2）常量声明" class="headerlink" title="（2）常量声明"></a>（2）常量声明</h3><p>相对于变量，常量是恒定不变的值，多用于定义程序运行期间不会改变的那些值。 常量的声明和变量声明非常类似，只是把 <code>var</code> 换成了 <code>const</code>，常量在定义的时候必须赋值。</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> pi = <span class="number">3.1415</span></span><br><span class="line"><span class="keyword">const</span> e = <span class="number">2.7182</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="多个常量声明"><a href="#多个常量声明" class="headerlink" title="多个常量声明"></a>多个常量声明</h4><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	pi = <span class="number">3.1415</span></span><br><span class="line">	e = <span class="number">2.7182</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
-<p><code>const</code>同时声明多个常量时，如果省略了值则表示和上面一行的值相同。</p>
+<p><code>const</code> 同时声明多个常量时，如果省略了值则表示和上面一行的值相同。</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	n1 = <span class="number">100</span></span><br><span class="line">	n2</span><br><span class="line">	n3</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
-<h4 id="iota"><a href="#iota" class="headerlink" title="iota"></a>iota</h4><p><code>iota</code>是<code>go</code>语言的常量计数器，只能在常量的表达式中使用。 <code>iota</code>在<code>const</code>关键字出现时将被重置为<code>0</code>。<code>const</code>中每新增一行常量声明将使<code>iota</code>计数一次(<code>iota</code>可理解为<code>const</code>语句块中的行索引)。 使用<code>iota</code>能简化定义，在定义枚举时很有用。</p>
+<h4 id="iota"><a href="#iota" class="headerlink" title="iota"></a>iota</h4><p><code>iota</code> 是 <code>go</code> 语言的常量计数器，只能在常量的表达式中使用。 <code>iota</code> 在 <code>const</code> 关键字出现时将被重置为 <code>0</code>。<code>const</code> 中每新增一行常量声明将使 <code>iota</code> 计数一次(<code>iota</code> 可理解为 <code>const</code> 语句块中的行索引)。 使用 <code>iota</code> 能简化定义，在定义枚举时很有用。</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	n1 = <span class="literal">iota</span> <span class="comment">// 0</span></span><br><span class="line">	n2        <span class="comment">// 1</span></span><br><span class="line">	n3        <span class="comment">// 2</span></span><br><span class="line">	n4        <span class="comment">// 3</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
 <p>使用_跳过某些值</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	n1 = <span class="literal">iota</span> <span class="comment">// 0</span></span><br><span class="line">	n2        <span class="comment">// 1</span></span><br><span class="line">	_</span><br><span class="line">	n4        <span class="comment">// 3</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
-<p><code>iota</code>声明中间插队</p>
+<p><code>iota</code> 声明中间插队</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	n1 = <span class="literal">iota</span> <span class="comment">// 0</span></span><br><span class="line">	n2 = <span class="number">100</span>  <span class="comment">// 100</span></span><br><span class="line">	n3 = <span class="literal">iota</span> <span class="comment">// 2</span></span><br><span class="line">	n4        <span class="comment">// 3</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">const</span> n5 = <span class="literal">iota</span> <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
 
-<p>定义数量级 （这里的<code>&lt;&lt;</code>表示左移操作，<code>1&lt;&lt;10</code>表示将<code>1</code>的二进制表示向左移<code>10</code>位，也就是由<code>1</code>变成了<code>10000000000</code>，也就是十进制的<code>1024</code>。同理<code>2&lt;&lt;2</code>表示将<code>2</code>的二进制表示向左移<code>2</code>位，也就是由<code>10</code>变成了<code>1000</code>，也就是十进制的<code>8</code>）。</p>
+<p>定义数量级 （这里的 <code>&lt;&lt;</code> 表示左移操作，<code>1&lt;&lt;10</code> 表示将 <code>1</code> 的二进制表示向左移 <code>10</code> 位，也就是由 <code>1</code> 变成了<code>10000000000</code>，也就是十进制的 <code>1024</code>。同理 <code>2&lt;&lt;2</code> 表示将 <code>2 </code> 的二进制表示向左移 <code>2</code> 位，也就是由 <code>10</code> 变成了 <code>1000</code>，也就是十进制的 <code>8</code>）。</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	_  = <span class="literal">iota</span></span><br><span class="line">	KB = <span class="number">1</span> &lt;&lt; (<span class="number">10</span> * <span class="literal">iota</span>)</span><br><span class="line">	MB = <span class="number">1</span> &lt;&lt; (<span class="number">10</span> * <span class="literal">iota</span>)</span><br><span class="line">	GB = <span class="number">1</span> &lt;&lt; (<span class="number">10</span> * <span class="literal">iota</span>)</span><br><span class="line">	TB = <span class="number">1</span> &lt;&lt; (<span class="number">10</span> * <span class="literal">iota</span>)</span><br><span class="line">	PB = <span class="number">1</span> &lt;&lt; (<span class="number">10</span> * <span class="literal">iota</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
-<p>多个<code>iota</code>定义在一行</p>
+<p>多个 <code>iota </code> 定义在一行</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	a, b = <span class="literal">iota</span> + <span class="number">1</span>, <span class="literal">iota</span> + <span class="number">2</span> <span class="comment">// 1, 2</span></span><br><span class="line">  c, d                      <span class="comment">// 2, 3</span></span><br><span class="line">  e, f                      <span class="comment">// 3, 4</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
 <h2 id="8、数组"><a href="#8、数组" class="headerlink" title="8、数组"></a>8、数组</h2><h3 id="（1）数组声明"><a href="#（1）数组声明" class="headerlink" title="（1）数组声明"></a>（1）数组声明</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> 变量名 [数组长度]数据类型</span><br></pre></td></tr></table></figure>
@@ -1050,9 +1106,9 @@
 
 <h3 id="（3）基于切片定义切片"><a href="#（3）基于切片定义切片" class="headerlink" title="（3）基于切片定义切片"></a>（3）基于切片定义切片</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = []<span class="type">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line"><span class="keyword">var</span> slice0 []<span class="type">int</span> = arr[start:end] <span class="comment">// 包含start不包含end</span></span><br><span class="line"><span class="keyword">var</span> slice1 []<span class="type">int</span> = arr[:end]</span><br><span class="line"><span class="keyword">var</span> slice2 []<span class="type">int</span> = arr[start:]</span><br><span class="line"><span class="keyword">var</span> slice3 []<span class="type">int</span> = arr[:] <span class="comment">// 获取所有值</span></span><br><span class="line"><span class="keyword">var</span> slice4 = arr[:<span class="built_in">len</span>(arr)<span class="number">-1</span>]      <span class="comment">//去掉切片的最后一个元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用len()和cap()获取切片的长度和容量</span></span><br><span class="line"><span class="comment">// 切片的长度：切片包含元素的个数</span></span><br><span class="line"><span class="comment">// 切片的容量：切片从第一个元素开始，到其底层数组或切片元素下标的个数</span></span><br><span class="line"></span><br><span class="line">fmt.Printf(<span class="string">&quot;长度%d 容量%d\n&quot;</span>, <span class="built_in">len</span>(slice3), <span class="built_in">cap</span>(slice3)) <span class="comment">// 长度5 容量5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> slice0 []<span class="type">int</span> = arr[<span class="number">1</span>:<span class="number">3</span>]</span><br><span class="line">fmt.Printf(<span class="string">&quot;长度%d 容量%d\n&quot;</span>, <span class="built_in">len</span>(slice0), <span class="built_in">cap</span>(slice0)) <span class="comment">// 长度2 容量4</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="（4）使用make声明切片"><a href="#（4）使用make声明切片" class="headerlink" title="（4）使用make声明切片"></a>（4）使用make声明切片</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> T：数据类型</span></span><br><span class="line"><span class="comment"> size：切片元素个数</span></span><br><span class="line"><span class="comment"> cap：切片容量</span></span><br><span class="line"><span class="comment"> 没有cap默认cap=size</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">make</span>([]T, size, <span class="built_in">cap</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = <span class="built_in">make</span>([]<span class="type">int</span>, <span class="number">4</span>, <span class="number">8</span>) <span class="comment">// [0 0 0 0]</span></span><br></pre></td></tr></table></figure>
+<h3 id="（4）使用-make-声明切片"><a href="#（4）使用-make-声明切片" class="headerlink" title="（4）使用 make 声明切片"></a>（4）使用 make 声明切片</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> T：数据类型</span></span><br><span class="line"><span class="comment"> size：切片元素个数</span></span><br><span class="line"><span class="comment"> cap：切片容量</span></span><br><span class="line"><span class="comment"> 没有cap默认cap=size</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">make</span>([]T, size, <span class="built_in">cap</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = <span class="built_in">make</span>([]<span class="type">int</span>, <span class="number">4</span>, <span class="number">8</span>) <span class="comment">// [0 0 0 0]</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="10、Map"><a href="#10、Map" class="headerlink" title="10、Map"></a>10、Map</h2><h3 id="（1）Map的声明"><a href="#（1）Map的声明" class="headerlink" title="（1）Map的声明"></a>（1）Map的声明</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// KeyType：key的类型</span></span><br><span class="line"><span class="comment">// ValueType：value的类型</span></span><br><span class="line"><span class="keyword">map</span>[KeyType]ValueType</span><br></pre></td></tr></table></figure>
+<h2 id="10、Map"><a href="#10、Map" class="headerlink" title="10、Map"></a>10、Map</h2><h3 id="（1）Map-的声明"><a href="#（1）Map-的声明" class="headerlink" title="（1）Map 的声明"></a>（1）Map 的声明</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// KeyType：key的类型</span></span><br><span class="line"><span class="comment">// ValueType：value的类型</span></span><br><span class="line"><span class="keyword">map</span>[KeyType]ValueType</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> userinfo = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">string</span>)</span><br><span class="line">userinfo[<span class="string">&quot;username&quot;</span>] = <span class="string">&quot;张三&quot;</span></span><br><span class="line">userinfo[<span class="string">&quot;age&quot;</span>] = <span class="string">&quot;20&quot;</span></span><br><span class="line">fmt.Println(userinfo) <span class="comment">// map[username:张三 age:20]</span></span><br><span class="line">fmt.Println(userinfo[<span class="string">&quot;sex&quot;</span>]) <span class="comment">// &quot;&quot;，key不存在value返回零值</span></span><br><span class="line"></span><br><span class="line">userinfo := <span class="keyword">map</span>[<span class="type">string</span>]<span class="type">string</span>&#123;</span><br><span class="line">  <span class="string">&quot;username&quot;</span>: <span class="string">&quot;张三&quot;</span>,</span><br><span class="line">  <span class="string">&quot;age&quot;</span>: <span class="string">&quot;20&quot;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1065,9 +1121,14 @@
 
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  a := <span class="number">10</span></span><br><span class="line">  b := &amp;a</span><br><span class="line">  fmt.Printf(<span class="string">&quot;a:%d ptr:%p\n&quot;</span>, a, &amp;a) <span class="comment">// a:10 ptr:0xc00001a078</span></span><br><span class="line">  fmt.Printf(<span class="string">&quot;b:%p type:%T\n&quot;</span>, b, b) <span class="comment">// b:0xc00001a078 type:*int</span></span><br><span class="line">  fmt.Println(&amp;b)                    <span class="comment">// 0xc00000e018</span></span><br><span class="line">  fmt.Println(*b)										 <span class="comment">// 10</span></span><br><span class="line">  *b = <span class="number">30</span></span><br><span class="line">  fmt.Println(a)										 <span class="comment">// 30</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="（2）new函数"><a href="#（2）new函数" class="headerlink" title="（2）new函数"></a>（2）new函数</h3><p>创建一个类型的指针，并且该指针对应的值为该类型的零值。</p>
+<h3 id="（2）new-函数"><a href="#（2）new-函数" class="headerlink" title="（2）new 函数"></a>（2）new 函数</h3><p>创建一个类型的指针，并且该指针对应的值为该类型的零值。</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  a := <span class="built_in">new</span>(<span class="type">int</span>)</span><br><span class="line">  b := <span class="built_in">new</span>(<span class="type">bool</span>)</span><br><span class="line">  fmt.Printf(<span class="string">&quot;%T\n&quot;</span>, a) <span class="comment">// *int</span></span><br><span class="line">  fmt.Printf(<span class="string">&quot;%T\n&quot;</span>, b) <span class="comment">// *bool</span></span><br><span class="line">  fmt.Println(*a)       <span class="comment">// 0</span></span><br><span class="line">  fmt.Println(*b)       <span class="comment">// false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="（3）new-和-make-的区别"><a href="#（3）new-和-make-的区别" class="headerlink" title="（3）new 和 make 的区别"></a>（3）new 和 make 的区别</h3><ol>
+<li><strong>make</strong> 返回的是引用类型本身，而 <strong>new</strong> 返回的是指向类型的指针。</li>
+<li><strong>make</strong> 只能初始化类型为 <em>slice、map、channel</em>，而 <strong>new</strong> 可以初始化任意数据类型。</li>
+<li>对于引用类型，<strong>new</strong> 只会为其分配内存空间，内部字段还需进一步初始化，<strong>make</strong> 则会对内部数据类型也进行初始化。</li>
+</ol>
 <h2 id="12、结构体"><a href="#12、结构体" class="headerlink" title="12、结构体"></a>12、结构体</h2><h3 id="（1）自定义类型别名"><a href="#（1）自定义类型别名" class="headerlink" title="（1）自定义类型别名"></a>（1）自定义类型别名</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> name T</span><br><span class="line"><span class="keyword">type</span> name = T</span><br><span class="line"></span><br><span class="line"><span class="comment">// 区别</span></span><br><span class="line"><span class="comment">// 类型定义</span></span><br><span class="line"><span class="keyword">type</span> NewInt <span class="type">int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//类型别名</span></span><br><span class="line"><span class="keyword">type</span> MyInt = <span class="type">int</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">var</span> a NewInt</span><br><span class="line">  <span class="keyword">var</span> b MyInt</span><br><span class="line"></span><br><span class="line">  fmt.Printf(<span class="string">&quot;type of a:%T\n&quot;</span>, a) <span class="comment">// type of a:main.NewInt</span></span><br><span class="line">  fmt.Printf(<span class="string">&quot;type of b:%T\n&quot;</span>, b) <span class="comment">// type of b:int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="（2）结构体声明"><a href="#（2）结构体声明" class="headerlink" title="（2）结构体声明"></a>（2）结构体声明</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> 结构体名 <span class="keyword">struct</span> &#123;</span><br><span class="line">  字段名 字段类型</span><br><span class="line">  字段名 字段类型</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 结构体名首字母大写表示公有，在其他包中可以使用，小写表示私有。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> person <span class="keyword">struct</span> &#123;</span><br><span class="line">  name <span class="type">string</span></span><br><span class="line">  age <span class="type">int</span></span><br><span class="line">  sex <span class="type">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 结构体实例化</span></span><br><span class="line"><span class="keyword">var</span> p1 person</span><br><span class="line">p1.name = <span class="string">&quot;张三&quot;</span></span><br><span class="line">p1.age = <span class="number">20</span></span><br><span class="line">p1.sex = <span class="string">&quot;男&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建指针类型结构体</span></span><br><span class="line"><span class="keyword">var</span> p2 = <span class="built_in">new</span>(person)</span><br><span class="line">fmt.Printf(<span class="string">&quot;%T\n&quot;</span>, p2)     <span class="comment">// *main.person</span></span><br><span class="line">fmt.Printf(<span class="string">&quot;p2=%#v\n&quot;</span>, p2) <span class="comment">// p2=&amp;main.person&#123;name:&quot;&quot;, sex:&quot;&quot;, age:0&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Go语言中支持对结构体指针直接使用.来访问结构体的成员</span></span><br><span class="line"><span class="keyword">var</span> p2 = <span class="built_in">new</span>(person)</span><br><span class="line">p2.name = <span class="string">&quot;李四&quot;</span></span><br><span class="line">p2.age = <span class="number">18</span></span><br><span class="line">p2.sex = <span class="string">&quot;男&quot;</span></span><br><span class="line">fmt.Printf(<span class="string">&quot;p2=%#v\n&quot;</span>, p2) <span class="comment">// p2=&amp;main.person&#123;name:&quot;李四&quot;, sex:&quot;男&quot;, age:18&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 取结构体地址实例化</span></span><br><span class="line"><span class="keyword">var</span> p3 = &amp;person&#123;&#125;</span><br><span class="line">fmt.Printf(<span class="string">&quot;%T\n&quot;</span>, p3)     <span class="comment">// *main.person</span></span><br><span class="line">fmt.Printf(<span class="string">&quot;p3=%#v\n&quot;</span>, p3) <span class="comment">// p3=&amp;main.person&#123;name:&quot;&quot;, sex:&quot;&quot;, age:0&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用键值对初始化结构体</span></span><br><span class="line">p4 := person&#123;</span><br><span class="line">  name: <span class="string">&quot;王五&quot;</span>,</span><br><span class="line">  sex: <span class="string">&quot;男&quot;</span>,</span><br><span class="line">  age: <span class="number">25</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">p5 := &amp;person&#123;</span><br><span class="line">  name: <span class="string">&quot;王五&quot;</span>,</span><br><span class="line">  sex: <span class="string">&quot;男&quot;</span>,</span><br><span class="line">  age: <span class="number">25</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 省略键初始化结构体，顺序必须与结构体相对应</span></span><br><span class="line">p6 := person&#123;</span><br><span class="line">  <span class="string">&quot;哈哈&quot;</span>,</span><br><span class="line">  <span class="number">20</span>,</span><br><span class="line">  <span class="string">&quot;女&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">p7 := &amp;person&#123;</span><br><span class="line">  <span class="string">&quot;哈哈&quot;</span>,</span><br><span class="line">  <span class="number">20</span>,</span><br><span class="line">  <span class="string">&quot;女&quot;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1482,45 +1543,6 @@
       </categories>
       <tags>
         <tag>微服务</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Go改变命令行输出颜色</title>
-    <url>/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/</url>
-    <content><![CDATA[<h1 id="faith-color包"><a href="#faith-color包" class="headerlink" title="faith&#x2F;color包"></a>faith&#x2F;color包</h1><p><em><strong>faith&#x2F;color</strong></em>是一个用于美化终端输出的<em><strong>Golang</strong></em>库，可以改变输出文本的颜色。GitHub地址：<a href="https://github.com/faith/color%E3%80%82%E4%B8%8B%E9%9D%A2%E6%98%AF%E5%AE%83%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95%EF%BC%9A">https://github.com/faith/color。下面是它的一些用法：</a></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">go</span> get github.com/fatih/color</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用例子"><a href="#使用例子" class="headerlink" title="使用例子"></a>使用例子</h2><h3 id="标准颜色"><a href="#标准颜色" class="headerlink" title="标准颜色"></a>标准颜色</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Print with default helper functions</span></span><br><span class="line">color.Cyan(<span class="string">&quot;Prints text in cyan.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// A newline will be appended automatically</span></span><br><span class="line">color.Blue(<span class="string">&quot;Prints %s in blue.&quot;</span>, <span class="string">&quot;text&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// These are using the default foreground colors</span></span><br><span class="line">color.Red(<span class="string">&quot;We have red&quot;</span>)</span><br><span class="line">color.Magenta(<span class="string">&quot;And many others ..&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/standard.png" alt="standard"></p>
-<h3 id="RGB颜色"><a href="#RGB颜色" class="headerlink" title="RGB颜色"></a>RGB颜色</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">color.RGB(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>).Println(<span class="string">&quot;foreground orange&quot;</span>)</span><br><span class="line">color.RGB(<span class="number">230</span>, <span class="number">42</span>, <span class="number">42</span>).Println(<span class="string">&quot;foreground red&quot;</span>)</span><br><span class="line"></span><br><span class="line">color.BgRGB(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>).Println(<span class="string">&quot;background orange&quot;</span>)</span><br><span class="line">color.BgRGB(<span class="number">230</span>, <span class="number">42</span>, <span class="number">42</span>).Println(<span class="string">&quot;background red&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/RGB.png" alt="RGB"></p>
-<h3 id="混合颜色"><a href="#混合颜色" class="headerlink" title="混合颜色"></a>混合颜色</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Create a new color object</span></span><br><span class="line">c := color.New(color.FgCyan).Add(color.Underline)</span><br><span class="line">c.Println(<span class="string">&quot;Prints cyan text with an underline.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Or just add them to New()</span></span><br><span class="line">d := color.New(color.FgCyan, color.Bold)</span><br><span class="line">d.Printf(<span class="string">&quot;This prints bold cyan %s\n&quot;</span>, <span class="string">&quot;too!.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Mix up foreground and background colors, create new mixes!</span></span><br><span class="line">red := color.New(color.FgRed)</span><br><span class="line"></span><br><span class="line">boldRed := red.Add(color.Bold)</span><br><span class="line">boldRed.Println(<span class="string">&quot;This will print text in bold red.&quot;</span>)</span><br><span class="line"></span><br><span class="line">whiteBackground := red.Add(color.BgWhite)</span><br><span class="line">whiteBackground.Println(<span class="string">&quot;Red text with white background.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Mix with RGB color codes</span></span><br><span class="line">color.RGB(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>).AddBgRGB(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>).Println(<span class="string">&quot;orange with black background&quot;</span>)</span><br><span class="line"></span><br><span class="line">color.BgRGB(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>).AddRGB(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>).Println(<span class="string">&quot;orange background with white foreground&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/mix.png" alt="mix"></p>
-<h3 id="配合fmt使用"><a href="#配合fmt使用" class="headerlink" title="配合fmt使用"></a>配合fmt使用</h3><p>在fmt中使用</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Create SprintXxx functions to mix strings with other non-colorized strings:</span></span><br><span class="line">yellow := color.New(color.FgYellow).SprintFunc()</span><br><span class="line">red := color.New(color.FgRed).SprintFunc()</span><br><span class="line">fmt.Printf(<span class="string">&quot;This is a %s and this is %s.\n&quot;</span>, yellow(<span class="string">&quot;warning&quot;</span>), red(<span class="string">&quot;error&quot;</span>))</span><br><span class="line"></span><br><span class="line">info := color.New(color.FgWhite, color.BgGreen).SprintFunc()</span><br><span class="line">fmt.Printf(<span class="string">&quot;This %s rocks!\n&quot;</span>, info(<span class="string">&quot;package&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// Use helper functions</span></span><br><span class="line">fmt.Println(<span class="string">&quot;This&quot;</span>, color.RedString(<span class="string">&quot;warning&quot;</span>), <span class="string">&quot;should be not neglected.&quot;</span>)</span><br><span class="line">fmt.Printf(<span class="string">&quot;%v %v\n&quot;</span>, color.GreenString(<span class="string">&quot;Info:&quot;</span>), <span class="string">&quot;an important message.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Windows supported too! Just don&#x27;t forget to change the output to color.Output</span></span><br><span class="line">fmt.Fprintf(color.Output, <span class="string">&quot;Windows support: %s&quot;</span>, color.GreenString(<span class="string">&quot;PASS&quot;</span>))</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/fmt.png" alt="fmt"></p>
-<p>插入fmt打印</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Use handy standard colors</span></span><br><span class="line">color.Set(color.FgYellow)</span><br><span class="line"></span><br><span class="line">fmt.Println(<span class="string">&quot;Existing text will now be in yellow&quot;</span>)</span><br><span class="line">fmt.Printf(<span class="string">&quot;This one %s\n&quot;</span>, <span class="string">&quot;too&quot;</span>)</span><br><span class="line"></span><br><span class="line">color.Unset() <span class="comment">// Don&#x27;t forget to unset</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// You can mix up parameters</span></span><br><span class="line">color.Set(color.FgMagenta, color.Bold)</span><br><span class="line"><span class="keyword">defer</span> color.Unset() <span class="comment">// Use it in your function</span></span><br><span class="line"></span><br><span class="line">fmt.Println(<span class="string">&quot;All text will now be bold magenta.&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/insertfmt.png" alt="insertfmt"></p>
-<h2 id="配合Logrus日志库打印出带颜色的日志"><a href="#配合Logrus日志库打印出带颜色的日志" class="headerlink" title="配合Logrus日志库打印出带颜色的日志"></a>配合Logrus日志库打印出带颜色的日志</h2><p>我们需要定义一个继承<strong>logrus.TextFormatter</strong>的结构体<strong>CustomTextFormatter</strong>，并实现<strong>Format</strong>方法来自定义日志的输出格式。还需要将<strong>Logrus</strong>实例的<strong>Formatter</strong>设置为自定义格式化器<strong>CustomTextFormatter</strong>。而不是直接使用<strong>logrus.TextFormatter</strong>。</p>
-<p>在<strong>CustomTextFormatter</strong>结构体中，我们添加了<strong>ForceColors</strong>属性以及四个<strong>color.Color</strong>用于不同级别的日志消息。</p>
-<p>同时在<strong>CustomTextFormatter</strong>的<strong>Format</strong>方法中根据日志级别选择设置对应的自定义颜色并打印日志消息。如果<strong>ForceColors</strong>为<strong>true</strong>，则使用定义的颜色样式来打印日志；否则，调用父类的<strong>TextFormatter.Format</strong>方法进行默认的格式化操作。</p>
-<p><strong>PrintColored</strong>方法用于默认颜色的方式打印日志条目。它将日志级别添加到消息前面，并根据需要添加调用者信息。最后，通过调用**fmt.Fprintln(color.Output, msg)**将带颜色的消息打印到终端。</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义一个全局的Logger变量</span></span><br><span class="line"><span class="keyword">var</span> Logg *logrus.Logger</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义格式化器，继承自logrus.TextFormatter</span></span><br><span class="line"><span class="keyword">type</span> ColorLogger <span class="keyword">struct</span> &#123;</span><br><span class="line">	logrus.TextFormatter</span><br><span class="line">	ForceColors   <span class="type">bool</span></span><br><span class="line">	ColorInfo     *color.Color</span><br><span class="line">	ColorWarning  *color.Color</span><br><span class="line">	ColorError    *color.Color</span><br><span class="line">	ColorCritical *color.Color</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 格式化方法，用于将日志条目格式化为字节数组</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *ColorLogger)</span></span> Format(entry *logrus.Entry) ([]<span class="type">byte</span>, <span class="type">error</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> c.ForceColors &#123;</span><br><span class="line">    <span class="comment">// 按日志级别更改日志颜色</span></span><br><span class="line">		<span class="keyword">switch</span> entry.Level &#123;</span><br><span class="line">		<span class="keyword">case</span> logrus.InfoLevel:</span><br><span class="line">			c.ColorInfo.Println(entry.Message)</span><br><span class="line">		<span class="keyword">case</span> logrus.WarnLevel:</span><br><span class="line">			c.ColorWarning.Println(entry.Message)</span><br><span class="line">		<span class="keyword">case</span> logrus.ErrorLevel:</span><br><span class="line">			c.ColorError.Println(entry.Message)</span><br><span class="line">		<span class="keyword">case</span> logrus.FatalLevel, logrus.PanicLevel:</span><br><span class="line">			c.ColorCritical.Println(entry.Message)</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			c.PrintColored(entry)</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span>, <span class="literal">nil</span></span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> c.TextFormatter.Format(entry)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义方法，用于将日志条目以带颜色的方式打印出来</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *ColorLogger)</span></span> PrintColored(entry *logrus.Entry) &#123;</span><br><span class="line">	levelColor := color.New(color.FgCyan, color.Bold)             <span class="comment">// 定义蓝色和粗体样式</span></span><br><span class="line">	levelText := levelColor.Sprintf(<span class="string">&quot;%-6s&quot;</span>, entry.Level.String()) <span class="comment">// 格式化日志级别文本</span></span><br><span class="line"></span><br><span class="line">	msg := levelText + <span class="string">&quot; &quot;</span> + entry.Message</span><br><span class="line">	<span class="keyword">if</span> entry.HasCaller() &#123;</span><br><span class="line">		msg += <span class="string">&quot; (&quot;</span> + entry.Caller.File + <span class="string">&quot;:&quot;</span> + strconv.Itoa(entry.Caller.Line) + <span class="string">&quot;)&quot;</span> <span class="comment">// 添加调用者信息</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Fprintln(color.Output, msg) <span class="comment">// 使用有颜色的方式打印消息到终端</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化全局变量</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewLogger</span><span class="params">()</span></span> &#123;</span><br><span class="line">	Logg = logrus.New()</span><br><span class="line">	Logg.Formatter = &amp;ColorLogger&#123;</span><br><span class="line">		ForceColors:   <span class="literal">true</span>,</span><br><span class="line">		ColorInfo:     color.New(color.FgBlue),</span><br><span class="line">		ColorWarning:  color.New(color.FgYellow),</span><br><span class="line">		ColorError:    color.New(color.FgRed),</span><br><span class="line">		ColorCritical: color.New(color.BgRed, color.FgWhite),</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>参考自：<a href="https://blog.csdn.net/qq_20185737/article/details/133560820">Logrus 日志框架——自定义日志颜色_logrus日志颜色-CSDN博客</a></p>
-]]></content>
-      <categories>
-        <category>程序</category>
-      </categories>
-      <tags>
-        <tag>GO</tag>
-        <tag>后端</tag>
       </tags>
   </entry>
   <entry>
