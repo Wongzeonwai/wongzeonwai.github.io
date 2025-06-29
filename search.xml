@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>GVM安装笔记</title>
+    <url>/2024/10/17/GVM%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="一、GVM介绍"><a href="#一、GVM介绍" class="headerlink" title="一、GVM介绍"></a>一、GVM介绍</h1><p><strong>GVM（Go Version Manager）</strong>，一款<code>Go</code>语言版本管理工具，类似于<code>nodejs</code>版本管理工具<code>nvm</code>。</p>
+<h1 id="二、Windows安装方式"><a href="#二、Windows安装方式" class="headerlink" title="二、Windows安装方式"></a>二、Windows安装方式</h1><p>在<a href="https://github.com/voidint/g/blob/master/README_CN.md">g&#x2F;README_CN.md at master · voidint&#x2F;g (github.com)</a>下找到安装包进行安装。</p>
+<p><img src="/2024/10/17/GVM%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/install.png" alt="install"></p>
+<p>打开系统环境变量，增加如下变量：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line"># 配置golang下载镜像，不用翻墙。</span><br><span class="line">G_MIRROR=https://golang.google.cn/dl/</span><br><span class="line"># 开启实验特性，用于使修改go存放目录生效。</span><br><span class="line">G_EXPERIMENTAL=true</span><br><span class="line"># 更改go存放目录</span><br><span class="line">G_HOME=自定义地址</span><br><span class="line">GOROOT=%G_HOME%\go</span><br><span class="line"># 配置PATH变量</span><br><span class="line">%GOROOT%\bin</span><br></pre></td></tr></table></figure>
+
+<p>设置完成后，打开<code>powershell</code>或者<code>cmd</code>测试一下：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 输入：</span></span><br><span class="line">g</span><br><span class="line"><span class="comment"># 输出：</span></span><br><span class="line">NAME:</span><br><span class="line">  g - Golang Version Manager</span><br><span class="line"></span><br><span class="line"> USAGE:</span><br><span class="line">  g  command [<span class="type">arguments...</span>]</span><br><span class="line"></span><br><span class="line"> VERSION:</span><br><span class="line">  <span class="number">1.7</span>.<span class="number">0</span></span><br><span class="line"></span><br><span class="line"> AUTHOR:</span><br><span class="line">  voidint &lt;voidint@<span class="number">126</span>.com&gt;</span><br><span class="line"></span><br><span class="line"> COMMANDS:</span><br><span class="line">    <span class="built_in">ls</span>, l               List installed versions</span><br><span class="line">    <span class="built_in">ls</span><span class="literal">-remote</span>, lr, lsr  List remote versions available <span class="keyword">for</span> install</span><br><span class="line">    use                 <span class="keyword">Switch</span> to specified version</span><br><span class="line">    install, i          Download and install a version</span><br><span class="line">    uninstall           Uninstall a version</span><br><span class="line">    clean               Remove files from the package download directory</span><br><span class="line">    env                 Show env variables of g</span><br><span class="line">    self                Modify g itself</span><br><span class="line">    help, <span class="built_in">h</span>             Shows a list of commands or help <span class="keyword">for</span> one command</span><br><span class="line"></span><br><span class="line"> GLOBAL OPTIONS:</span><br><span class="line">  <span class="literal">--help</span>, <span class="literal">-h</span>     show help</span><br><span class="line">  <span class="literal">--version</span>, <span class="literal">-v</span>  print the version</span><br><span class="line"></span><br><span class="line"> COPYRIGHT:</span><br><span class="line">  Copyright (c) <span class="number">2019</span><span class="literal">-2024</span>, voidint. All rights reserved.</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 更新g本身：</span></span><br><span class="line">  g self update</span><br><span class="line">  <span class="comment"># 卸载g：</span></span><br><span class="line">  g self uninstall</span><br></pre></td></tr></table></figure>
+
+<p>有关<strong>Linux</strong>系统下安装或其他信息可以参考文档：<a href="https://github.com/voidint/g/blob/master/README_CN.md">g&#x2F;README_CN.md at master · voidint&#x2F;g (github.com)</a>。</p>
+<p><strong>Linux</strong>系统下也可以之间通过命令行方式安装。</p>
+]]></content>
+      <categories>
+        <category>程序</category>
+      </categories>
+      <tags>
+        <tag>GO</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Docker学习笔记</title>
     <url>/2024/09/12/Docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="一、Docker安装"><a href="#一、Docker安装" class="headerlink" title="一、Docker安装"></a>一、Docker安装</h1><h2 id="1、Centos安装过程"><a href="#1、Centos安装过程" class="headerlink" title="1、Centos安装过程"></a>1、Centos安装过程</h2><h3 id="（1）卸载旧版本的Docker"><a href="#（1）卸载旧版本的Docker" class="headerlink" title="（1）卸载旧版本的Docker"></a>（1）卸载旧版本的Docker</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum remove docker \</span><br><span class="line">                  docker-client \</span><br><span class="line">                  docker-client-latest \</span><br><span class="line">                  docker-common \</span><br><span class="line">                  docker-latest \</span><br><span class="line">                  docker-latest-logrotate \</span><br><span class="line">                  docker-logrotate \</span><br><span class="line">                  docker-selinux \</span><br><span class="line">                  docker-engine-selinux \</span><br><span class="line">                  docker-engine \</span><br><span class="line">                  docker-ce</span><br></pre></td></tr></table></figure>
@@ -63,28 +85,6 @@
       </categories>
       <tags>
         <tag>服务器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GVM安装笔记</title>
-    <url>/2024/10/17/GVM%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="一、GVM介绍"><a href="#一、GVM介绍" class="headerlink" title="一、GVM介绍"></a>一、GVM介绍</h1><p><strong>GVM（Go Version Manager）</strong>，一款<code>Go</code>语言版本管理工具，类似于<code>nodejs</code>版本管理工具<code>nvm</code>。</p>
-<h1 id="二、Windows安装方式"><a href="#二、Windows安装方式" class="headerlink" title="二、Windows安装方式"></a>二、Windows安装方式</h1><p>在<a href="https://github.com/voidint/g/blob/master/README_CN.md">g&#x2F;README_CN.md at master · voidint&#x2F;g (github.com)</a>下找到安装包进行安装。</p>
-<p><img src="/2024/10/17/GVM%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/install.png" alt="install"></p>
-<p>打开系统环境变量，增加如下变量：</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line"># 配置golang下载镜像，不用翻墙。</span><br><span class="line">G_MIRROR=https://golang.google.cn/dl/</span><br><span class="line"># 开启实验特性，用于使修改go存放目录生效。</span><br><span class="line">G_EXPERIMENTAL=true</span><br><span class="line"># 更改go存放目录</span><br><span class="line">G_HOME=自定义地址</span><br><span class="line">GOROOT=%G_HOME%\go</span><br><span class="line"># 配置PATH变量</span><br><span class="line">%GOROOT%\bin</span><br></pre></td></tr></table></figure>
-
-<p>设置完成后，打开<code>powershell</code>或者<code>cmd</code>测试一下：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 输入：</span></span><br><span class="line">g</span><br><span class="line"><span class="comment"># 输出：</span></span><br><span class="line">NAME:</span><br><span class="line">  g - Golang Version Manager</span><br><span class="line"></span><br><span class="line"> USAGE:</span><br><span class="line">  g  command [<span class="type">arguments...</span>]</span><br><span class="line"></span><br><span class="line"> VERSION:</span><br><span class="line">  <span class="number">1.7</span>.<span class="number">0</span></span><br><span class="line"></span><br><span class="line"> AUTHOR:</span><br><span class="line">  voidint &lt;voidint@<span class="number">126</span>.com&gt;</span><br><span class="line"></span><br><span class="line"> COMMANDS:</span><br><span class="line">    <span class="built_in">ls</span>, l               List installed versions</span><br><span class="line">    <span class="built_in">ls</span><span class="literal">-remote</span>, lr, lsr  List remote versions available <span class="keyword">for</span> install</span><br><span class="line">    use                 <span class="keyword">Switch</span> to specified version</span><br><span class="line">    install, i          Download and install a version</span><br><span class="line">    uninstall           Uninstall a version</span><br><span class="line">    clean               Remove files from the package download directory</span><br><span class="line">    env                 Show env variables of g</span><br><span class="line">    self                Modify g itself</span><br><span class="line">    help, <span class="built_in">h</span>             Shows a list of commands or help <span class="keyword">for</span> one command</span><br><span class="line"></span><br><span class="line"> GLOBAL OPTIONS:</span><br><span class="line">  <span class="literal">--help</span>, <span class="literal">-h</span>     show help</span><br><span class="line">  <span class="literal">--version</span>, <span class="literal">-v</span>  print the version</span><br><span class="line"></span><br><span class="line"> COPYRIGHT:</span><br><span class="line">  Copyright (c) <span class="number">2019</span><span class="literal">-2024</span>, voidint. All rights reserved.</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 更新g本身：</span></span><br><span class="line">  g self update</span><br><span class="line">  <span class="comment"># 卸载g：</span></span><br><span class="line">  g self uninstall</span><br></pre></td></tr></table></figure>
-
-<p>有关<strong>Linux</strong>系统下安装或其他信息可以参考文档：<a href="https://github.com/voidint/g/blob/master/README_CN.md">g&#x2F;README_CN.md at master · voidint&#x2F;g (github.com)</a>。</p>
-<p><strong>Linux</strong>系统下也可以之间通过命令行方式安装。</p>
-]]></content>
-      <categories>
-        <category>程序</category>
-      </categories>
-      <tags>
-        <tag>GO</tag>
       </tags>
   </entry>
   <entry>
@@ -1345,48 +1345,6 @@
       </tags>
   </entry>
   <entry>
-    <title>RPC学习笔记</title>
-    <url>/2025/03/18/RPC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="一、RPC简介"><a href="#一、RPC简介" class="headerlink" title="一、RPC简介"></a>一、RPC简介</h1><p>RPC：<em><strong>Remote Procedure Call Protocol</strong></em>（远程过程调用）底层是TCP协议。</p>
-<h1 id="二、RPC的使用"><a href="#二、RPC的使用" class="headerlink" title="二、RPC的使用"></a>二、RPC的使用</h1><h3 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h3><ol>
-<li><p>注册RPC服务对象，给对象绑定方法。</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">rpc.RegisterName(<span class="string">&quot;服务名&quot;</span>, 回调对象)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建监听器。</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">listener, err := net.Listen()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>建立连接。</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">conn, err := listener.Accept()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将连接绑定RPC服务。</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">rpc.ServeConn(conn)</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;net&quot;</span></span><br><span class="line">	<span class="string">&quot;net/rpc&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> World <span class="keyword">struct</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(w *World)</span></span> HelloWorld(args <span class="type">string</span>, reply *<span class="type">string</span>) <span class="type">error</span> &#123;</span><br><span class="line">	*reply = <span class="string">&quot;Hello &quot;</span> + args</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// 1、注册rpc服务，绑定对象方法</span></span><br><span class="line">	err := rpc.RegisterName(<span class="string">&quot;hello&quot;</span>, <span class="built_in">new</span>(World))</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;服务注册失败！&quot;</span>, err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 2、设置监听</span></span><br><span class="line">	listener, err := net.Listen(<span class="string">&quot;tcp&quot;</span>, <span class="string">&quot;127.0.0.1:8888&quot;</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;连接建立失败！&quot;</span>, err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">defer</span> listener.Close()</span><br><span class="line">	<span class="comment">// 3、建立连接</span></span><br><span class="line">	conn, err := listener.Accept()</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;建立连接失败！&quot;</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 4、绑定服务</span></span><br><span class="line">	rpc.ServeConn(conn)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><ol>
-<li><p>用RPC连接服务器。</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">conn, err := rpc.Dial()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>调用远程函数。</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">conn.Call(<span class="string">&quot;服务名.方法名&quot;</span>, 传入参数, 传出参数)</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h4><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;net/rpc&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// 1、rpc连接服务器</span></span><br><span class="line">	client, err := rpc.Dial(<span class="string">&quot;tcp&quot;</span>, <span class="string">&quot;127.0.0.1:8888&quot;</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;连接rpc服务器失败！&quot;</span>, err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">defer</span> client.Close()</span><br><span class="line">	<span class="comment">// 2、调用远程函数</span></span><br><span class="line">	<span class="keyword">var</span> reply <span class="type">string</span></span><br><span class="line">	err = client.Call(<span class="string">&quot;hello.HelloWorld&quot;</span>, <span class="string">&quot;rpc&quot;</span>, &amp;reply)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;调用函数失败&quot;</span>, err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(reply)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="RPC相关函数"><a href="#RPC相关函数" class="headerlink" title="RPC相关函数"></a>RPC相关函数</h2><h3 id="1、注册RPC服务"><a href="#1、注册RPC服务" class="headerlink" title="1、注册RPC服务"></a>1、注册RPC服务</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(s *Server)</span></span> RegisterName(name <span class="type">string</span>, rcvr <span class="keyword">interface</span>&#123;&#125;) <span class="type">error</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	name: 服务名</span></span><br><span class="line"><span class="comment">	rcvr: 对应rpc对象</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2、绑定RPC服务"><a href="#2、绑定RPC服务" class="headerlink" title="2、绑定RPC服务"></a>2、绑定RPC服务</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(s *Server)</span></span> ServeConn(conn io.ReadWriteCloser)</span><br></pre></td></tr></table></figure>
-
-<h3 id="3、调用远程函数"><a href="#3、调用远程函数" class="headerlink" title="3、调用远程函数"></a>3、调用远程函数</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *Client)</span></span> Call(serviceMethod <span class="type">string</span>, args <span class="keyword">interface</span>&#123;&#125;, reply <span class="keyword">interface</span>&#123;&#125;) <span class="type">error</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	serviceMethod: 服务名.方法名</span></span><br><span class="line"><span class="comment">	args: 传入参数</span></span><br><span class="line"><span class="comment">	reply: 传出参数</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>程序</category>
-      </categories>
-      <tags>
-        <tag>微服务</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JavaScript高级程序设计</title>
     <url>/2024/08/06/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</url>
     <content><![CDATA[<h1 id="一、变量"><a href="#一、变量" class="headerlink" title="一、变量"></a>一、变量</h1><h2 id="1、var"><a href="#1、var" class="headerlink" title="1、var"></a>1、var</h2><h3 id="1-1-变量提升"><a href="#1-1-变量提升" class="headerlink" title="1.1 变量提升"></a>1.1 变量提升</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(age)</span><br><span class="line">    <span class="keyword">var</span> age = <span class="number">26</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">foo</span>() <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
@@ -1543,6 +1501,112 @@
       <tags>
         <tag>前端</tag>
         <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RPC学习笔记</title>
+    <url>/2025/03/18/RPC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="一、RPC简介"><a href="#一、RPC简介" class="headerlink" title="一、RPC简介"></a>一、RPC简介</h1><p>RPC：<em><strong>Remote Procedure Call Protocol</strong></em>（远程过程调用）底层是TCP协议。</p>
+<h1 id="二、RPC的使用"><a href="#二、RPC的使用" class="headerlink" title="二、RPC的使用"></a>二、RPC的使用</h1><h3 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h3><ol>
+<li><p>注册RPC服务对象，给对象绑定方法。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">rpc.RegisterName(<span class="string">&quot;服务名&quot;</span>, 回调对象)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建监听器。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">listener, err := net.Listen()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>建立连接。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">conn, err := listener.Accept()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将连接绑定RPC服务。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">rpc.ServeConn(conn)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;net&quot;</span></span><br><span class="line">	<span class="string">&quot;net/rpc&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> World <span class="keyword">struct</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(w *World)</span></span> HelloWorld(args <span class="type">string</span>, reply *<span class="type">string</span>) <span class="type">error</span> &#123;</span><br><span class="line">	*reply = <span class="string">&quot;Hello &quot;</span> + args</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// 1、注册rpc服务，绑定对象方法</span></span><br><span class="line">	err := rpc.RegisterName(<span class="string">&quot;hello&quot;</span>, <span class="built_in">new</span>(World))</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;服务注册失败！&quot;</span>, err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 2、设置监听</span></span><br><span class="line">	listener, err := net.Listen(<span class="string">&quot;tcp&quot;</span>, <span class="string">&quot;127.0.0.1:8888&quot;</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;连接建立失败！&quot;</span>, err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">defer</span> listener.Close()</span><br><span class="line">	<span class="comment">// 3、建立连接</span></span><br><span class="line">	conn, err := listener.Accept()</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;建立连接失败！&quot;</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 4、绑定服务</span></span><br><span class="line">	rpc.ServeConn(conn)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><ol>
+<li><p>用RPC连接服务器。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">conn, err := rpc.Dial()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调用远程函数。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">conn.Call(<span class="string">&quot;服务名.方法名&quot;</span>, 传入参数, 传出参数)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h4><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;net/rpc&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// 1、rpc连接服务器</span></span><br><span class="line">	client, err := rpc.Dial(<span class="string">&quot;tcp&quot;</span>, <span class="string">&quot;127.0.0.1:8888&quot;</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;连接rpc服务器失败！&quot;</span>, err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">defer</span> client.Close()</span><br><span class="line">	<span class="comment">// 2、调用远程函数</span></span><br><span class="line">	<span class="keyword">var</span> reply <span class="type">string</span></span><br><span class="line">	err = client.Call(<span class="string">&quot;hello.HelloWorld&quot;</span>, <span class="string">&quot;rpc&quot;</span>, &amp;reply)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;调用函数失败&quot;</span>, err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(reply)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="RPC相关函数"><a href="#RPC相关函数" class="headerlink" title="RPC相关函数"></a>RPC相关函数</h2><h3 id="1、注册RPC服务"><a href="#1、注册RPC服务" class="headerlink" title="1、注册RPC服务"></a>1、注册RPC服务</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(s *Server)</span></span> RegisterName(name <span class="type">string</span>, rcvr <span class="keyword">interface</span>&#123;&#125;) <span class="type">error</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	name: 服务名</span></span><br><span class="line"><span class="comment">	rcvr: 对应rpc对象</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2、绑定RPC服务"><a href="#2、绑定RPC服务" class="headerlink" title="2、绑定RPC服务"></a>2、绑定RPC服务</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(s *Server)</span></span> ServeConn(conn io.ReadWriteCloser)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、调用远程函数"><a href="#3、调用远程函数" class="headerlink" title="3、调用远程函数"></a>3、调用远程函数</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *Client)</span></span> Call(serviceMethod <span class="type">string</span>, args <span class="keyword">interface</span>&#123;&#125;, reply <span class="keyword">interface</span>&#123;&#125;) <span class="type">error</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	serviceMethod: 服务名.方法名</span></span><br><span class="line"><span class="comment">	args: 传入参数</span></span><br><span class="line"><span class="comment">	reply: 传出参数</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>程序</category>
+      </categories>
+      <tags>
+        <tag>微服务</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>深入理解GMP模型</title>
+    <url>/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<h1 id="一、单进程到多进程的改变"><a href="#一、单进程到多进程的改变" class="headerlink" title="一、单进程到多进程的改变"></a>一、单进程到多进程的改变</h1><h2 id="1、单进程"><a href="#1、单进程" class="headerlink" title="1、单进程"></a>1、单进程</h2><p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/danjincheng.png" alt="danjincheng"></p>
+<p>同一时刻只能执行单个进程，进程阻塞浪费了 CPU 资源。</p>
+<h2 id="2、多进程"><a href="#2、多进程" class="headerlink" title="2、多进程"></a>2、多进程</h2><p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/duojincheng.png" alt="duojincheng"></p>
+<p>使用时间片轮询方式切换进程，进程切换时也会浪费 CPU 资源。进程占用空间约为虚拟内存的 <em>4GB</em>，线程占用空间约为 <em>4MB</em>。 </p>
+<h1 id="二、协程（co-routine）"><a href="#二、协程（co-routine）" class="headerlink" title="二、协程（co-routine）"></a>二、协程（co-routine）</h1><p>线程分为由 CPU 调度的内核态线程，由用户进程自行调度的用户态线程，以及 CPU 和用户都能调度的混合态线程。协程就是在用户态线程基础上实现的轻量级线程。</p>
+<h1 id="三、GM模型"><a href="#三、GM模型" class="headerlink" title="三、GM模型"></a>三、GM模型</h1><p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/gmmodel.png" alt="gmmodel"></p>
+<p>早期调度器由<strong>线程</strong>和<strong>协程全局队列</strong>组成。<span style="color: blue">M</span> 想要执行、放回 <span style="color: green">G</span> 都必须访问全局 <span style="color: green">G</span> 队列，并且 <span style="color: blue">M</span> 有多个，即多线程访问同一资源需要加锁进行保证互斥&#x2F;同步，所以全局 <span style="color: green">G</span> 队列是有互斥锁进行保护的。</p>
+<ol>
+<li>创建、销毁、调度G都需要每个M获取锁，这就形成了<strong>激烈的锁竞争</strong>。</li>
+<li><span style="color: blue">M</span> 转移 <span style="color: green">G</span> 会造成<strong>延迟和额外的系统负载</strong>。比如当 <span style="color: green">G</span> 中包含创建新协程的时候，M 创建了 <span style="color: green">G’</span>，为了继续执行G，需要把 <span style="color: green">G’</span> 交给 M’ 执行，也造成了<strong>很差的局部性</strong>，因为 <span style="color: green">G’</span> 和 <span style="color: green">G</span> 是相关的，最好放在 <span style="color: blue">M</span> 上执行，而不是其他 <span style="color: blue">M</span>‘ 。</li>
+<li>系统调用（CPU 在 <span style="color: blue">M</span> 之间的切换）导致频繁的线程阻塞和取消阻塞操作增加了系统开销。</li>
+</ol>
+<h1 id="四、GMP模型"><a href="#四、GMP模型" class="headerlink" title="四、GMP模型"></a>四、GMP模型</h1><p>GMP 是 Go 语言实现的对<strong>线程（M：machine）</strong>、<strong>goroutine（G）</strong>的<strong>调度器（P：processer 处理器）</strong>优化，将 <strong>goroutine</strong> 内存占用限制在 <em>4KB</em>。</p>
+<p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/gmpmodel.jpeg" alt="model"></p>
+<ol>
+<li><strong>全局队列</strong>（Global Queue）：存放等待运行的 <span style="color: green">G</span>。</li>
+<li><strong>P的本地队列</strong>：同全局队列类似，存放的也是等待运行的 <span style="color: green">G</span>，存的数量有限，不超过256个。新建 <span style="color: green">G’</span> 时，<span style="color: green">G’</span> 优先加入到 <span style="color: yellow">P</span> 的本地队列，如果队列满了，则会把本地队列中一半的 <span style="color: green">G</span> 移动到全局队列。</li>
+<li><strong>P列表</strong>：所有的 <span style="color: yellow">P</span> 都在程序启动时创建，并保存在数组中，最多有<code>GOMAXPROCS</code>(可配置)个。</li>
+<li><strong><span style="color: blue">M</span><strong>：当前操作系统分配的操作 Go 程序的内核线程数。线程想运行任务就得获取 <span style="color: yellow">P</span>，从 <span style="color: yellow">P</span> 的本地队列获取 <span style="color: green">G</span>，<span style="color: yellow">P</span> 队列为空时，<span style="color: blue">M</span> 也会尝试从全局队列</strong>拿</strong>一批 <span style="color: green">G</span> 放到P的本地队列，或从其他 <span style="color: yellow">P</span> 的本地队列<strong>偷</strong>一半放到自己P的本地队列。<span style="color: blue">M</span> 运行 <span style="color: green">G</span>，<span style="color: green">G</span> 执行之后，<span style="color: blue">M</span> 会从 <span style="color: yellow">P</span> 获取下一个 <span style="color: green">G</span>，不断重复下去。</li>
+</ol>
+<h2 id="调度器的设计策略"><a href="#调度器的设计策略" class="headerlink" title="调度器的设计策略"></a>调度器的设计策略</h2><h3 id="1、复用线程"><a href="#1、复用线程" class="headerlink" title="1、复用线程"></a>1、复用线程</h3><p>复用线程策略主要分为两种机制：<strong>work stealing 机制</strong>和<strong>hand off 机制</strong>：</p>
+<p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/workstealing.png" alt="work stealing 机制"></p>
+<p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/handoff.png" alt="hand off 机制"></p>
+<ul>
+<li>work stealing 机制：在线程空闲时会从其他线程的本地队列中偷取 <span style="color: green">G</span> 执行。</li>
+<li>hand off 机制：在一个线程出现 <span style="color: green">G</span> 阻塞的状况下，会将当前线程和 <span style="color: yellow">P</span> 分离，创建或者唤醒新的线程并将 <span style="color: yellow">P</span> 和新的线程绑定，而原来的线程在 <span style="color: green">G</span> 执行完毕后进入睡眠状态或被销毁。</li>
+</ul>
+<h3 id="2、利用并行"><a href="#2、利用并行" class="headerlink" title="2、利用并行"></a>2、利用并行</h3><p>使用<code>GOMAXPROCS</code>限定 <span style="color: yellow">P</span> 的个数为 CPU 个数 &#x2F; 2</p>
+<h3 id="3、-抢占"><a href="#3、-抢占" class="headerlink" title="3、 抢占"></a>3、 抢占</h3><p>通过时间轮询，每 10ms CPU 会被其他 <span style="color: green">G</span> 抢占执行。</p>
+<h3 id="4、全局-G-队列"><a href="#4、全局-G-队列" class="headerlink" title="4、全局 G 队列"></a>4、全局 <span style="color: green">G</span> 队列</h3><p>在 <strong>work stealing 机制</strong>基础上，如果在其他 <span style="color: yellow">P</span> 中无法偷取 G，就会从全局队列中获取。在新的调度器中依然有全局 <span style="color: green">G</span> 队列，当 <span style="color: yellow">P</span> 的本地队列为空时，优先从全局队列获取，如果全局队列为空时则通过 <strong>work stealing 机制</strong>从其他 <span style="color: yellow">P</span> 的本地队列偷取 <span style="color: green">G</span>。</p>
+<h2 id="go-func-流程"><a href="#go-func-流程" class="headerlink" title="go func 流程"></a>go func 流程</h2><p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/gofunc.jpeg" alt="go func 流程"></p>
+<ol>
+<li><p>我们通过 go func() 来创建一个 goroutine；</p>
+</li>
+<li><p>有两个存储 <span style="color: green">G</span> 的队列，一个是局部调度器 <span style="color: yellow">P</span> 的本地队列、一个是全局 <span style="color: green">G</span> 队列。新创建的 <span style="color: green">G</span> 会先保存在 <span style="color: yellow">P</span> 的本地队列中，如果 <span style="color: yellow">P</span> 的本地队列已经满了就会保存在全局的队列中；</p>
+</li>
+<li><p><span style="color: green">G</span> 只能运行在 <span style="color: blue">M</span> 中，一个 <span style="color: blue">M</span> 必须持有一个 P，M 与 <span style="color: yellow">P</span> 是 1：1 的关系。M 会从 <span style="color: yellow">P</span> 的本地队列弹出一个可执行状态的 <span style="color: green">G</span> 来执行，如果 <span style="color: yellow">P</span> 的本地队列为空，就会想其他的 MP 组合偷取一个可执行的 <span style="color: green">G</span> 来执行；</p>
+</li>
+<li><p>一个 <span style="color: blue">M</span> 调度 <span style="color: green">G</span> 执行的过程是一个循环机制；</p>
+</li>
+<li><p>当 <span style="color: blue">M</span> 执行某一个 <span style="color: green">G</span> 时候如果发生了 syscall 或则其余阻塞操作，M 会阻塞，如果当前有一些 <span style="color: green">G</span> 在执行，runtime 会把这个线程 <span style="color: blue">M</span> 从 <span style="color: yellow">P</span> 中摘除（detach），然后再创建一个新的操作系统的线程（如果有空闲的线程可用就复用空闲线程）来服务于这个 P；</p>
+</li>
+<li><p>当 <span style="color: blue">M</span> 系统调用结束时候，这个 <span style="color: green">G</span> 会尝试获取一个空闲的 <span style="color: yellow">P</span> 执行，并放入到这个 <span style="color: yellow">P</span> 的本地队列。如果获取不到 P，那么这个线程 <span style="color: blue">M</span> 变成休眠状态， 加入到空闲线程中，然后这个 <span style="color: green">G</span> 会被放入全局队列中。</p>
+</li>
+</ol>
+<h2 id="调度器的生命周期"><a href="#调度器的生命周期" class="headerlink" title="调度器的生命周期"></a>调度器的生命周期</h2><p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/life.png" alt="生命周期"></p>
+<ul>
+<li><p>**<span style="color: blue">M0</span>**：<span style="color: blue">M0</span> 是启动程序后的编号为 0 的主线程，这个 <span style="color: blue">M</span> 对应的实例会在全局变量 runtime.m0 中，不需要在 heap 上分配，<span style="color: blue">M0</span> 负责执行初始化操作和启动第一个 G， 在之后 <span style="color: blue">M0</span> 就和其他的 <span style="color: blue">M</span> 一样了。</p>
+</li>
+<li><p>**<span style="color: green">G0</span>**：<span style="color: green">G0</span> 是每次启动一个 <span style="color: blue">M</span> 都会第一个创建的 gourtine，<span style="color: green">G0</span> 仅用于负责调度的 G，<span style="color: green">G0</span> 不指向任何可执行的函数，每个 <span style="color: blue">M</span> 都会有一个自己的 G0。在调度或系统调用时会使用 <span style="color: green">G0</span> 的栈空间，全局变量的 <span style="color: green">G0</span> 是 <span style="color: blue">M0</span> 的 <span style="color: green">G0</span>。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>程序</category>
+      </categories>
+      <tags>
+        <tag>GO</tag>
+        <tag>后端</tag>
       </tags>
   </entry>
   <entry>
@@ -2180,70 +2244,6 @@
       </categories>
       <tags>
         <tag>微服务</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>深入理解GMP模型</title>
-    <url>/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/</url>
-    <content><![CDATA[<h1 id="一、单进程到多进程的改变"><a href="#一、单进程到多进程的改变" class="headerlink" title="一、单进程到多进程的改变"></a>一、单进程到多进程的改变</h1><h2 id="1、单进程"><a href="#1、单进程" class="headerlink" title="1、单进程"></a>1、单进程</h2><p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/danjincheng.png" alt="danjincheng"></p>
-<p>同一时刻只能执行单个进程，进程阻塞浪费了 CPU 资源。</p>
-<h2 id="2、多进程"><a href="#2、多进程" class="headerlink" title="2、多进程"></a>2、多进程</h2><p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/duojincheng.png" alt="duojincheng"></p>
-<p>使用时间片轮询方式切换进程，进程切换时也会浪费 CPU 资源。进程占用空间约为虚拟内存的 <em>4GB</em>，线程占用空间约为 <em>4MB</em>。 </p>
-<h1 id="二、协程（co-routine）"><a href="#二、协程（co-routine）" class="headerlink" title="二、协程（co-routine）"></a>二、协程（co-routine）</h1><p>线程分为由 CPU 调度的内核态线程，由用户进程自行调度的用户态线程，以及 CPU 和用户都能调度的混合态线程。协程就是在用户态线程基础上实现的轻量级线程。</p>
-<h1 id="三、GM模型"><a href="#三、GM模型" class="headerlink" title="三、GM模型"></a>三、GM模型</h1><p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/gmmodel.png" alt="gmmodel"></p>
-<p>早期调度器由<strong>线程</strong>和<strong>协程全局队列</strong>组成。<span style="color: blue">M</span> 想要执行、放回 <span style="color: green">G</span> 都必须访问全局 <span style="color: green">G</span> 队列，并且 <span style="color: blue">M</span> 有多个，即多线程访问同一资源需要加锁进行保证互斥&#x2F;同步，所以全局 <span style="color: green">G</span> 队列是有互斥锁进行保护的。</p>
-<ol>
-<li>创建、销毁、调度G都需要每个M获取锁，这就形成了<strong>激烈的锁竞争</strong>。</li>
-<li><span style="color: blue">M</span> 转移 <span style="color: green">G</span> 会造成<strong>延迟和额外的系统负载</strong>。比如当 <span style="color: green">G</span> 中包含创建新协程的时候，M 创建了 <span style="color: green">G’</span>，为了继续执行G，需要把 <span style="color: green">G’</span> 交给 M’ 执行，也造成了<strong>很差的局部性</strong>，因为 <span style="color: green">G’</span> 和 <span style="color: green">G</span> 是相关的，最好放在 <span style="color: blue">M</span> 上执行，而不是其他 <span style="color: blue">M</span>‘ 。</li>
-<li>系统调用（CPU 在 <span style="color: blue">M</span> 之间的切换）导致频繁的线程阻塞和取消阻塞操作增加了系统开销。</li>
-</ol>
-<h1 id="四、GMP模型"><a href="#四、GMP模型" class="headerlink" title="四、GMP模型"></a>四、GMP模型</h1><p>GMP 是 Go 语言实现的对<strong>线程（M：machine）</strong>、<strong>goroutine（G）</strong>的<strong>调度器（P：processer 处理器）</strong>优化，将 <strong>goroutine</strong> 内存占用限制在 <em>4KB</em>。</p>
-<p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/gmpmodel.jpeg" alt="model"></p>
-<ol>
-<li><strong>全局队列</strong>（Global Queue）：存放等待运行的 <span style="color: green">G</span>。</li>
-<li><strong>P的本地队列</strong>：同全局队列类似，存放的也是等待运行的 <span style="color: green">G</span>，存的数量有限，不超过256个。新建 <span style="color: green">G’</span> 时，<span style="color: green">G’</span> 优先加入到 <span style="color: yellow">P</span> 的本地队列，如果队列满了，则会把本地队列中一半的 <span style="color: green">G</span> 移动到全局队列。</li>
-<li><strong>P列表</strong>：所有的 <span style="color: yellow">P</span> 都在程序启动时创建，并保存在数组中，最多有<code>GOMAXPROCS</code>(可配置)个。</li>
-<li><strong><span style="color: blue">M</span><strong>：当前操作系统分配的操作 Go 程序的内核线程数。线程想运行任务就得获取 <span style="color: yellow">P</span>，从 <span style="color: yellow">P</span> 的本地队列获取 <span style="color: green">G</span>，<span style="color: yellow">P</span> 队列为空时，<span style="color: blue">M</span> 也会尝试从全局队列</strong>拿</strong>一批 <span style="color: green">G</span> 放到P的本地队列，或从其他 <span style="color: yellow">P</span> 的本地队列<strong>偷</strong>一半放到自己P的本地队列。<span style="color: blue">M</span> 运行 <span style="color: green">G</span>，<span style="color: green">G</span> 执行之后，<span style="color: blue">M</span> 会从 <span style="color: yellow">P</span> 获取下一个 <span style="color: green">G</span>，不断重复下去。</li>
-</ol>
-<h2 id="调度器的设计策略"><a href="#调度器的设计策略" class="headerlink" title="调度器的设计策略"></a>调度器的设计策略</h2><h3 id="1、复用线程"><a href="#1、复用线程" class="headerlink" title="1、复用线程"></a>1、复用线程</h3><p>复用线程策略主要分为两种机制：<strong>work stealing 机制</strong>和<strong>hand off 机制</strong>：</p>
-<p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/workstealing.png" alt="work stealing 机制"></p>
-<p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/handoff.png" alt="hand off 机制"></p>
-<ul>
-<li>work stealing 机制：在线程空闲时会从其他线程的本地队列中偷取 <span style="color: green">G</span> 执行。</li>
-<li>hand off 机制：在一个线程出现 <span style="color: green">G</span> 阻塞的状况下，会将当前线程和 <span style="color: yellow">P</span> 分离，创建或者唤醒新的线程并将 <span style="color: yellow">P</span> 和新的线程绑定，而原来的线程在 <span style="color: green">G</span> 执行完毕后进入睡眠状态或被销毁。</li>
-</ul>
-<h3 id="2、利用并行"><a href="#2、利用并行" class="headerlink" title="2、利用并行"></a>2、利用并行</h3><p>使用<code>GOMAXPROCS</code>限定 <span style="color: yellow">P</span> 的个数为 CPU 个数 &#x2F; 2</p>
-<h3 id="3、-抢占"><a href="#3、-抢占" class="headerlink" title="3、 抢占"></a>3、 抢占</h3><p>通过时间轮询，每 10ms CPU 会被其他 <span style="color: green">G</span> 抢占执行。</p>
-<h3 id="4、全局-G-队列"><a href="#4、全局-G-队列" class="headerlink" title="4、全局 G 队列"></a>4、全局 <span style="color: green">G</span> 队列</h3><p>在 <strong>work stealing 机制</strong>基础上，如果在其他 <span style="color: yellow">P</span> 中无法偷取 G，就会从全局队列中获取。在新的调度器中依然有全局 <span style="color: green">G</span> 队列，当 <span style="color: yellow">P</span> 的本地队列为空时，优先从全局队列获取，如果全局队列为空时则通过 <strong>work stealing 机制</strong>从其他 <span style="color: yellow">P</span> 的本地队列偷取 <span style="color: green">G</span>。</p>
-<h2 id="go-func-流程"><a href="#go-func-流程" class="headerlink" title="go func 流程"></a>go func 流程</h2><p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/gofunc.jpeg" alt="go func 流程"></p>
-<ol>
-<li><p>我们通过 go func() 来创建一个 goroutine；</p>
-</li>
-<li><p>有两个存储 <span style="color: green">G</span> 的队列，一个是局部调度器 <span style="color: yellow">P</span> 的本地队列、一个是全局 <span style="color: green">G</span> 队列。新创建的 <span style="color: green">G</span> 会先保存在 <span style="color: yellow">P</span> 的本地队列中，如果 <span style="color: yellow">P</span> 的本地队列已经满了就会保存在全局的队列中；</p>
-</li>
-<li><p><span style="color: green">G</span> 只能运行在 <span style="color: blue">M</span> 中，一个 <span style="color: blue">M</span> 必须持有一个 P，M 与 <span style="color: yellow">P</span> 是 1：1 的关系。M 会从 <span style="color: yellow">P</span> 的本地队列弹出一个可执行状态的 <span style="color: green">G</span> 来执行，如果 <span style="color: yellow">P</span> 的本地队列为空，就会想其他的 MP 组合偷取一个可执行的 <span style="color: green">G</span> 来执行；</p>
-</li>
-<li><p>一个 <span style="color: blue">M</span> 调度 <span style="color: green">G</span> 执行的过程是一个循环机制；</p>
-</li>
-<li><p>当 <span style="color: blue">M</span> 执行某一个 <span style="color: green">G</span> 时候如果发生了 syscall 或则其余阻塞操作，M 会阻塞，如果当前有一些 <span style="color: green">G</span> 在执行，runtime 会把这个线程 <span style="color: blue">M</span> 从 <span style="color: yellow">P</span> 中摘除（detach），然后再创建一个新的操作系统的线程（如果有空闲的线程可用就复用空闲线程）来服务于这个 P；</p>
-</li>
-<li><p>当 <span style="color: blue">M</span> 系统调用结束时候，这个 <span style="color: green">G</span> 会尝试获取一个空闲的 <span style="color: yellow">P</span> 执行，并放入到这个 <span style="color: yellow">P</span> 的本地队列。如果获取不到 P，那么这个线程 <span style="color: blue">M</span> 变成休眠状态， 加入到空闲线程中，然后这个 <span style="color: green">G</span> 会被放入全局队列中。</p>
-</li>
-</ol>
-<h2 id="调度器的生命周期"><a href="#调度器的生命周期" class="headerlink" title="调度器的生命周期"></a>调度器的生命周期</h2><p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/life.png" alt="生命周期"></p>
-<ul>
-<li><p>**<span style="color: blue">M0</span>**：<span style="color: blue">M0</span> 是启动程序后的编号为 0 的主线程，这个 <span style="color: blue">M</span> 对应的实例会在全局变量 runtime.m0 中，不需要在 heap 上分配，<span style="color: blue">M0</span> 负责执行初始化操作和启动第一个 G， 在之后 <span style="color: blue">M0</span> 就和其他的 <span style="color: blue">M</span> 一样了。</p>
-</li>
-<li><p>**<span style="color: green">G0</span>**：<span style="color: green">G0</span> 是每次启动一个 <span style="color: blue">M</span> 都会第一个创建的 gourtine，<span style="color: green">G0</span> 仅用于负责调度的 G，<span style="color: green">G0</span> 不指向任何可执行的函数，每个 <span style="color: blue">M</span> 都会有一个自己的 G0。在调度或系统调用时会使用 <span style="color: green">G0</span> 的栈空间，全局变量的 <span style="color: green">G0</span> 是 <span style="color: blue">M0</span> 的 <span style="color: green">G0</span>。</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>程序</category>
-      </categories>
-      <tags>
-        <tag>GO</tag>
-        <tag>后端</tag>
       </tags>
   </entry>
 </search>
