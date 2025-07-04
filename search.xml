@@ -1,28 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>GVM安装笔记</title>
-    <url>/2024/10/17/GVM%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="一、GVM介绍"><a href="#一、GVM介绍" class="headerlink" title="一、GVM介绍"></a>一、GVM介绍</h1><p><strong>GVM（Go Version Manager）</strong>，一款<code>Go</code>语言版本管理工具，类似于<code>nodejs</code>版本管理工具<code>nvm</code>。</p>
-<h1 id="二、Windows安装方式"><a href="#二、Windows安装方式" class="headerlink" title="二、Windows安装方式"></a>二、Windows安装方式</h1><p>在<a href="https://github.com/voidint/g/blob/master/README_CN.md">g&#x2F;README_CN.md at master · voidint&#x2F;g (github.com)</a>下找到安装包进行安装。</p>
-<p><img src="/2024/10/17/GVM%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/install.png" alt="install"></p>
-<p>打开系统环境变量，增加如下变量：</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line"># 配置golang下载镜像，不用翻墙。</span><br><span class="line">G_MIRROR=https://golang.google.cn/dl/</span><br><span class="line"># 开启实验特性，用于使修改go存放目录生效。</span><br><span class="line">G_EXPERIMENTAL=true</span><br><span class="line"># 更改go存放目录</span><br><span class="line">G_HOME=自定义地址</span><br><span class="line">GOROOT=%G_HOME%\go</span><br><span class="line"># 配置PATH变量</span><br><span class="line">%GOROOT%\bin</span><br></pre></td></tr></table></figure>
-
-<p>设置完成后，打开<code>powershell</code>或者<code>cmd</code>测试一下：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 输入：</span></span><br><span class="line">g</span><br><span class="line"><span class="comment"># 输出：</span></span><br><span class="line">NAME:</span><br><span class="line">  g - Golang Version Manager</span><br><span class="line"></span><br><span class="line"> USAGE:</span><br><span class="line">  g  command [<span class="type">arguments...</span>]</span><br><span class="line"></span><br><span class="line"> VERSION:</span><br><span class="line">  <span class="number">1.7</span>.<span class="number">0</span></span><br><span class="line"></span><br><span class="line"> AUTHOR:</span><br><span class="line">  voidint &lt;voidint@<span class="number">126</span>.com&gt;</span><br><span class="line"></span><br><span class="line"> COMMANDS:</span><br><span class="line">    <span class="built_in">ls</span>, l               List installed versions</span><br><span class="line">    <span class="built_in">ls</span><span class="literal">-remote</span>, lr, lsr  List remote versions available <span class="keyword">for</span> install</span><br><span class="line">    use                 <span class="keyword">Switch</span> to specified version</span><br><span class="line">    install, i          Download and install a version</span><br><span class="line">    uninstall           Uninstall a version</span><br><span class="line">    clean               Remove files from the package download directory</span><br><span class="line">    env                 Show env variables of g</span><br><span class="line">    self                Modify g itself</span><br><span class="line">    help, <span class="built_in">h</span>             Shows a list of commands or help <span class="keyword">for</span> one command</span><br><span class="line"></span><br><span class="line"> GLOBAL OPTIONS:</span><br><span class="line">  <span class="literal">--help</span>, <span class="literal">-h</span>     show help</span><br><span class="line">  <span class="literal">--version</span>, <span class="literal">-v</span>  print the version</span><br><span class="line"></span><br><span class="line"> COPYRIGHT:</span><br><span class="line">  Copyright (c) <span class="number">2019</span><span class="literal">-2024</span>, voidint. All rights reserved.</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 更新g本身：</span></span><br><span class="line">  g self update</span><br><span class="line">  <span class="comment"># 卸载g：</span></span><br><span class="line">  g self uninstall</span><br></pre></td></tr></table></figure>
-
-<p>有关<strong>Linux</strong>系统下安装或其他信息可以参考文档：<a href="https://github.com/voidint/g/blob/master/README_CN.md">g&#x2F;README_CN.md at master · voidint&#x2F;g (github.com)</a>。</p>
-<p><strong>Linux</strong>系统下也可以之间通过命令行方式安装。</p>
-]]></content>
-      <categories>
-        <category>程序</category>
-      </categories>
-      <tags>
-        <tag>GO</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Docker学习笔记</title>
     <url>/2024/09/12/Docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="一、Docker安装"><a href="#一、Docker安装" class="headerlink" title="一、Docker安装"></a>一、Docker安装</h1><h2 id="1、Centos安装过程"><a href="#1、Centos安装过程" class="headerlink" title="1、Centos安装过程"></a>1、Centos安装过程</h2><h3 id="（1）卸载旧版本的Docker"><a href="#（1）卸载旧版本的Docker" class="headerlink" title="（1）卸载旧版本的Docker"></a>（1）卸载旧版本的Docker</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum remove docker \</span><br><span class="line">                  docker-client \</span><br><span class="line">                  docker-client-latest \</span><br><span class="line">                  docker-common \</span><br><span class="line">                  docker-latest \</span><br><span class="line">                  docker-latest-logrotate \</span><br><span class="line">                  docker-logrotate \</span><br><span class="line">                  docker-selinux \</span><br><span class="line">                  docker-engine-selinux \</span><br><span class="line">                  docker-engine \</span><br><span class="line">                  docker-ce</span><br></pre></td></tr></table></figure>
@@ -85,6 +63,28 @@
       </categories>
       <tags>
         <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GVM安装笔记</title>
+    <url>/2024/10/17/GVM%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="一、GVM介绍"><a href="#一、GVM介绍" class="headerlink" title="一、GVM介绍"></a>一、GVM介绍</h1><p><strong>GVM（Go Version Manager）</strong>，一款<code>Go</code>语言版本管理工具，类似于<code>nodejs</code>版本管理工具<code>nvm</code>。</p>
+<h1 id="二、Windows安装方式"><a href="#二、Windows安装方式" class="headerlink" title="二、Windows安装方式"></a>二、Windows安装方式</h1><p>在<a href="https://github.com/voidint/g/blob/master/README_CN.md">g&#x2F;README_CN.md at master · voidint&#x2F;g (github.com)</a>下找到安装包进行安装。</p>
+<p><img src="/2024/10/17/GVM%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/install.png" alt="install"></p>
+<p>打开系统环境变量，增加如下变量：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line"># 配置golang下载镜像，不用翻墙。</span><br><span class="line">G_MIRROR=https://golang.google.cn/dl/</span><br><span class="line"># 开启实验特性，用于使修改go存放目录生效。</span><br><span class="line">G_EXPERIMENTAL=true</span><br><span class="line"># 更改go存放目录</span><br><span class="line">G_HOME=自定义地址</span><br><span class="line">GOROOT=%G_HOME%\go</span><br><span class="line"># 配置PATH变量</span><br><span class="line">%GOROOT%\bin</span><br></pre></td></tr></table></figure>
+
+<p>设置完成后，打开<code>powershell</code>或者<code>cmd</code>测试一下：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 输入：</span></span><br><span class="line">g</span><br><span class="line"><span class="comment"># 输出：</span></span><br><span class="line">NAME:</span><br><span class="line">  g - Golang Version Manager</span><br><span class="line"></span><br><span class="line"> USAGE:</span><br><span class="line">  g  command [<span class="type">arguments...</span>]</span><br><span class="line"></span><br><span class="line"> VERSION:</span><br><span class="line">  <span class="number">1.7</span>.<span class="number">0</span></span><br><span class="line"></span><br><span class="line"> AUTHOR:</span><br><span class="line">  voidint &lt;voidint@<span class="number">126</span>.com&gt;</span><br><span class="line"></span><br><span class="line"> COMMANDS:</span><br><span class="line">    <span class="built_in">ls</span>, l               List installed versions</span><br><span class="line">    <span class="built_in">ls</span><span class="literal">-remote</span>, lr, lsr  List remote versions available <span class="keyword">for</span> install</span><br><span class="line">    use                 <span class="keyword">Switch</span> to specified version</span><br><span class="line">    install, i          Download and install a version</span><br><span class="line">    uninstall           Uninstall a version</span><br><span class="line">    clean               Remove files from the package download directory</span><br><span class="line">    env                 Show env variables of g</span><br><span class="line">    self                Modify g itself</span><br><span class="line">    help, <span class="built_in">h</span>             Shows a list of commands or help <span class="keyword">for</span> one command</span><br><span class="line"></span><br><span class="line"> GLOBAL OPTIONS:</span><br><span class="line">  <span class="literal">--help</span>, <span class="literal">-h</span>     show help</span><br><span class="line">  <span class="literal">--version</span>, <span class="literal">-v</span>  print the version</span><br><span class="line"></span><br><span class="line"> COPYRIGHT:</span><br><span class="line">  Copyright (c) <span class="number">2019</span><span class="literal">-2024</span>, voidint. All rights reserved.</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 更新g本身：</span></span><br><span class="line">  g self update</span><br><span class="line">  <span class="comment"># 卸载g：</span></span><br><span class="line">  g self uninstall</span><br></pre></td></tr></table></figure>
+
+<p>有关<strong>Linux</strong>系统下安装或其他信息可以参考文档：<a href="https://github.com/voidint/g/blob/master/README_CN.md">g&#x2F;README_CN.md at master · voidint&#x2F;g (github.com)</a>。</p>
+<p><strong>Linux</strong>系统下也可以之间通过命令行方式安装。</p>
+]]></content>
+      <categories>
+        <category>程序</category>
+      </categories>
+      <tags>
+        <tag>GO</tag>
       </tags>
   </entry>
   <entry>
@@ -242,6 +242,13 @@
 <li>重复步骤 3，直到没有**<span style="color: gray;">灰色</span>**节点。</li>
 <li>回收所有**<span style="color: #C0C4CC;">白色</span>**节点。</li>
 </ol>
+<p>根对象：</p>
+<ul>
+<li>栈上的对象：Goroutine 栈上的变量（局部变量、参数等）。</li>
+<li>全局变量：程序中的全局变量（存储在静态数据区）。</li>
+<li>寄存器中的对象：当前执行代码可能通过寄存器引用对象。</li>
+<li>运行时数据结构：例如 <code>runtime</code> 包中的特殊对象。</li>
+</ul>
 <h2 id="标记出错"><a href="#标记出错" class="headerlink" title="标记出错"></a>标记出错</h2><p>但是由于 V1.5 的垃圾回收机制是跟程序并发执行的，所以在一些特定条件下，三色标记法可能会出现错误。</p>
 <h3 id="（1）对象漏标"><a href="#（1）对象漏标" class="headerlink" title="（1）对象漏标"></a>（1）对象漏标</h3><ul>
 <li>对象 A 在 GC 开始时被标记为<strong>黑色</strong>，对象 B 是与另一个<strong>黑色</strong>对象的引用对象，因此会被标记为**<span style="color: gray;">灰色</span>**，对象 C 是对象 B 的引用对象。</li>
@@ -274,45 +281,11 @@
 <li>堆对象正常使用插入、删除写屏障。</li>
 </ol>
 <p>在 V1.8 中，GC 只在开始和结束使用 STW，告知程序启用和关闭屏障。</p>
-]]></content>
-      <categories>
-        <category>程序</category>
-      </categories>
-      <tags>
-        <tag>GO</tag>
-        <tag>后端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Go改变命令行输出颜色</title>
-    <url>/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/</url>
-    <content><![CDATA[<h1 id="faith-color包"><a href="#faith-color包" class="headerlink" title="faith&#x2F;color包"></a>faith&#x2F;color包</h1><p><em><strong>faith&#x2F;color</strong></em>是一个用于美化终端输出的<em><strong>Golang</strong></em>库，可以改变输出文本的颜色。GitHub地址：<a href="https://github.com/faith/color%E3%80%82%E4%B8%8B%E9%9D%A2%E6%98%AF%E5%AE%83%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95%EF%BC%9A">https://github.com/faith/color。下面是它的一些用法：</a></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">go</span> get github.com/fatih/color</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用例子"><a href="#使用例子" class="headerlink" title="使用例子"></a>使用例子</h2><h3 id="标准颜色"><a href="#标准颜色" class="headerlink" title="标准颜色"></a>标准颜色</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Print with default helper functions</span></span><br><span class="line">color.Cyan(<span class="string">&quot;Prints text in cyan.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// A newline will be appended automatically</span></span><br><span class="line">color.Blue(<span class="string">&quot;Prints %s in blue.&quot;</span>, <span class="string">&quot;text&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// These are using the default foreground colors</span></span><br><span class="line">color.Red(<span class="string">&quot;We have red&quot;</span>)</span><br><span class="line">color.Magenta(<span class="string">&quot;And many others ..&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/standard.png" alt="standard"></p>
-<h3 id="RGB颜色"><a href="#RGB颜色" class="headerlink" title="RGB颜色"></a>RGB颜色</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">color.RGB(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>).Println(<span class="string">&quot;foreground orange&quot;</span>)</span><br><span class="line">color.RGB(<span class="number">230</span>, <span class="number">42</span>, <span class="number">42</span>).Println(<span class="string">&quot;foreground red&quot;</span>)</span><br><span class="line"></span><br><span class="line">color.BgRGB(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>).Println(<span class="string">&quot;background orange&quot;</span>)</span><br><span class="line">color.BgRGB(<span class="number">230</span>, <span class="number">42</span>, <span class="number">42</span>).Println(<span class="string">&quot;background red&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/RGB.png" alt="RGB"></p>
-<h3 id="混合颜色"><a href="#混合颜色" class="headerlink" title="混合颜色"></a>混合颜色</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Create a new color object</span></span><br><span class="line">c := color.New(color.FgCyan).Add(color.Underline)</span><br><span class="line">c.Println(<span class="string">&quot;Prints cyan text with an underline.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Or just add them to New()</span></span><br><span class="line">d := color.New(color.FgCyan, color.Bold)</span><br><span class="line">d.Printf(<span class="string">&quot;This prints bold cyan %s\n&quot;</span>, <span class="string">&quot;too!.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Mix up foreground and background colors, create new mixes!</span></span><br><span class="line">red := color.New(color.FgRed)</span><br><span class="line"></span><br><span class="line">boldRed := red.Add(color.Bold)</span><br><span class="line">boldRed.Println(<span class="string">&quot;This will print text in bold red.&quot;</span>)</span><br><span class="line"></span><br><span class="line">whiteBackground := red.Add(color.BgWhite)</span><br><span class="line">whiteBackground.Println(<span class="string">&quot;Red text with white background.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Mix with RGB color codes</span></span><br><span class="line">color.RGB(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>).AddBgRGB(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>).Println(<span class="string">&quot;orange with black background&quot;</span>)</span><br><span class="line"></span><br><span class="line">color.BgRGB(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>).AddRGB(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>).Println(<span class="string">&quot;orange background with white foreground&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/mix.png" alt="mix"></p>
-<h3 id="配合fmt使用"><a href="#配合fmt使用" class="headerlink" title="配合fmt使用"></a>配合fmt使用</h3><p>在fmt中使用</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Create SprintXxx functions to mix strings with other non-colorized strings:</span></span><br><span class="line">yellow := color.New(color.FgYellow).SprintFunc()</span><br><span class="line">red := color.New(color.FgRed).SprintFunc()</span><br><span class="line">fmt.Printf(<span class="string">&quot;This is a %s and this is %s.\n&quot;</span>, yellow(<span class="string">&quot;warning&quot;</span>), red(<span class="string">&quot;error&quot;</span>))</span><br><span class="line"></span><br><span class="line">info := color.New(color.FgWhite, color.BgGreen).SprintFunc()</span><br><span class="line">fmt.Printf(<span class="string">&quot;This %s rocks!\n&quot;</span>, info(<span class="string">&quot;package&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// Use helper functions</span></span><br><span class="line">fmt.Println(<span class="string">&quot;This&quot;</span>, color.RedString(<span class="string">&quot;warning&quot;</span>), <span class="string">&quot;should be not neglected.&quot;</span>)</span><br><span class="line">fmt.Printf(<span class="string">&quot;%v %v\n&quot;</span>, color.GreenString(<span class="string">&quot;Info:&quot;</span>), <span class="string">&quot;an important message.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Windows supported too! Just don&#x27;t forget to change the output to color.Output</span></span><br><span class="line">fmt.Fprintf(color.Output, <span class="string">&quot;Windows support: %s&quot;</span>, color.GreenString(<span class="string">&quot;PASS&quot;</span>))</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/fmt.png" alt="fmt"></p>
-<p>插入fmt打印</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Use handy standard colors</span></span><br><span class="line">color.Set(color.FgYellow)</span><br><span class="line"></span><br><span class="line">fmt.Println(<span class="string">&quot;Existing text will now be in yellow&quot;</span>)</span><br><span class="line">fmt.Printf(<span class="string">&quot;This one %s\n&quot;</span>, <span class="string">&quot;too&quot;</span>)</span><br><span class="line"></span><br><span class="line">color.Unset() <span class="comment">// Don&#x27;t forget to unset</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// You can mix up parameters</span></span><br><span class="line">color.Set(color.FgMagenta, color.Bold)</span><br><span class="line"><span class="keyword">defer</span> color.Unset() <span class="comment">// Use it in your function</span></span><br><span class="line"></span><br><span class="line">fmt.Println(<span class="string">&quot;All text will now be bold magenta.&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/insertfmt.png" alt="insertfmt"></p>
-<h2 id="配合Logrus日志库打印出带颜色的日志"><a href="#配合Logrus日志库打印出带颜色的日志" class="headerlink" title="配合Logrus日志库打印出带颜色的日志"></a>配合Logrus日志库打印出带颜色的日志</h2><p>我们需要定义一个继承<strong>logrus.TextFormatter</strong>的结构体<strong>CustomTextFormatter</strong>，并实现<strong>Format</strong>方法来自定义日志的输出格式。还需要将<strong>Logrus</strong>实例的<strong>Formatter</strong>设置为自定义格式化器<strong>CustomTextFormatter</strong>。而不是直接使用<strong>logrus.TextFormatter</strong>。</p>
-<p>在<strong>CustomTextFormatter</strong>结构体中，我们添加了<strong>ForceColors</strong>属性以及四个<strong>color.Color</strong>用于不同级别的日志消息。</p>
-<p>同时在<strong>CustomTextFormatter</strong>的<strong>Format</strong>方法中根据日志级别选择设置对应的自定义颜色并打印日志消息。如果<strong>ForceColors</strong>为<strong>true</strong>，则使用定义的颜色样式来打印日志；否则，调用父类的<strong>TextFormatter.Format</strong>方法进行默认的格式化操作。</p>
-<p><strong>PrintColored</strong>方法用于默认颜色的方式打印日志条目。它将日志级别添加到消息前面，并根据需要添加调用者信息。最后，通过调用**fmt.Fprintln(color.Output, msg)**将带颜色的消息打印到终端。</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义一个全局的Logger变量</span></span><br><span class="line"><span class="keyword">var</span> Logg *logrus.Logger</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义格式化器，继承自logrus.TextFormatter</span></span><br><span class="line"><span class="keyword">type</span> ColorLogger <span class="keyword">struct</span> &#123;</span><br><span class="line">	logrus.TextFormatter</span><br><span class="line">	ForceColors   <span class="type">bool</span></span><br><span class="line">	ColorInfo     *color.Color</span><br><span class="line">	ColorWarning  *color.Color</span><br><span class="line">	ColorError    *color.Color</span><br><span class="line">	ColorCritical *color.Color</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 格式化方法，用于将日志条目格式化为字节数组</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *ColorLogger)</span></span> Format(entry *logrus.Entry) ([]<span class="type">byte</span>, <span class="type">error</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> c.ForceColors &#123;</span><br><span class="line">    <span class="comment">// 按日志级别更改日志颜色</span></span><br><span class="line">		<span class="keyword">switch</span> entry.Level &#123;</span><br><span class="line">		<span class="keyword">case</span> logrus.InfoLevel:</span><br><span class="line">			c.ColorInfo.Println(entry.Message)</span><br><span class="line">		<span class="keyword">case</span> logrus.WarnLevel:</span><br><span class="line">			c.ColorWarning.Println(entry.Message)</span><br><span class="line">		<span class="keyword">case</span> logrus.ErrorLevel:</span><br><span class="line">			c.ColorError.Println(entry.Message)</span><br><span class="line">		<span class="keyword">case</span> logrus.FatalLevel, logrus.PanicLevel:</span><br><span class="line">			c.ColorCritical.Println(entry.Message)</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			c.PrintColored(entry)</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span>, <span class="literal">nil</span></span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> c.TextFormatter.Format(entry)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义方法，用于将日志条目以带颜色的方式打印出来</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *ColorLogger)</span></span> PrintColored(entry *logrus.Entry) &#123;</span><br><span class="line">	levelColor := color.New(color.FgCyan, color.Bold)             <span class="comment">// 定义蓝色和粗体样式</span></span><br><span class="line">	levelText := levelColor.Sprintf(<span class="string">&quot;%-6s&quot;</span>, entry.Level.String()) <span class="comment">// 格式化日志级别文本</span></span><br><span class="line"></span><br><span class="line">	msg := levelText + <span class="string">&quot; &quot;</span> + entry.Message</span><br><span class="line">	<span class="keyword">if</span> entry.HasCaller() &#123;</span><br><span class="line">		msg += <span class="string">&quot; (&quot;</span> + entry.Caller.File + <span class="string">&quot;:&quot;</span> + strconv.Itoa(entry.Caller.Line) + <span class="string">&quot;)&quot;</span> <span class="comment">// 添加调用者信息</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Fprintln(color.Output, msg) <span class="comment">// 使用有颜色的方式打印消息到终端</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化全局变量</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewLogger</span><span class="params">()</span></span> &#123;</span><br><span class="line">	Logg = logrus.New()</span><br><span class="line">	Logg.Formatter = &amp;ColorLogger&#123;</span><br><span class="line">		ForceColors:   <span class="literal">true</span>,</span><br><span class="line">		ColorInfo:     color.New(color.FgBlue),</span><br><span class="line">		ColorWarning:  color.New(color.FgYellow),</span><br><span class="line">		ColorError:    color.New(color.FgRed),</span><br><span class="line">		ColorCritical: color.New(color.BgRed, color.FgWhite),</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>参考自：<a href="https://blog.csdn.net/qq_20185737/article/details/133560820">Logrus 日志框架——自定义日志颜色_logrus日志颜色-CSDN博客</a></p>
+<h1 id="四、GC触发时机"><a href="#四、GC触发时机" class="headerlink" title="四、GC触发时机"></a>四、GC触发时机</h1><ul>
+<li>自动触发：当堆当中存活的对象大小达到上一次 GC 结束后对内存的比例时触发，默认由环境变量 <code>GOGC</code> 控制（默认值为 <em><strong>100</strong></em>，即当堆内存增长 <em><strong>100%</strong></em> 时触发。</li>
+<li>手动触发：使用 <code>runtime.GC()</code> 强制触发一次 GC，通常用于性能测试或者内存泄漏测试。</li>
+<li>系统监控强制触发：系统一般会在距离上一次 GC 两分钟后强制触发一次 GC。</li>
+</ul>
 ]]></content>
       <categories>
         <category>程序</category>
@@ -1504,6 +1477,45 @@
       </tags>
   </entry>
   <entry>
+    <title>Go改变命令行输出颜色</title>
+    <url>/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/</url>
+    <content><![CDATA[<h1 id="faith-color包"><a href="#faith-color包" class="headerlink" title="faith&#x2F;color包"></a>faith&#x2F;color包</h1><p><em><strong>faith&#x2F;color</strong></em>是一个用于美化终端输出的<em><strong>Golang</strong></em>库，可以改变输出文本的颜色。GitHub地址：<a href="https://github.com/faith/color%E3%80%82%E4%B8%8B%E9%9D%A2%E6%98%AF%E5%AE%83%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95%EF%BC%9A">https://github.com/faith/color。下面是它的一些用法：</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">go</span> get github.com/fatih/color</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用例子"><a href="#使用例子" class="headerlink" title="使用例子"></a>使用例子</h2><h3 id="标准颜色"><a href="#标准颜色" class="headerlink" title="标准颜色"></a>标准颜色</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Print with default helper functions</span></span><br><span class="line">color.Cyan(<span class="string">&quot;Prints text in cyan.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// A newline will be appended automatically</span></span><br><span class="line">color.Blue(<span class="string">&quot;Prints %s in blue.&quot;</span>, <span class="string">&quot;text&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// These are using the default foreground colors</span></span><br><span class="line">color.Red(<span class="string">&quot;We have red&quot;</span>)</span><br><span class="line">color.Magenta(<span class="string">&quot;And many others ..&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/standard.png" alt="standard"></p>
+<h3 id="RGB颜色"><a href="#RGB颜色" class="headerlink" title="RGB颜色"></a>RGB颜色</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">color.RGB(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>).Println(<span class="string">&quot;foreground orange&quot;</span>)</span><br><span class="line">color.RGB(<span class="number">230</span>, <span class="number">42</span>, <span class="number">42</span>).Println(<span class="string">&quot;foreground red&quot;</span>)</span><br><span class="line"></span><br><span class="line">color.BgRGB(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>).Println(<span class="string">&quot;background orange&quot;</span>)</span><br><span class="line">color.BgRGB(<span class="number">230</span>, <span class="number">42</span>, <span class="number">42</span>).Println(<span class="string">&quot;background red&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/RGB.png" alt="RGB"></p>
+<h3 id="混合颜色"><a href="#混合颜色" class="headerlink" title="混合颜色"></a>混合颜色</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Create a new color object</span></span><br><span class="line">c := color.New(color.FgCyan).Add(color.Underline)</span><br><span class="line">c.Println(<span class="string">&quot;Prints cyan text with an underline.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Or just add them to New()</span></span><br><span class="line">d := color.New(color.FgCyan, color.Bold)</span><br><span class="line">d.Printf(<span class="string">&quot;This prints bold cyan %s\n&quot;</span>, <span class="string">&quot;too!.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Mix up foreground and background colors, create new mixes!</span></span><br><span class="line">red := color.New(color.FgRed)</span><br><span class="line"></span><br><span class="line">boldRed := red.Add(color.Bold)</span><br><span class="line">boldRed.Println(<span class="string">&quot;This will print text in bold red.&quot;</span>)</span><br><span class="line"></span><br><span class="line">whiteBackground := red.Add(color.BgWhite)</span><br><span class="line">whiteBackground.Println(<span class="string">&quot;Red text with white background.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Mix with RGB color codes</span></span><br><span class="line">color.RGB(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>).AddBgRGB(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>).Println(<span class="string">&quot;orange with black background&quot;</span>)</span><br><span class="line"></span><br><span class="line">color.BgRGB(<span class="number">255</span>, <span class="number">128</span>, <span class="number">0</span>).AddRGB(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>).Println(<span class="string">&quot;orange background with white foreground&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/mix.png" alt="mix"></p>
+<h3 id="配合fmt使用"><a href="#配合fmt使用" class="headerlink" title="配合fmt使用"></a>配合fmt使用</h3><p>在fmt中使用</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Create SprintXxx functions to mix strings with other non-colorized strings:</span></span><br><span class="line">yellow := color.New(color.FgYellow).SprintFunc()</span><br><span class="line">red := color.New(color.FgRed).SprintFunc()</span><br><span class="line">fmt.Printf(<span class="string">&quot;This is a %s and this is %s.\n&quot;</span>, yellow(<span class="string">&quot;warning&quot;</span>), red(<span class="string">&quot;error&quot;</span>))</span><br><span class="line"></span><br><span class="line">info := color.New(color.FgWhite, color.BgGreen).SprintFunc()</span><br><span class="line">fmt.Printf(<span class="string">&quot;This %s rocks!\n&quot;</span>, info(<span class="string">&quot;package&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// Use helper functions</span></span><br><span class="line">fmt.Println(<span class="string">&quot;This&quot;</span>, color.RedString(<span class="string">&quot;warning&quot;</span>), <span class="string">&quot;should be not neglected.&quot;</span>)</span><br><span class="line">fmt.Printf(<span class="string">&quot;%v %v\n&quot;</span>, color.GreenString(<span class="string">&quot;Info:&quot;</span>), <span class="string">&quot;an important message.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Windows supported too! Just don&#x27;t forget to change the output to color.Output</span></span><br><span class="line">fmt.Fprintf(color.Output, <span class="string">&quot;Windows support: %s&quot;</span>, color.GreenString(<span class="string">&quot;PASS&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/fmt.png" alt="fmt"></p>
+<p>插入fmt打印</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Use handy standard colors</span></span><br><span class="line">color.Set(color.FgYellow)</span><br><span class="line"></span><br><span class="line">fmt.Println(<span class="string">&quot;Existing text will now be in yellow&quot;</span>)</span><br><span class="line">fmt.Printf(<span class="string">&quot;This one %s\n&quot;</span>, <span class="string">&quot;too&quot;</span>)</span><br><span class="line"></span><br><span class="line">color.Unset() <span class="comment">// Don&#x27;t forget to unset</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// You can mix up parameters</span></span><br><span class="line">color.Set(color.FgMagenta, color.Bold)</span><br><span class="line"><span class="keyword">defer</span> color.Unset() <span class="comment">// Use it in your function</span></span><br><span class="line"></span><br><span class="line">fmt.Println(<span class="string">&quot;All text will now be bold magenta.&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2025/03/26/Go%E6%94%B9%E5%8F%98%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/insertfmt.png" alt="insertfmt"></p>
+<h2 id="配合Logrus日志库打印出带颜色的日志"><a href="#配合Logrus日志库打印出带颜色的日志" class="headerlink" title="配合Logrus日志库打印出带颜色的日志"></a>配合Logrus日志库打印出带颜色的日志</h2><p>我们需要定义一个继承<strong>logrus.TextFormatter</strong>的结构体<strong>CustomTextFormatter</strong>，并实现<strong>Format</strong>方法来自定义日志的输出格式。还需要将<strong>Logrus</strong>实例的<strong>Formatter</strong>设置为自定义格式化器<strong>CustomTextFormatter</strong>。而不是直接使用<strong>logrus.TextFormatter</strong>。</p>
+<p>在<strong>CustomTextFormatter</strong>结构体中，我们添加了<strong>ForceColors</strong>属性以及四个<strong>color.Color</strong>用于不同级别的日志消息。</p>
+<p>同时在<strong>CustomTextFormatter</strong>的<strong>Format</strong>方法中根据日志级别选择设置对应的自定义颜色并打印日志消息。如果<strong>ForceColors</strong>为<strong>true</strong>，则使用定义的颜色样式来打印日志；否则，调用父类的<strong>TextFormatter.Format</strong>方法进行默认的格式化操作。</p>
+<p><strong>PrintColored</strong>方法用于默认颜色的方式打印日志条目。它将日志级别添加到消息前面，并根据需要添加调用者信息。最后，通过调用**fmt.Fprintln(color.Output, msg)**将带颜色的消息打印到终端。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义一个全局的Logger变量</span></span><br><span class="line"><span class="keyword">var</span> Logg *logrus.Logger</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义格式化器，继承自logrus.TextFormatter</span></span><br><span class="line"><span class="keyword">type</span> ColorLogger <span class="keyword">struct</span> &#123;</span><br><span class="line">	logrus.TextFormatter</span><br><span class="line">	ForceColors   <span class="type">bool</span></span><br><span class="line">	ColorInfo     *color.Color</span><br><span class="line">	ColorWarning  *color.Color</span><br><span class="line">	ColorError    *color.Color</span><br><span class="line">	ColorCritical *color.Color</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 格式化方法，用于将日志条目格式化为字节数组</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *ColorLogger)</span></span> Format(entry *logrus.Entry) ([]<span class="type">byte</span>, <span class="type">error</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> c.ForceColors &#123;</span><br><span class="line">    <span class="comment">// 按日志级别更改日志颜色</span></span><br><span class="line">		<span class="keyword">switch</span> entry.Level &#123;</span><br><span class="line">		<span class="keyword">case</span> logrus.InfoLevel:</span><br><span class="line">			c.ColorInfo.Println(entry.Message)</span><br><span class="line">		<span class="keyword">case</span> logrus.WarnLevel:</span><br><span class="line">			c.ColorWarning.Println(entry.Message)</span><br><span class="line">		<span class="keyword">case</span> logrus.ErrorLevel:</span><br><span class="line">			c.ColorError.Println(entry.Message)</span><br><span class="line">		<span class="keyword">case</span> logrus.FatalLevel, logrus.PanicLevel:</span><br><span class="line">			c.ColorCritical.Println(entry.Message)</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			c.PrintColored(entry)</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span>, <span class="literal">nil</span></span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> c.TextFormatter.Format(entry)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义方法，用于将日志条目以带颜色的方式打印出来</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *ColorLogger)</span></span> PrintColored(entry *logrus.Entry) &#123;</span><br><span class="line">	levelColor := color.New(color.FgCyan, color.Bold)             <span class="comment">// 定义蓝色和粗体样式</span></span><br><span class="line">	levelText := levelColor.Sprintf(<span class="string">&quot;%-6s&quot;</span>, entry.Level.String()) <span class="comment">// 格式化日志级别文本</span></span><br><span class="line"></span><br><span class="line">	msg := levelText + <span class="string">&quot; &quot;</span> + entry.Message</span><br><span class="line">	<span class="keyword">if</span> entry.HasCaller() &#123;</span><br><span class="line">		msg += <span class="string">&quot; (&quot;</span> + entry.Caller.File + <span class="string">&quot;:&quot;</span> + strconv.Itoa(entry.Caller.Line) + <span class="string">&quot;)&quot;</span> <span class="comment">// 添加调用者信息</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Fprintln(color.Output, msg) <span class="comment">// 使用有颜色的方式打印消息到终端</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化全局变量</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewLogger</span><span class="params">()</span></span> &#123;</span><br><span class="line">	Logg = logrus.New()</span><br><span class="line">	Logg.Formatter = &amp;ColorLogger&#123;</span><br><span class="line">		ForceColors:   <span class="literal">true</span>,</span><br><span class="line">		ColorInfo:     color.New(color.FgBlue),</span><br><span class="line">		ColorWarning:  color.New(color.FgYellow),</span><br><span class="line">		ColorError:    color.New(color.FgRed),</span><br><span class="line">		ColorCritical: color.New(color.BgRed, color.FgWhite),</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参考自：<a href="https://blog.csdn.net/qq_20185737/article/details/133560820">Logrus 日志框架——自定义日志颜色_logrus日志颜色-CSDN博客</a></p>
+]]></content>
+      <categories>
+        <category>程序</category>
+      </categories>
+      <tags>
+        <tag>GO</tag>
+        <tag>后端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>RPC学习笔记</title>
     <url>/2025/03/18/RPC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="一、RPC简介"><a href="#一、RPC简介" class="headerlink" title="一、RPC简介"></a>一、RPC简介</h1><p>RPC：<em><strong>Remote Procedure Call Protocol</strong></em>（远程过程调用）底层是TCP协议。</p>
@@ -1543,70 +1555,6 @@
       </categories>
       <tags>
         <tag>微服务</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>深入理解GMP模型</title>
-    <url>/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/</url>
-    <content><![CDATA[<h1 id="一、单进程到多进程的改变"><a href="#一、单进程到多进程的改变" class="headerlink" title="一、单进程到多进程的改变"></a>一、单进程到多进程的改变</h1><h2 id="1、单进程"><a href="#1、单进程" class="headerlink" title="1、单进程"></a>1、单进程</h2><p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/danjincheng.png" alt="danjincheng"></p>
-<p>同一时刻只能执行单个进程，进程阻塞浪费了 CPU 资源。</p>
-<h2 id="2、多进程"><a href="#2、多进程" class="headerlink" title="2、多进程"></a>2、多进程</h2><p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/duojincheng.png" alt="duojincheng"></p>
-<p>使用时间片轮询方式切换进程，进程切换时也会浪费 CPU 资源。进程占用空间约为虚拟内存的 <em>4GB</em>，线程占用空间约为 <em>4MB</em>。 </p>
-<h1 id="二、协程（co-routine）"><a href="#二、协程（co-routine）" class="headerlink" title="二、协程（co-routine）"></a>二、协程（co-routine）</h1><p>线程分为由 CPU 调度的内核态线程，由用户进程自行调度的用户态线程，以及 CPU 和用户都能调度的混合态线程。协程就是在用户态线程基础上实现的轻量级线程。</p>
-<h1 id="三、GM模型"><a href="#三、GM模型" class="headerlink" title="三、GM模型"></a>三、GM模型</h1><p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/gmmodel.png" alt="gmmodel"></p>
-<p>早期调度器由<strong>线程</strong>和<strong>协程全局队列</strong>组成。<span style="color: blue">M</span> 想要执行、放回 <span style="color: green">G</span> 都必须访问全局 <span style="color: green">G</span> 队列，并且 <span style="color: blue">M</span> 有多个，即多线程访问同一资源需要加锁进行保证互斥&#x2F;同步，所以全局 <span style="color: green">G</span> 队列是有互斥锁进行保护的。</p>
-<ol>
-<li>创建、销毁、调度G都需要每个M获取锁，这就形成了<strong>激烈的锁竞争</strong>。</li>
-<li><span style="color: blue">M</span> 转移 <span style="color: green">G</span> 会造成<strong>延迟和额外的系统负载</strong>。比如当 <span style="color: green">G</span> 中包含创建新协程的时候，M 创建了 <span style="color: green">G’</span>，为了继续执行G，需要把 <span style="color: green">G’</span> 交给 M’ 执行，也造成了<strong>很差的局部性</strong>，因为 <span style="color: green">G’</span> 和 <span style="color: green">G</span> 是相关的，最好放在 <span style="color: blue">M</span> 上执行，而不是其他 <span style="color: blue">M</span>‘ 。</li>
-<li>系统调用（CPU 在 <span style="color: blue">M</span> 之间的切换）导致频繁的线程阻塞和取消阻塞操作增加了系统开销。</li>
-</ol>
-<h1 id="四、GMP模型"><a href="#四、GMP模型" class="headerlink" title="四、GMP模型"></a>四、GMP模型</h1><p>GMP 是 Go 语言实现的对<strong>线程（M：machine）</strong>、<strong>goroutine（G）</strong>的<strong>调度器（P：processer 处理器）</strong>优化，将 <strong>goroutine</strong> 内存占用限制在 <em>4KB</em>。</p>
-<p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/gmpmodel.jpeg" alt="model"></p>
-<ol>
-<li><strong>全局队列</strong>（Global Queue）：存放等待运行的 <span style="color: green">G</span>。</li>
-<li><strong>P的本地队列</strong>：同全局队列类似，存放的也是等待运行的 <span style="color: green">G</span>，存的数量有限，不超过256个。新建 <span style="color: green">G’</span> 时，<span style="color: green">G’</span> 优先加入到 <span style="color: yellow">P</span> 的本地队列，如果队列满了，则会把本地队列中一半的 <span style="color: green">G</span> 移动到全局队列。</li>
-<li><strong>P列表</strong>：所有的 <span style="color: yellow">P</span> 都在程序启动时创建，并保存在数组中，最多有<code>GOMAXPROCS</code>(可配置)个。</li>
-<li><strong><span style="color: blue">M</span><strong>：当前操作系统分配的操作 Go 程序的内核线程数。线程想运行任务就得获取 <span style="color: yellow">P</span>，从 <span style="color: yellow">P</span> 的本地队列获取 <span style="color: green">G</span>，<span style="color: yellow">P</span> 队列为空时，<span style="color: blue">M</span> 也会尝试从全局队列</strong>拿</strong>一批 <span style="color: green">G</span> 放到P的本地队列，或从其他 <span style="color: yellow">P</span> 的本地队列<strong>偷</strong>一半放到自己P的本地队列。<span style="color: blue">M</span> 运行 <span style="color: green">G</span>，<span style="color: green">G</span> 执行之后，<span style="color: blue">M</span> 会从 <span style="color: yellow">P</span> 获取下一个 <span style="color: green">G</span>，不断重复下去。</li>
-</ol>
-<h2 id="调度器的设计策略"><a href="#调度器的设计策略" class="headerlink" title="调度器的设计策略"></a>调度器的设计策略</h2><h3 id="1、复用线程"><a href="#1、复用线程" class="headerlink" title="1、复用线程"></a>1、复用线程</h3><p>复用线程策略主要分为两种机制：<strong>work stealing 机制</strong>和<strong>hand off 机制</strong>：</p>
-<p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/workstealing.png" alt="work stealing 机制"></p>
-<p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/handoff.png" alt="hand off 机制"></p>
-<ul>
-<li>work stealing 机制：在线程空闲时会从其他线程的本地队列中偷取 <span style="color: green">G</span> 执行。</li>
-<li>hand off 机制：在一个线程出现 <span style="color: green">G</span> 阻塞的状况下，会将当前线程和 <span style="color: yellow">P</span> 分离，创建或者唤醒新的线程并将 <span style="color: yellow">P</span> 和新的线程绑定，而原来的线程在 <span style="color: green">G</span> 执行完毕后进入睡眠状态或被销毁。</li>
-</ul>
-<h3 id="2、利用并行"><a href="#2、利用并行" class="headerlink" title="2、利用并行"></a>2、利用并行</h3><p>使用<code>GOMAXPROCS</code>限定 <span style="color: yellow">P</span> 的个数为 CPU 个数 &#x2F; 2</p>
-<h3 id="3、-抢占"><a href="#3、-抢占" class="headerlink" title="3、 抢占"></a>3、 抢占</h3><p>通过时间轮询，每 10ms CPU 会被其他 <span style="color: green">G</span> 抢占执行。</p>
-<h3 id="4、全局-G-队列"><a href="#4、全局-G-队列" class="headerlink" title="4、全局 G 队列"></a>4、全局 <span style="color: green">G</span> 队列</h3><p>在 <strong>work stealing 机制</strong>基础上，如果在其他 <span style="color: yellow">P</span> 中无法偷取 G，就会从全局队列中获取。在新的调度器中依然有全局 <span style="color: green">G</span> 队列，当 <span style="color: yellow">P</span> 的本地队列为空时，优先从全局队列获取，如果全局队列为空时则通过 <strong>work stealing 机制</strong>从其他 <span style="color: yellow">P</span> 的本地队列偷取 <span style="color: green">G</span>。</p>
-<h2 id="go-func-流程"><a href="#go-func-流程" class="headerlink" title="go func 流程"></a>go func 流程</h2><p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/gofunc.jpeg" alt="go func 流程"></p>
-<ol>
-<li><p>我们通过 go func() 来创建一个 goroutine；</p>
-</li>
-<li><p>有两个存储 <span style="color: green">G</span> 的队列，一个是局部调度器 <span style="color: yellow">P</span> 的本地队列、一个是全局 <span style="color: green">G</span> 队列。新创建的 <span style="color: green">G</span> 会先保存在 <span style="color: yellow">P</span> 的本地队列中，如果 <span style="color: yellow">P</span> 的本地队列已经满了就会保存在全局的队列中；</p>
-</li>
-<li><p><span style="color: green">G</span> 只能运行在 <span style="color: blue">M</span> 中，一个 <span style="color: blue">M</span> 必须持有一个 P，M 与 <span style="color: yellow">P</span> 是 1：1 的关系。M 会从 <span style="color: yellow">P</span> 的本地队列弹出一个可执行状态的 <span style="color: green">G</span> 来执行，如果 <span style="color: yellow">P</span> 的本地队列为空，就会想其他的 MP 组合偷取一个可执行的 <span style="color: green">G</span> 来执行；</p>
-</li>
-<li><p>一个 <span style="color: blue">M</span> 调度 <span style="color: green">G</span> 执行的过程是一个循环机制；</p>
-</li>
-<li><p>当 <span style="color: blue">M</span> 执行某一个 <span style="color: green">G</span> 时候如果发生了 syscall 或则其余阻塞操作，M 会阻塞，如果当前有一些 <span style="color: green">G</span> 在执行，runtime 会把这个线程 <span style="color: blue">M</span> 从 <span style="color: yellow">P</span> 中摘除（detach），然后再创建一个新的操作系统的线程（如果有空闲的线程可用就复用空闲线程）来服务于这个 P；</p>
-</li>
-<li><p>当 <span style="color: blue">M</span> 系统调用结束时候，这个 <span style="color: green">G</span> 会尝试获取一个空闲的 <span style="color: yellow">P</span> 执行，并放入到这个 <span style="color: yellow">P</span> 的本地队列。如果获取不到 P，那么这个线程 <span style="color: blue">M</span> 变成休眠状态， 加入到空闲线程中，然后这个 <span style="color: green">G</span> 会被放入全局队列中。</p>
-</li>
-</ol>
-<h2 id="调度器的生命周期"><a href="#调度器的生命周期" class="headerlink" title="调度器的生命周期"></a>调度器的生命周期</h2><p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/life.png" alt="生命周期"></p>
-<ul>
-<li><p>**<span style="color: blue">M0</span>**：<span style="color: blue">M0</span> 是启动程序后的编号为 0 的主线程，这个 <span style="color: blue">M</span> 对应的实例会在全局变量 runtime.m0 中，不需要在 heap 上分配，<span style="color: blue">M0</span> 负责执行初始化操作和启动第一个 G， 在之后 <span style="color: blue">M0</span> 就和其他的 <span style="color: blue">M</span> 一样了。</p>
-</li>
-<li><p>**<span style="color: green">G0</span>**：<span style="color: green">G0</span> 是每次启动一个 <span style="color: blue">M</span> 都会第一个创建的 gourtine，<span style="color: green">G0</span> 仅用于负责调度的 G，<span style="color: green">G0</span> 不指向任何可执行的函数，每个 <span style="color: blue">M</span> 都会有一个自己的 G0。在调度或系统调用时会使用 <span style="color: green">G0</span> 的栈空间，全局变量的 <span style="color: green">G0</span> 是 <span style="color: blue">M0</span> 的 <span style="color: green">G0</span>。</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>程序</category>
-      </categories>
-      <tags>
-        <tag>GO</tag>
-        <tag>后端</tag>
       </tags>
   </entry>
   <entry>
@@ -2244,6 +2192,70 @@
       </categories>
       <tags>
         <tag>微服务</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>深入理解GMP模型</title>
+    <url>/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<h1 id="一、单进程到多进程的改变"><a href="#一、单进程到多进程的改变" class="headerlink" title="一、单进程到多进程的改变"></a>一、单进程到多进程的改变</h1><h2 id="1、单进程"><a href="#1、单进程" class="headerlink" title="1、单进程"></a>1、单进程</h2><p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/danjincheng.png" alt="danjincheng"></p>
+<p>同一时刻只能执行单个进程，进程阻塞浪费了 CPU 资源。</p>
+<h2 id="2、多进程"><a href="#2、多进程" class="headerlink" title="2、多进程"></a>2、多进程</h2><p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/duojincheng.png" alt="duojincheng"></p>
+<p>使用时间片轮询方式切换进程，进程切换时也会浪费 CPU 资源。进程占用空间约为虚拟内存的 <em>4GB</em>，线程占用空间约为 <em>4MB</em>。 </p>
+<h1 id="二、协程（co-routine）"><a href="#二、协程（co-routine）" class="headerlink" title="二、协程（co-routine）"></a>二、协程（co-routine）</h1><p>线程分为由 CPU 调度的内核态线程，由用户进程自行调度的用户态线程，以及 CPU 和用户都能调度的混合态线程。协程就是在用户态线程基础上实现的轻量级线程。</p>
+<h1 id="三、GM模型"><a href="#三、GM模型" class="headerlink" title="三、GM模型"></a>三、GM模型</h1><p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/gmmodel.png" alt="gmmodel"></p>
+<p>早期调度器由<strong>线程</strong>和<strong>协程全局队列</strong>组成。<span style="color: blue">M</span> 想要执行、放回 <span style="color: green">G</span> 都必须访问全局 <span style="color: green">G</span> 队列，并且 <span style="color: blue">M</span> 有多个，即多线程访问同一资源需要加锁进行保证互斥&#x2F;同步，所以全局 <span style="color: green">G</span> 队列是有互斥锁进行保护的。</p>
+<ol>
+<li>创建、销毁、调度G都需要每个M获取锁，这就形成了<strong>激烈的锁竞争</strong>。</li>
+<li><span style="color: blue">M</span> 转移 <span style="color: green">G</span> 会造成<strong>延迟和额外的系统负载</strong>。比如当 <span style="color: green">G</span> 中包含创建新协程的时候，M 创建了 <span style="color: green">G’</span>，为了继续执行G，需要把 <span style="color: green">G’</span> 交给 M’ 执行，也造成了<strong>很差的局部性</strong>，因为 <span style="color: green">G’</span> 和 <span style="color: green">G</span> 是相关的，最好放在 <span style="color: blue">M</span> 上执行，而不是其他 <span style="color: blue">M</span>‘ 。</li>
+<li>系统调用（CPU 在 <span style="color: blue">M</span> 之间的切换）导致频繁的线程阻塞和取消阻塞操作增加了系统开销。</li>
+</ol>
+<h1 id="四、GMP模型"><a href="#四、GMP模型" class="headerlink" title="四、GMP模型"></a>四、GMP模型</h1><p>GMP 是 Go 语言实现的对<strong>线程（M：machine）</strong>、<strong>goroutine（G）</strong>的<strong>调度器（P：processer 处理器）</strong>优化，将 <strong>goroutine</strong> 内存占用限制在 <em>4KB</em>。</p>
+<p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/gmpmodel.jpeg" alt="model"></p>
+<ol>
+<li><strong>全局队列</strong>（Global Queue）：存放等待运行的 <span style="color: green">G</span>。</li>
+<li><strong>P的本地队列</strong>：同全局队列类似，存放的也是等待运行的 <span style="color: green">G</span>，存的数量有限，不超过256个。新建 <span style="color: green">G’</span> 时，<span style="color: green">G’</span> 优先加入到 <span style="color: yellow">P</span> 的本地队列，如果队列满了，则会把本地队列中一半的 <span style="color: green">G</span> 移动到全局队列。</li>
+<li><strong>P列表</strong>：所有的 <span style="color: yellow">P</span> 都在程序启动时创建，并保存在数组中，最多有<code>GOMAXPROCS</code>(可配置)个。</li>
+<li><strong><span style="color: blue">M</span><strong>：当前操作系统分配的操作 Go 程序的内核线程数。线程想运行任务就得获取 <span style="color: yellow">P</span>，从 <span style="color: yellow">P</span> 的本地队列获取 <span style="color: green">G</span>，<span style="color: yellow">P</span> 队列为空时，<span style="color: blue">M</span> 也会尝试从全局队列</strong>拿</strong>一批 <span style="color: green">G</span> 放到P的本地队列，或从其他 <span style="color: yellow">P</span> 的本地队列<strong>偷</strong>一半放到自己P的本地队列。<span style="color: blue">M</span> 运行 <span style="color: green">G</span>，<span style="color: green">G</span> 执行之后，<span style="color: blue">M</span> 会从 <span style="color: yellow">P</span> 获取下一个 <span style="color: green">G</span>，不断重复下去。</li>
+</ol>
+<h2 id="调度器的设计策略"><a href="#调度器的设计策略" class="headerlink" title="调度器的设计策略"></a>调度器的设计策略</h2><h3 id="1、复用线程"><a href="#1、复用线程" class="headerlink" title="1、复用线程"></a>1、复用线程</h3><p>复用线程策略主要分为两种机制：<strong>work stealing 机制</strong>和<strong>hand off 机制</strong>：</p>
+<p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/workstealing.png" alt="work stealing 机制"></p>
+<p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/handoff.png" alt="hand off 机制"></p>
+<ul>
+<li>work stealing 机制：在线程空闲时会从其他线程的本地队列中偷取 <span style="color: green">G</span> 执行。</li>
+<li>hand off 机制：在一个线程出现 <span style="color: green">G</span> 阻塞的状况下，会将当前线程和 <span style="color: yellow">P</span> 分离，创建或者唤醒新的线程并将 <span style="color: yellow">P</span> 和新的线程绑定，而原来的线程在 <span style="color: green">G</span> 执行完毕后进入睡眠状态或被销毁。</li>
+</ul>
+<h3 id="2、利用并行"><a href="#2、利用并行" class="headerlink" title="2、利用并行"></a>2、利用并行</h3><p>使用<code>GOMAXPROCS</code>限定 <span style="color: yellow">P</span> 的个数为 CPU 个数 &#x2F; 2</p>
+<h3 id="3、-抢占"><a href="#3、-抢占" class="headerlink" title="3、 抢占"></a>3、 抢占</h3><p>通过时间轮询，每 10ms CPU 会被其他 <span style="color: green">G</span> 抢占执行。</p>
+<h3 id="4、全局-G-队列"><a href="#4、全局-G-队列" class="headerlink" title="4、全局 G 队列"></a>4、全局 <span style="color: green">G</span> 队列</h3><p>在 <strong>work stealing 机制</strong>基础上，如果在其他 <span style="color: yellow">P</span> 中无法偷取 G，就会从全局队列中获取。在新的调度器中依然有全局 <span style="color: green">G</span> 队列，当 <span style="color: yellow">P</span> 的本地队列为空时，优先从全局队列获取，如果全局队列为空时则通过 <strong>work stealing 机制</strong>从其他 <span style="color: yellow">P</span> 的本地队列偷取 <span style="color: green">G</span>。</p>
+<h2 id="go-func-流程"><a href="#go-func-流程" class="headerlink" title="go func 流程"></a>go func 流程</h2><p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/gofunc.jpeg" alt="go func 流程"></p>
+<ol>
+<li><p>我们通过 go func() 来创建一个 goroutine；</p>
+</li>
+<li><p>有两个存储 <span style="color: green">G</span> 的队列，一个是局部调度器 <span style="color: yellow">P</span> 的本地队列、一个是全局 <span style="color: green">G</span> 队列。新创建的 <span style="color: green">G</span> 会先保存在 <span style="color: yellow">P</span> 的本地队列中，如果 <span style="color: yellow">P</span> 的本地队列已经满了就会保存在全局的队列中；</p>
+</li>
+<li><p><span style="color: green">G</span> 只能运行在 <span style="color: blue">M</span> 中，一个 <span style="color: blue">M</span> 必须持有一个 P，M 与 <span style="color: yellow">P</span> 是 1：1 的关系。M 会从 <span style="color: yellow">P</span> 的本地队列弹出一个可执行状态的 <span style="color: green">G</span> 来执行，如果 <span style="color: yellow">P</span> 的本地队列为空，就会想其他的 MP 组合偷取一个可执行的 <span style="color: green">G</span> 来执行；</p>
+</li>
+<li><p>一个 <span style="color: blue">M</span> 调度 <span style="color: green">G</span> 执行的过程是一个循环机制；</p>
+</li>
+<li><p>当 <span style="color: blue">M</span> 执行某一个 <span style="color: green">G</span> 时候如果发生了 syscall 或则其余阻塞操作，M 会阻塞，如果当前有一些 <span style="color: green">G</span> 在执行，runtime 会把这个线程 <span style="color: blue">M</span> 从 <span style="color: yellow">P</span> 中摘除（detach），然后再创建一个新的操作系统的线程（如果有空闲的线程可用就复用空闲线程）来服务于这个 P；</p>
+</li>
+<li><p>当 <span style="color: blue">M</span> 系统调用结束时候，这个 <span style="color: green">G</span> 会尝试获取一个空闲的 <span style="color: yellow">P</span> 执行，并放入到这个 <span style="color: yellow">P</span> 的本地队列。如果获取不到 P，那么这个线程 <span style="color: blue">M</span> 变成休眠状态， 加入到空闲线程中，然后这个 <span style="color: green">G</span> 会被放入全局队列中。</p>
+</li>
+</ol>
+<h2 id="调度器的生命周期"><a href="#调度器的生命周期" class="headerlink" title="调度器的生命周期"></a>调度器的生命周期</h2><p><img src="/2025/06/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3GMP%E6%A8%A1%E5%9E%8B/life.png" alt="生命周期"></p>
+<ul>
+<li><p>**<span style="color: blue">M0</span>**：<span style="color: blue">M0</span> 是启动程序后的编号为 0 的主线程，这个 <span style="color: blue">M</span> 对应的实例会在全局变量 runtime.m0 中，不需要在 heap 上分配，<span style="color: blue">M0</span> 负责执行初始化操作和启动第一个 G， 在之后 <span style="color: blue">M0</span> 就和其他的 <span style="color: blue">M</span> 一样了。</p>
+</li>
+<li><p>**<span style="color: green">G0</span>**：<span style="color: green">G0</span> 是每次启动一个 <span style="color: blue">M</span> 都会第一个创建的 gourtine，<span style="color: green">G0</span> 仅用于负责调度的 G，<span style="color: green">G0</span> 不指向任何可执行的函数，每个 <span style="color: blue">M</span> 都会有一个自己的 G0。在调度或系统调用时会使用 <span style="color: green">G0</span> 的栈空间，全局变量的 <span style="color: green">G0</span> 是 <span style="color: blue">M0</span> 的 <span style="color: green">G0</span>。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>程序</category>
+      </categories>
+      <tags>
+        <tag>GO</tag>
+        <tag>后端</tag>
       </tags>
   </entry>
 </search>
